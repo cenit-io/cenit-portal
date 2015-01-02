@@ -26,6 +26,18 @@ class ApplicationController < ActionController::Base
    end
   
   around_filter :scope_current_account
+  
+  def about_us
+  end
+
+  def contact_us
+  end
+
+  def features
+  end
+
+  def services
+  end
 
   private
   

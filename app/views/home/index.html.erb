@@ -1,28 +1,6 @@
 <div class="st-container">
   
-  <nav class="nav-menu">
-    <h3>Menu</h3>
-    <%= link_to 'Features', '#', :class => 'item' %>
-    <%= link_to 'Services', '#', :class => 'item' %>
-    <%= link_to 'Pricing charts', '#', :class => 'item' %>
-    <%= link_to 'About us', '#', :class => 'item' %>
-    <%= link_to 'Contact us', '#', :class => 'item' %>
-
-    <div class="social">
-      <a href="#">
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-facebook"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-google-plus"></i>
-      </a>
-      <a href="#">
-        <i class="fa fa-youtube-play"></i>
-      </a>
-    </div>
-  </nav>
+  <%= render 'shared/menu' %>
   
 <div class="st-pusher">
 <div class="st-content">
@@ -32,7 +10,7 @@
     <div class="navbar-header">
       <%= link_to 'Cenit Hub', root_path , :class => 'navbar-brand' %>
     </div>
-    <div class="sidebar-toghttps://mail.google.com/mail/u/1/?ui=2&ik=dc9fb57555&view=fimg&th=14aa1185698d12f8&attid=0.2&disp=inline&safe=1&attbid=ANGjdJ_9wL4z3urHN4tmHFM21qmSXrcETkDxQTQI7zLOIjKg31f8ryC4-GHZ-dhDhRWU6wjtuSmPYz7yuoTMzN4DGXEW18gulDPqn_u4LLFG8B8YSV020eu3oT8iZa4&ats=1420042261064&rm=14aa1185698d12f8&zw&sz=w1896-h882gle">
+    <div class="sidebar-toggle">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
@@ -43,10 +21,10 @@
 <div id="hero">
   <div id="cover-image" class="animated fadeIn">
     <div class="container">
-      <h1 class="hero-text animated fadeIn">100% Open Source, Integrator for commerce applications</h1>
+      <h1 class="hero-text animated fadeIn">Data Integrator for commerce applications</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
-         <a id='data_button' class='button' href='http://www.cenithub.com/hub/data'>Go to data</a>
+         <a id='data_button' class='button' href='http://localhost:3000/data'>Go to data</a>
          <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
         <% else %>
           <a id='sing_up_button' href='#sing_up', class='button'>Sing up free</a>
@@ -60,45 +38,7 @@
   </div>
 </div>
 
-<div id="second-option">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/traffic.png', :alt => 'globe' %>
-        <strong>A rich Router logic </strong>
-        <p>Can upload your documents and make custom Flows to redirect and transform messages from Hub to severals endpoints.</p>
-      </div>
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/stack.png', :alt => 'creditcard' %>
-        <strong>Support multiple kind of Schemas </strong>
-         <p>Does registrations with Json Schema, XSD or EDI Grammar. That allow exchange different kind of documents and validate with schemas.</p>
-      </div>
-      
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/globe.png', :alt => 'dev' %>
-        <strong>Third party service integrations</strong>
-        <p>Connection out of the box with many third party service: Fulfilment / Accounting / Customer Service / Point of Sale / ERP ..</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/trends.png', :alt => 'support' %>
-        <strong>Commerce Data</strong>
-        <p>Process objects that are Data representation of real-world commerce information such as Orders, Shipments, and Products.</p>
-      </div>
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/unlocked.png', :alt => 'mail' %>
-        <strong>Free account </strong>
-        <p>Tenant without limit in use, complete access to configuration Setup and 1GB space for historic data.</p>
-      </div>
-      <div class="col-md-4 feature">
-        <%= image_tag 'circle-icons/one-color/support.png', :alt => 'locked' %>
-        <strong>Community friendly</strong>
-        <p>100% Open Source Code. Available in github for grow together in community.</p>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/main_features' %>
 
 <% unless current_user.present? %>
   <% resource ||= User.new %>
@@ -161,8 +101,7 @@
 <% end %>
 
 <div id="footer">
-  <%= #render 'layouts/footer' 
-  %>
+  <%= render 'layouts/footer' %>
 </div>
 
 </div><!-- end .st-content -->

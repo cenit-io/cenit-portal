@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 copyright">
+      Cenit Hub 2014
+    </div>
+    <div class="col-sm-6 menu">
+      <ul>
+        <li class="active">
+          <%= link_to 'Features', features_path, class: "active" %>
+        </li>
+        <li>
+          <%= link_to 'Services', services_path %>
+        </li>
+        <li>
+          <%= link_to 'Documentation', '#'%>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-3 social">
+      <a href="#">
+        <%=image_tag 'social/social-tw.png',:alt=>'twitter' %>
+      </a>
+      <a href="https://github.com/openjaf/cenit">
+        <%=image_tag 'social/github-sociocon.png',:alt=>'github' %>
+      </a>
+    </div>
+  </div>
+</div>

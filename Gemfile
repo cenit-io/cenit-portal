@@ -9,9 +9,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
-gem 'jbuilder', '~> 1.0.1'
 gem 'devise'
-gem 'rabl'
+gem 'doorkeeper'
 
 group :doc do
   gem 'sdoc', require: false
@@ -21,7 +20,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'rails_layout'
-  gem 'ffaker'
 end
 
 group :test do
@@ -36,20 +34,9 @@ end
 
 gem 'mongoid'
 gem 'bson_ext'
-gem 'rails_admin'
-gem 'mongoid-history'
-gem 'mongoid-audit', '~> 1.0.0'
-#gem "rails_admin_import"
 
-# charts
-gem 'rails_admin_dynamic_charts', github: 'openjaf/rails_admin_dynamic_charts'
-gem 'chartkick'
-gem 'descriptive_statistics'
 
 gem 'httparty'
-gem "bunny", "~> 0.9.1"
 gem "json-schema"
-gem "nokogiri"
 gem 'cancan'
 gem 'rolify'
-gem 'rufus-scheduler'

@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
   
   helper_method :resource, :resource_name, :devise_mapping
   
-  protect_from_forgery with: :null_session,
-    if: Proc.new { |c| c.request.format =~ %r{application/json} }
+  #protect_from_forgery with: :null_session,
+  #  if: Proc.new { |c| c.request.format =~ %r{application/json} }
   
-  #protect_from_forgery
+  protect_from_forgery with: :null_session
+  
+  skip_before_action :verify_authenticity_token
+  
+  #protect_from_forgery    
+  #skip_before_action :verify_authenticity_token, if: true   
+  
+
   
   def resource_name
      :user
@@ -25,7 +32,7 @@ class ApplicationController < ActionController::Base
      redirect_to main_app.root_path, :alert => exception.message
    end
   
-  around_filter :scope_current_account
+  # around_filter :scope_current_account
   
   def about_us
   end
@@ -39,7 +46,7 @@ class ApplicationController < ActionController::Base
   def services
   end
 
-  private
+  protected
   
     def scope_current_account
       if current_user && current_user.account.nil?
@@ -51,6 +58,10 @@ class ApplicationController < ActionController::Base
       yield
     ensure
       Account.current = nil
+    end
+    
+    def json_request?
+      request.format.json?
     end
   
 end

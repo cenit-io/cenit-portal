@@ -24,7 +24,11 @@
       <h1 class="hero-text animated fadeIn">Open source data integrator for commerce applications.</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
-         <a id='data_button' class='button' href='http://localhost:3000/data'>Go to data</a>
+
+         <% app = Doorkeeper::Application.find_by(name: 'Cenit') %>
+         <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
+         <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'demo'%>
+          
          <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
         <% else %>
           <a id='sing_up_button' href='#sing_up', class='button'>Sing up free</a>
@@ -38,12 +42,15 @@
   </div>
 </div>
 
-<%= render 'shared/main_features' %>
+<%= render 'shared/features' %>
+<%= render 'shared/services' %>
 
+
+<br><br><br>
 <% unless current_user.present? %>
   <% resource ||= User.new %>
   <div id="sing_up_form">
-    <div class="container">
+    <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
           <div class="form-wrapper" >
@@ -73,7 +80,7 @@
   </div>
 
   <div id="sing_in_form" style='display:none'>
-    <div class="container">
+    <div class="container text-center">
       <div class="row">
         <div class="col-md-12">
           <div class="form-wrapper" >

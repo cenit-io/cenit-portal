@@ -1,9 +1,8 @@
 <nav class="nav-menu">
   <h3>Menu</h3>
-  <%= link_to 'Features', features_path, :class => 'item' %>
-  <%= link_to 'Services', services_path, :class => 'item' %>
+  <%= link_to 'Features', "#{root_path}#features", :class => 'item' %>
+  <%= link_to 'Services', "#{root_path}#services", :class => 'item' %>
   <%= link_to 'Documentation', '#', :class => 'item' %>
-  <%= link_to 'About us', about_us_path, :class => 'item' %>
   <%= link_to 'Contact us', contact_us_path, :class => 'item' %>
 
 

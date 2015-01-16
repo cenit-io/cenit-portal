@@ -27,7 +27,7 @@
 
          <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
            <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-           <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'demo'%>
+           <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'button' %>
          <% end %>  
          <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
         <% else %>

@@ -25,10 +25,10 @@
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
 
-         <% app = Doorkeeper::Application.find_by(name: 'Cenit') %>
-         <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-         <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'demo'%>
-          
+         <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
+           <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
+           <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'demo'%>
+         <% end %>  
          <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
         <% else %>
           <a id='sing_up_button' href='#sing_up', class='button'>Sing up free</a>

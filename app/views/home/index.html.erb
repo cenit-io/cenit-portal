@@ -24,7 +24,6 @@
       <h1 class="hero-text animated fadeIn">Open source data integrator for commerce applications.</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
-
          <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
            <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
            <%= link_to "Go Data",generate_url("/oauth/authorize", options), class: 'button' %>

@@ -14,7 +14,7 @@ module ApplicationHelper
         password: 'admin',
         confirm_password: 'admin'
     }
-    return generate_url("http://server:8069/saas_portal/signup", params)
+    return generate_url("http://wwww.cenitodoo.com/saas_portal/signup", params)
   end
    
 end

@@ -9,8 +9,8 @@ module ApplicationHelper
   def open_workspace(user)
     params = {
         dbname: user.email.split('@').first,
-        login: 'admin',
-        name: user.name,
+        login: user.email,
+        name: user.email,
         password: 'admin',
         confirm_password: 'admin'
     }

@@ -8,7 +8,7 @@
 <header class="navbar navbar-inverse hero" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to 'Cenit Hub', root_path , :class => 'navbar-brand' %>
+      <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
     </div>
     <div class="sidebar-toggle">
       <div class="line"></div>
@@ -21,7 +21,7 @@
 <div id="hero">
   <div id="cover-image" class="animated fadeIn">
     <div class="container">
-      <h1 class="hero-text animated fadeIn">Open source data integrator for commerce applications.</h1>
+      <h1 class="hero-text animated fadeIn">Data integration and open source commerce applications.</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
          <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
@@ -109,7 +109,7 @@
 <% end %>
 
 <div id="footer">
-  <%= render 'layouts/footer' %>
+  <% render 'layouts/footer' %>
 </div>
 
 </div><!-- end .st-content -->

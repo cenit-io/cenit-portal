@@ -42,3 +42,4 @@ gem 'httparty'
 gem "json-schema"
 gem 'cancan'
 gem 'rolify'
+gem 'rails_admin', '0.6.5'

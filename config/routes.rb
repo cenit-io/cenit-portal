@@ -1,4 +1,5 @@
 Cenit::Application.routes.draw do
+  mount RailsAdmin::Engine => '/data', as: 'rails_admin'
   use_doorkeeper
   #devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}

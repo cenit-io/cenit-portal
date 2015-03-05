@@ -21,14 +21,14 @@
 <div id="hero">
   <div id="cover-image" class="animated fadeIn">
     <div class="container">
-      <h1 class="hero-text animated fadeIn">Data integration and open source commerce applications.</h1>
+      <h1 class="hero-text animated fadeIn">Data integrator and open source commerce applications.</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
          <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
            <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-           <%= link_to "Data Integration",generate_url("/oauth/authorize", options), class: 'button' %>
+           <%= link_to "Data Integrator",generate_url("/oauth/authorize", options), class: 'button' %>
          <% end %>
-         <%= link_to "Workspace", open_workspace(current_user), class: 'button' %>
+         <%= link_to "ERP & CRM", open_workspace(current_user), class: 'button' %>
          <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
         <% else %>
           <a id='sing_up_button' href='#sing_up', class='button'>Sing up</a>

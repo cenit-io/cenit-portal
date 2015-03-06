@@ -3,6 +3,9 @@
   <%= link_to 'Data Integration', "#{root_path}#features", :class => 'item' %>
   <%= link_to 'Plans', "#{root_path}#pricing", :class => 'item' %>
   <%= link_to 'Workspace', "#{root_path}#services", :class => 'item' %>
+  <%if current_user%>
+    <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
+  <%end%>
 
   <div class="social">
     <a href="https://github.com/openjaf/cenit">

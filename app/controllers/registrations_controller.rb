@@ -20,5 +20,13 @@ class RegistrationsController < Devise::RegistrationsController
           redirect_to root_path 
       end
   end
+
+  private
+  def build_resource(*args)
+      super
+      if true
+          resource.add_role('basic')
+      end
+  end
   
 end

@@ -1,8 +1,8 @@
 Cenit::Application.routes.draw do
   mount RailsAdmin::Engine => '/data', as: 'rails_admin'
   use_doorkeeper
-  #devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users
+  # devise_for :users, :controllers => {:registrations => "registrations"}
   root to: "home#index"
   
   devise_scope :user do
@@ -11,7 +11,7 @@ Cenit::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :profiles
+      resources :status
       resources :users
       get '/me' => "credentials#me"
       get '/fast' => 'fast#index'
@@ -22,5 +22,6 @@ Cenit::Application.routes.draw do
   get '/contact_us' => 'contact_us#index', :as => 'contact_us'
   get '/features' => 'features#index', :as => 'features'
   get '/services' => 'services#index', :as => 'services'
+  get '/status/:id' => 'status#index', :as => 'status'
 
 end

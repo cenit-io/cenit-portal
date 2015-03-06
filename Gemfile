@@ -22,6 +22,8 @@ group :development, :test do
   gem 'rails_layout'
   gem 'byebug'
   gem 'pry'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
@@ -43,3 +45,5 @@ gem "json-schema"
 gem 'cancan'
 gem 'rolify'
 gem 'rails_admin', '0.6.5'
+gem 'stripe'
+gem 'stripe_event'

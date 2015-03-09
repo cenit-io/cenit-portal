@@ -1,6 +1,6 @@
 class StatusController < ApplicationController
 
-    def index
+    def show
         @body_id = 'status'
         @user = User.find(params[:id])
     end

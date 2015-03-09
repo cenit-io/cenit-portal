@@ -79,7 +79,7 @@
 	</header>
 
     This is the status for User <%= @user.email %>
-    And is Role <%= @user.roles %>
+    And is Role <%= @user.roles.first.name %>
 
 	<div id="update">
 		<div class="container">
@@ -91,15 +91,19 @@
 				<div class="col-md-12">
 					<div class="current-status">
 						<span class="updated">
-							You are at 30% of the Free Plan of 1 Gb <a class="button" href="contactus.html">Change Plan</a>
+							You are at 30% of the Free Plan of 1 Gb
 						</span>
 						<div class="status">
 							<div class="color green"></div>
 							Billing Information
 						</div>
 						<div class="help">
-							This account is billed to: Visa-5022
+                          <% if @user.customer_id %>
+						    This account is billed to: Visa-5022
                             <a class="button" href="contactus.html">Update Credit Card Info</a>
+                          <% else %>
+                            <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Change card</a>
+                          <% end %>
 						</div>
 					</div>
 				</div>
@@ -178,6 +182,36 @@
 			</div>
 		</div>
 	</div>
+
+    <div id="card-data" class="modal" style="display: none;">
+      <%= form_for @user, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
+          <div class="modal-header">
+            <a class="close" data-dismiss="modal">&#215;</a>
+            <h3>Change Credit Card</h3>
+          </div>
+          <div class="modal-body">
+            <div class="field">
+              <%= label_tag :card_number, "Credit Card Number" %>
+              <%= text_field_tag :card_number, nil, name: nil %>
+            </div>
+            <div class="field">
+              <%= label_tag :card_code, "Card Security Code (CVV)" %>
+              <%= text_field_tag :card_code, nil, name: nil %>
+            </div>
+            <div class="field">
+              <%= label_tag :card_month, "Card Expiration" %>
+              <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
+              <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+            </div>
+            <%= f.hidden_field :email %>
+            <%#= f.hidden_field :stripe_token %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "Change Credit Card", :class => "btn btn-primary" %>
+            <a class="btn" data-dismiss="modal" href="#">Close</a>
+          </div>
+      <% end %>
+    </div>
 
 	<div id="footer">
 		<div class="container">

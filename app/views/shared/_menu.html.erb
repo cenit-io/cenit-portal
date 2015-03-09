@@ -6,6 +6,8 @@
   <%if current_user%>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
   <%end%>
+  <%= link_to 'Contact Us', "/contact-us", :class => 'item' %>
+
 
   <div class="social">
     <a href="https://github.com/openjaf/cenit">

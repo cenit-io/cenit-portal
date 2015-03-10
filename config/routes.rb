@@ -8,7 +8,7 @@ Cenit::Application.routes.draw do
   devise_scope :user do
     get 'users/sign_out' => "devise/sessions#destroy"
     # put 'update_plan', :to => 'registrations#update_plan'
-    put 'update_card', :to => 'registrations#update_card'
+    put 'update_card', :to => 'devise/registrations#update_card'
   end
 
   namespace :api do

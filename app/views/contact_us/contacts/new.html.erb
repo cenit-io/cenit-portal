@@ -16,7 +16,7 @@
                   <% end %>
                 </div>
             <% end %>
-            <div class='string required form-control' id='contact_us_contact_email_input'>
+            <div class='string required form-group' id='contact_us_contact_email_input'>
               <%= f.label :email, (t('.email') + content_tag(:abbr, '*', :class => 'required')).html_safe %>
               <%= f.text_field :email, :class => 'form-control'%>
               <% if f.object.errors[:email].present? %>
@@ -24,7 +24,7 @@
               <% end %>
             </div>
             <% if ContactUs.require_subject %>
-                <div class='string required form-control' id='contact_us_contact_subject_input'>
+                <div class='string required form-group' id='contact_us_contact_subject_input'>
                   <%= f.label :subject, (t('.subject') + content_tag(:abbr, '*', :class => 'required')).html_safe %>
                   <%= f.text_field :subject, :class => 'form-control' %>
                   <% if f.object.errors[:subject].present? %>
@@ -32,7 +32,7 @@
                   <% end %>
                 </div>
             <% end %>
-            <div class='text required form-control' id='contact_us_contact_message_input'>
+            <div class='text required form-group' id='contact_us_contact_message_input'>
               <%= f.label :message, (t('.message') + content_tag(:abbr, '*', :class => 'required')).html_safe %>
               <%= f.text_area :message, :class => 'form-control' %>
               <% if f.object.errors[:message].present? %>
@@ -40,31 +40,10 @@
               <% end %>
             </div>
             <div class='commit'>
-              <%= f.submit :submit, :class => 'submit create button button-small', :title => t('.Email us') %>
+              <%= f.submit :submit, :class => 'submit create button button-small', :value => t('email_us') %>
             </div>
         <% end %>
 
-        <form role="form" id="contact-form" method="post">
-          <div class="form-group">
-            <label for="name">Your name</label>
-            <input type="text" name="name" class="form-control" id="name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" name="email" class="form-control" id="email" />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="text" name="phone" class="form-control" id="phone" />
-          </div>
-          <div class="form-group">
-            <label for="message">Your message</label>
-            <textarea name="message" class="form-control" id="message" rows="6"></textarea>
-          </div>
-          <div class="submit">
-            <input type="submit" class="button button-small" value="Email us" />
-          </div>
-        </form>
       </div>
       <div class="col-md-4 contact">
         <div class="address">

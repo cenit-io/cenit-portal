@@ -4,7 +4,8 @@ class User
   extend DeviseOverrides
   include NumberGenerator
   rolify
-  
+
+  attr_accessor :stripe_token, :coupon
   belongs_to :account, inverse_of: :users, class_name: Account.name
   before_validation { self.account ||= Account.current }
   scope :by_account, -> { where(account: Account.current ) }

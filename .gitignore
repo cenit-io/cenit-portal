@@ -28,3 +28,6 @@ config/secrets.yml
 .ruby-gemset
 .ruby-version
 .idea
+
+# Ignore application configuration
+/config/application.yml

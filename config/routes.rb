@@ -21,7 +21,6 @@ Cenit::Application.routes.draw do
   end
   
   get '/about_us' => 'about_us#index', :as => 'about_us'
-  get '/contact_us' => 'contact_us#index', :as => 'contact_us'
   get '/features' => 'features#index', :as => 'features'
   get '/services' => 'services#index', :as => 'services'
   get '/status/:id' => 'status#show', :as => 'status'

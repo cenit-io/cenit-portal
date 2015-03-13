@@ -9,7 +9,7 @@ $(function () {
 
 	services.initialize();
 
-	contactForm.initialize();
+	//contactForm.initialize();
 
 
 	// retina display

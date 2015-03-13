@@ -14,18 +14,6 @@ class ContactUs::ContactsController < ApplicationController
   def new
     @contact = ContactUs::Contact.new
     @body_id = 'contact-us'
-    render_new_page
   end
-
-  protected
-
-    def render_new_page
-      case ContactUs.form_gem
-      when 'formtastic'  then render 'new_formtastic'
-      when 'simple_form' then render 'new_simple_form'
-      else
-        render 'new'
-      end
-    end
 
 end

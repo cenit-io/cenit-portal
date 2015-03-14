@@ -1,8 +1,7 @@
 class ContactUs::ContactsController < ApplicationController
 
   def create
-    @contact = ContactUs::Contact.new(params[:contact_us_contact])
-    byebug
+    @contact = ContactUs::Contact.new(permited_attributes)
     if @contact.save
       redirect_to('/', :notice => t('contact_us.notices.success'))
     else
@@ -14,5 +13,11 @@ class ContactUs::ContactsController < ApplicationController
   def new
     @contact = ContactUs::Contact.new
   end
+  
+  private
+  
+  def permited_attributes
+    params.require(:contact_us_contact).permit(:name, :email, :message)
+  end  
 
 end

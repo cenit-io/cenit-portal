@@ -76,8 +76,8 @@ class Devise::RegistrationsController < DeviseController
   def update_card
     @user = current_user
     @user.stripe_token = params[:user][:stripe_token]
+    @user.update_stripe
     if @user.save
-      @user.update_stripe
       redirect_to status_path(current_user), :notice => 'Updated card.'
     else
       flash.alert = 'Unable to update card.'

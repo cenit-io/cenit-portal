@@ -12,6 +12,6 @@ GMAIL_PASSWORD: Your_Password
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
-ROLES: [admin, silver, gold, platinum]
-STRIPE_API_KEY: Your_Stripe_API_key
-STRIPE_PUBLIC_KEY: Your_Stripe_Public_Key
+ROLES: [silver, gold, platinum, admin]
+STRIPE_API_KEY: sk_test_v6F6A9DdwvyxTmBrGOqHcylt
+STRIPE_PUBLIC_KEY: pk_test_ug1JURt62Ul4vD50WEsDqJ7V

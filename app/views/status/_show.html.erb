@@ -1,109 +1,102 @@
 <div id="status" class="<%= controller_name %> <%= action_name %>">
 
-This is the status for User <%= user.email %>
-And is Role <%= user.roles.first.name %>
-
-<div id="update">
-  <div class="container">
-    <div class="row header">
-      <h3>Cenit SaaS System Status</h3>
-      <p>Current status and incident report</p>
-    </div>
-    <%= render 'layouts/messages' %>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="current-status">
-          <span class="updated">
-            You are at 30% of the Free Plan of 1 Gb
-          </span>
-          <div class="status">
-            <div class="color green"></div>
-            Billing Information
-          </div>
-          <div class="help">
-            <% if user.customer_id %>
-  This account is billed to: <%= user.last_4_digits %>
-              <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Update card</a>
-            <% else %>
-              <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Add card</a>
-            <% end %>
+  <div id="update">
+    <div class="container">
+      <%= render 'layouts/messages' %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="current-status">
+            <span class="updated">
+              You are at 30% of the Free Plan of 1 Gb
+            </span>
+            <div class="status">
+              <div class="color green"></div>
+              Billing Information
+            </div>
+            <div class="help">
+              <% if user.customer_id %>
+    This account is billed to: <%= user.last_4_digits %>
+                <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Update card</a>
+              <% else %>
+                <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Add card</a>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default modules">
-          <!-- List group -->
-          <ul class="list-group">
-            <li class="list-group-item">
-              Data Integration
-              <div class="status">Operational</div>
-            </li>
-            <li class="list-group-item">
-              WorkSpace
-              <div class="status down">Down</div>
-            </li>
-            <li class="list-group-item">
-                          StoreFront
-              <div class="status">Operational</div>
-            </li>
-          </ul>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default modules">
+            <!-- List group -->
+            <ul class="list-group">
+              <li class="list-group-item">
+                Data Integration
+                <div class="status">Operational</div>
+              </li>
+              <li class="list-group-item">
+                WorkSpace
+                <div class="status down">Down</div>
+              </li>
+              <li class="list-group-item">
+                            StoreFront
+                <div class="status">Operational</div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="messages">
-          <h3>Messages</h3>
-          <div class="date">
-            <div class="day">Today</div>
-            <p class="ok">
-              All systems operational
-            </p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="messages">
+            <h3>Messages</h3>
+            <div class="date">
+              <div class="day">Today</div>
+              <p class="ok">
+                All systems operational
+              </p>
+            </div>
+            <div class="date">
+              <div class="day">Yesterday, October 25 2013</div>
+              <p class="ok">
+                All systems operational
+              </p>
+            </div>
+            <div class="date">
+              <div class="day">October 04 2013</div>
+              <p class="ok">
+                All systems operational
+              </p>
+            </div>
+            <div class="date">
+              <div class="day">October 03 2013</div>
+              <p class="ok">
+                All systems operational
+              </p>
+            </div>
+            <div class="date">
+              <div class="day">October 02 2013</div>
+              <p class="issues">
+                Application deployment issues
+              </p>
+              <p class="update">
+                <strong>Resolved:</strong>
+                We fixed the issues monitoring status, downtime was between 1pm and 5pm PT.
+              </p>
+              <p class="update">
+                <strong>Investigating:</strong>
+                We identified some issues deploying some applications and monitoring their status.
+              </p>
+            </div>
           </div>
-          <div class="date">
-            <div class="day">Yesterday, October 25 2013</div>
-            <p class="ok">
-              All systems operational
-            </p>
+          <div class="full-history">
+            <a href="#">
+              ← See full incident history
+            </a>
           </div>
-          <div class="date">
-            <div class="day">October 04 2013</div>
-            <p class="ok">
-              All systems operational
-            </p>
-          </div>
-          <div class="date">
-            <div class="day">October 03 2013</div>
-            <p class="ok">
-              All systems operational
-            </p>
-          </div>
-          <div class="date">
-            <div class="day">October 02 2013</div>
-            <p class="issues">
-              Application deployment issues
-            </p>
-            <p class="update">
-              <strong>Resolved:</strong>
-              We fixed the issues monitoring status, downtime was between 1pm and 5pm PT.
-            </p>
-            <p class="update">
-              <strong>Investigating:</strong>
-              We identified some issues deploying some applications and monitoring their status.
-            </p>
-          </div>
-        </div>
-        <div class="full-history">
-          <a href="#">
-            ← See full incident history
-          </a>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 <div>
 

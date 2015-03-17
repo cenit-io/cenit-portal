@@ -12,4 +12,14 @@ class ContactUs::Contact
   validates :message, :presence => true
   validates :name,    :presence => {:if => Proc.new{ContactUs.require_name}}
   validates :subject, :presence => {:if => Proc.new{ContactUs.require_subject}}
+
+  def save
+    super
+    if self.valid?
+      ContactUs::ContactMailer.contact_email(self).deliver
+      return true
+    end
+    return false
+  end
+
 end

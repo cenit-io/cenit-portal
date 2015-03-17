@@ -109,7 +109,9 @@
 
       <% end %>
 
-      <%= render 'status/show', user: current_user %>
+      <% if current_user.present? %>
+        <%= render 'status/show', user: current_user %>
+      <% end %>
 
       <div id="footer">
         <% render 'layouts/footer' %>

@@ -8,7 +8,7 @@
         <% end %>
         <div id="stripe_error" class="alert alert-error" style="display:none" >
         </div>
-        <%= form_for @user, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
+        <%= form_for user, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
           <div class="modal-header">
             <a class="close" data-dismiss="modal">&#215;</a>
             <h3>Enter Card Information</h3>

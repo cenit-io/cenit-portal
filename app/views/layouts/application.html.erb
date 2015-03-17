@@ -33,7 +33,7 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body id="<%= @body_id %>" class="<%= controller_name %> <%= action_name %>">
+  <body>
     <%= yield %>
   </body>
 </html>

@@ -6,6 +6,10 @@
   <%if current_user%>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
   <%end%>
+  <%if current_user && current_user.has_role?(:admin) %>
+    <%= link_to 'Applications', 'oauth/applications' %>
+    <%= link_to 'Rails Admin', '/data' %>
+<% end  %>
   <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Contact Us</a>
 
   <div class="social">

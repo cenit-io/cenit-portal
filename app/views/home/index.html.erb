@@ -21,7 +21,7 @@
 <div id="hero">
   <div id="cover-image" class="animated fadeIn">
     <div class="container">
-      <h1 class="hero-text animated fadeIn">Data integrator and open source commerce applications.</h1>
+      <h1 class="hero-text animated fadeIn">Data Integrator and Online Business Management.</h1>
       <div class="cta animated fadeIn">
         <% if current_user.present? %>
          <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
@@ -108,7 +108,9 @@
 
 <% end %>
 
-<div id="footer">
+
+
+  <div id="footer">
   <% render 'layouts/footer' %>
 </div>
 
@@ -157,5 +159,18 @@
 
             $('#cover-image').css("background-position", "50% " + slowBg + "%");
         });
+        
+        
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var recipient = button.data('whatever'); // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this);
+          modal.find('.modal-title').text('New message to ' + recipient);
+          modal.find('.modal-body input').val(recipient);
+        });
+        
+        
     });
 </script>

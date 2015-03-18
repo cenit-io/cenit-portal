@@ -4,33 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Cenit Hub Saas" %></title>
 
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>React - Bootstrap Theme</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <%= # stylesheet_link_tag "application", :media => "all" 
-    %>
-    <%= # javascript_include_tag "application" 
-    %>
-    
-    <!-- stylesheets -->
-    <%= stylesheet_link_tag 'compiled/theme' %>
-    <%= stylesheet_link_tag 'vendor/font-awesome' %>
-    <%= stylesheet_link_tag 'vendor/animate' %>
-    <%= stylesheet_link_tag 'vendor/style' %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
 
-    <!-- javascript -->
-    <%= javascript_include_tag 'jquery' %>
-    <%= javascript_include_tag 'bootstrap/bootstrap.min'  %>
-    <%= javascript_include_tag 'theme'  %>
-    <%= javascript_include_tag :defaults %>
-    
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
   <body id="<%= @body_id %>" class="<%= controller_name %> <%= action_name %>">
     <%= yield %>
+    <%= render 'shared/contact_us' %>
   </body>
 </html>

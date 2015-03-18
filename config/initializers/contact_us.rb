@@ -17,7 +17,7 @@ ContactUs.setup do |config|
   config.require_name = true
 
   # Configure the form to ask for a subject.
-  config.require_subject = true
+  config.require_subject = false
 
   # Configure the form gem to use.
   # Example:

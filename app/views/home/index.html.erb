@@ -6,38 +6,38 @@
     <div class="st-pusher">
       <div class="st-content">
 
-      <header class="navbar navbar-inverse hero" role="banner">
-        <div class="container">
-          <div class="navbar-header">
-            <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
-          </div>
-          <div class="sidebar-toggle">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-      </header>
+<header class="navbar navbar-inverse hero" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
+    </div>
+    <div class="sidebar-toggle">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </div>
+</header>
 
-      <div id="hero">
-        <div id="cover-image" class="animated fadeIn">
-          <div class="container">
-            <h1 class="hero-text animated fadeIn">Data integrator and open source commerce applications.</h1>
-            <div class="cta animated fadeIn">
-              <% if current_user.present? %>
-               <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
-                 <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-                 <%= link_to "Data Integrator",generate_url("/oauth/authorize", options), class: 'button' %>
-               <% end %>
-               <%= link_to "ERP & CRM", open_workspace(current_user), class: 'button' %>
-               <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
-              <% else %>
-                <a id='sing_up_button' href='#sing_up', class='button'>Sing up</a>
-                <a id='sing_in_button' href='#sing_in' class="demo">Sign in</a>
-              <% end %>
-            </div>
-            <div class="screenshot animated fadeInUp">
-              <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
+<div id="hero">
+  <div id="cover-image" class="animated fadeIn">
+    <div class="container">
+      <h1 class="hero-text animated fadeIn">Data Integrator and Online Business Management.</h1>
+      <div class="cta animated fadeIn">
+        <% if current_user.present? %>
+         <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
+           <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
+           <%= link_to "Data Integrator",generate_url("/oauth/authorize", options), class: 'button' %>
+         <% end %>
+         <%= link_to "ERP & CRM", open_workspace(current_user), class: 'button' %>
+         <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
+        <% else %>
+          <a id='sing_up_button' href='#sing_up', class='button'>Sing up</a>
+          <a id='sing_in_button' href='#sing_in' class="demo">Sign in</a>
+        <% end %>
+      </div>
+      <div class="screenshot animated fadeInUp">
+        <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
             </div>
           </div>
         </div>
@@ -48,18 +48,18 @@
       <%= render 'shared/services' %>
 
 
-      <br><br><br>
-      <% unless current_user.present? %>
-        <% resource ||= User.new %>
-        <div id="sing_up_form">
-          <div class="container text-center">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-wrapper" >
-                  <h4>Ready to start? Create your free account now</h4>
-                  <% flash.each do |key, message| %>
-                    <div class="notice"><%= message %></div>
-                  <% end %>
+<br><br><br>
+<% unless current_user.present? %>
+  <% resource ||= User.new %>
+  <div id="sing_up_form">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-wrapper" >
+            <h4>Ready to start? Create your free account now</h4>
+            <% flash.each do |key, message| %>
+              <div class="notice"><%= message %></div>
+            <% end %>
             
                   <%= form_for resource, as: :user, url: registration_path(:user), remote: true, html: { role: 'form', class: 'form-inline'} do |f| %>
                     <div class="form-group">
@@ -80,6 +80,9 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
         <div id="sing_in_form" style='display:none'>
           <div class="container text-center">
@@ -106,22 +109,25 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
       <% end %>
+
 
       <% if current_user.present? %>
         <%= render 'status/show', user: current_user %>
       <% end %>
 
-      <div id="footer">
-        <% render 'layouts/footer' %>
-      </div>
+  <div id="footer">
+  <% render 'layouts/footer' %>
+</div>
 
       </div><!-- end .st-content -->
     </div><!-- end .st-pusher -->
   </div><!-- end .st-container -->
 
-</div>
 
 <script>
     $(function () {
@@ -162,6 +168,19 @@
                     slowBg = 50 - slowScroll;
 
             $('#cover-image').css("background-position", "50% " + slowBg + "%");
+        
         });
+        
+        $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var recipient = button.data('whatever'); // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this);
+          modal.find('.modal-title').text('New message to ' + recipient);
+          modal.find('.modal-body input').val(recipient);
+        });
+        
+        
     });
 </script>

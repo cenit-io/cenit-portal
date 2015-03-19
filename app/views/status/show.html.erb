@@ -1,275 +1,62 @@
-	<!--<header class="navbar navbar-inverse normal" role="banner">-->
-  		<!--<div class="container">-->
-    		<!--<div class="navbar-header">-->
-		      	<!--<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">-->
-			        <!--<span class="icon-bar"></span>-->
-			        <!--<span class="icon-bar"></span>-->
-			        <!--<span class="icon-bar"></span>-->
-		      	<!--</button>-->
-      			<!--<a href="index.html" class="navbar-brand">React</a>-->
-    		<!--</div>-->
-    		<!--<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">-->
-      			<!--<ul class="nav navbar-nav">-->
-      				<!--<li class="dropdown">-->
-        				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-          					<!--Home alts <b class="caret"></b>-->
-          				<!--</a>-->
-          				<!--<ul class="dropdown-menu">-->
-							<!--<li><a href="index.html">Home 1 (Static)</a></li>-->
-							<!--<li><a href="index3.html">Home 2 (Sidebar menu)</a></li>-->
-							<!--<li><a href="index4.html">Home 3 (Slider)</a></li>-->
-				        <!--</ul>-->
-        			<!--</li>-->
-      				<!--<li class="dropdown">-->
-        				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-          					<!--Showcase <b class="caret"></b>-->
-          				<!--</a>-->
-          				<!--<ul class="dropdown-menu">-->
-							<!--<li><a href="features.html">Features</a></li>-->
-							<!--<li><a href="services.html">Services</a></li>-->
-				        <!--</ul>-->
-        			<!--</li>-->
-        			<!--<li class="dropdown">-->
-          				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-          					<!--Pricing <b class="caret"></b>-->
-          				<!--</a>-->
-          				<!--<ul class="dropdown-menu">-->
-							<!--<li><a href="pricing.html">Pricing charts</a></li>-->
-							<!--<li><a href="charts.html">Comparison tables</a></li>-->
-				        <!--</ul>-->
-        			<!--</li>-->
-        			<!--<li class="active dropdown">-->
-        				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-          					<!--More pages <b class="caret"></b>-->
-          				<!--</a>-->
-          				<!--<ul class="dropdown-menu">-->
-							<!--<li><a href="aboutus.html">About us</a></li>-->
-							<!--<li><a href="contactus.html">Contact us</a></li>-->
-							<!--<li><a href="gallery.html">Gallery</a></li>-->
-							<!--<li><a href="portfolio.html">Portfolio</a></li>-->
-							<!--<li><a href="portfolio-item.html">Portfolio Item</a></li>-->
-							<!--<li><a href="invoice.html">Invoice page</a></li>-->
-							<!--<li><a href="timeline.html">Timeline Page</a></li>-->
-							<!--<li><a href="docs.html">API Documentation</a></li>-->
-							<!--<li><a href="support.html">Support</a></li>-->
-							<!--<li><a href="coming-soon.html">Coming Soon</a></li>-->
-							<!--<li><a href="status.html">Status</a></li>-->
-							<!--<li><a href="signup.html">Sign Up & Sign In</a></li>-->
-							<!--<li><a href="signup-rotate.html">Sign Up Miscellaneous</a></li>-->
-							<!--<li><a href="404.html">404 Page</a></li>-->
-				        <!--</ul>-->
-        			<!--</li>-->
-        			<!--<li class="dropdown">-->
-        				<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-	      					<!--Blog <b class="caret"></b>-->
-	      				<!--</a>-->
-	      				<!--<ul class="dropdown-menu">-->
-							<!--<li><a href="blog.html">Blog </a></li>-->
-							<!--<li><a href="blogpost.html">Blog post</a></li>-->
-				        <!--</ul>-->
-        			<!--</li>-->
-      			<!--</ul>-->
-      			<!--<ul class="nav navbar-nav navbar-right visible-md visible-lg">-->
-      				<!--<li>-->
-          				<!--<a href="signup.html" class="button">Sign up free</a>-->
-        			<!--</li>-->
-      			<!--</ul>-->
-    		<!--</nav>-->
-  		<!--</div>-->
-	<!--</header>-->
+<div id="home3" class="<%= controller_name %> <%= action_name %>">
+<div class="st-container">
+  
+  <%= render 'shared/menu' %>
+  
+  <div class="st-pusher">
+    <div class="st-content">
 
-    This is the status for User <%= @user.email %>
-    And is Role <%= @user.roles.first.name %>
-
-	<div id="update">
-		<div class="container">
-			<div class="row header">
-				<h3>React System Status</h3>
-				<p>Current status and incident report</p>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="current-status">
-						<span class="updated">
-							You are at 30% of the Free Plan of 1 Gb
-						</span>
-						<div class="status">
-							<div class="color green"></div>
-							Billing Information
-						</div>
-						<div class="help">
-                          <% if @user.customer_id %>
-						    This account is billed to: Visa-5022
-                            <a class="button" href="contactus.html">Update Credit Card Info</a>
-                          <% else %>
-                            <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Change card</a>
-                          <% end %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default modules">
-					  <!-- List group -->
-					  <ul class="list-group">
-					    <li class="list-group-item">
-					    	Data Integration
-					    	<div class="status">Operational</div>
-					    </li>
-					    <li class="list-group-item">
-					    	WorkSpace
-					    	<div class="status down">Down</div>
-					    </li>
-					    <li class="list-group-item">
-                            StoreFront
-					    	<div class="status">Operational</div>
-					    </li>
-
-					  </ul>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="messages">
-						<h3>Messages</h3>
-						<div class="date">
-							<div class="day">Today</div>
-							<p class="ok">
-								All systems operational
-							</p>
-						</div>
-						<div class="date">
-							<div class="day">Yesterday, October 25 2013</div>
-							<p class="ok">
-								All systems operational
-							</p>
-						</div>
-						<div class="date">
-							<div class="day">October 04 2013</div>
-							<p class="ok">
-								All systems operational
-							</p>
-						</div>
-						<div class="date">
-							<div class="day">October 03 2013</div>
-							<p class="ok">
-								All systems operational
-							</p>
-						</div>
-						<div class="date">
-							<div class="day">October 02 2013</div>
-							<p class="issues">
-								Application deployment issues
-							</p>
-							<p class="update">
-								<strong>Resolved:</strong>
-								We fixed the issues monitoring status, downtime was between 1pm and 5pm PT.
-							</p>
-							<p class="update">
-								<strong>Investigating:</strong>
-								We identified some issues deploying some applications and monitoring their status.
-							</p>
-						</div>
-					</div>
-					<div class="full-history">
-						<a href="#">
-							← See full incident history
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-    <div id="card-data" class="modal" style="display: none;">
-      <%= form_for @user, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
-          <div class="modal-header">
-            <a class="close" data-dismiss="modal">&#215;</a>
-            <h3>Change Credit Card</h3>
+      <header class="navbar navbar-inverse hero" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
           </div>
-          <div class="modal-body">
-            <div class="field">
-              <%= label_tag :card_number, "Credit Card Number" %>
-              <%= text_field_tag :card_number, nil, name: nil %>
-            </div>
-            <div class="field">
-              <%= label_tag :card_code, "Card Security Code (CVV)" %>
-              <%= text_field_tag :card_code, nil, name: nil %>
-            </div>
-            <div class="field">
-              <%= label_tag :card_month, "Card Expiration" %>
-              <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
-              <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
-            </div>
-            <%= f.hidden_field :email %>
-            <%= f.hidden_field :stripe_token %>
+          <div class="sidebar-toggle">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
           </div>
-          <div class="modal-footer">
-            <%= f.submit "Change Credit Card", :class => "btn btn-primary" %>
-            <a class="btn" data-dismiss="modal" href="#">Close</a>
+        </div>
+      </header>
+
+      <div id="hero" class="status">
+        <div class="animated fadeIn">
+          <div class="container">
+            <h1 class="hero-text animated fadeIn">Cenit SaaS System Status</h1>
           </div>
-      <% end %>
-    </div>
+        </div>
+      </div>
 
-	<div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-3 copyright">
-					React LLC 2014
-				</div>
-				<div class="col-sm-6 menu">
-					<ul>
-	      				<li class="active">
-	          				<a href="features.html">Features</a>
-	        			</li>
-	        			<li>
-	        				<a href="services.html">Services</a>
-	        			</li>
-	        			<li>
-	          				<a href="pricing.html">Pricing</a>
-	        			</li>
-	        			<li>
-	          				<a href="support.html">Support</a>
-	        			</li>
-	        			<li>
-	          				<a href="blog.html">Blog</a>
-	        			</li>
-	      			</ul>
-				</div>
-				<div class="col-sm-3 social">
-					<a href="#">
-						<img src="images/social/social-tw.png" alt="twitter" />
-					</a>
-					<a href="#">
-						<img src="images/social/social-dbl.png" alt="dribbble" />
-					</a>					
-				</div>
-			</div>
-		</div>
-	</div>
+      <%= render 'show', user: @user %>
 
+      <div id="footer">
+        <% render 'layouts/footer' %>
+      </div>
 
-	<!--<script type="text/javascript">-->
-//		$(function () {
-//			// Update the status color every 2 seconds, for demo only
-//			// You can remove this!
-//			var $status = $(".status .color"),
-//				colors = ["green", "yellow", "red"],
-//				currentStatus = 0;
-//
-//			function updateStatus() {
-//				currentStatus++;
-//				if (currentStatus >= 3) {
-//					currentStatus = 0;
-//				}
-//				color = colors[currentStatus];
-//				$status.removeClass().addClass("color").addClass(color);
-//			}
-//
-//			setInterval(function () {
-//				updateStatus();
-//			}, 2000);
-//		});
-	<!--</script>-->
+    </div><!-- end .st-content -->
+  </div><!-- end .st-pusher -->
+</div><!-- end .st-container -->
+
+<div id="home3" class="<%= controller_name %> <%= action_name %>">
+
+<script>
+    $(function () {
+        // triggers the off-canvas panel
+        $(".sidebar-toggle").click(function (e) {
+            e.stopPropagation();
+            $(".st-container").toggleClass("nav-effect");
+        });
+        $(".st-pusher").click(function () {
+            $(".st-container").removeClass("nav-effect");
+        });
+        // parallax header
+        $('#cover-image').css("background-position", "50% 50%");
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop(),
+                    slowScroll = scroll/4,
+                    slowBg = 50 - slowScroll;
+            $('#cover-image').css("background-position", "50% " + slowBg + "%");
+        });
+    });
+</script>
+

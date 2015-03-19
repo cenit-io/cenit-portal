@@ -1,9 +1,10 @@
-<div class="st-container">
+<div id="home3" class="<%= controller_name %> <%= action_name %>">
+  <div class="st-container">
   
-  <%= render 'shared/menu' %>
+    <%= render 'shared/menu' %>
   
-<div class="st-pusher">
-<div class="st-content">
+    <div class="st-pusher">
+      <div class="st-content">
 
 <header class="navbar navbar-inverse hero" role="banner">
   <div class="container">
@@ -37,14 +38,14 @@
       </div>
       <div class="screenshot animated fadeInUp">
         <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<%= render 'shared/features' %>
-<%= render 'shared/prices' %>
-<%= render 'shared/services' %>
+      <%= render 'shared/features' %>
+      <%= render 'shared/prices' %>
+      <%= render 'shared/services' %>
 
 
 <br><br><br>
@@ -60,63 +61,72 @@
               <div class="notice"><%= message %></div>
             <% end %>
             
-            <%= form_for resource, as: :user, url: registration_path(:user), remote: true, html: { role: 'form', class: 'form-inline'} do |f| %>
-              <div class="form-group">
-                <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
-              </div>
-              <div class="form-group">
-                <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-              </div>
-              <div class="form-group">
-                <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation' %>
-              </div>
+                  <%= form_for resource, as: :user, url: registration_path(:user), remote: true, html: { role: 'form', class: 'form-inline'} do |f| %>
+                    <div class="form-group">
+                      <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation' %>
+                    </div>
 
-              <%= f.submit 'Sign Up',:class => 'button button-small' %>
-              <a name='sing_up'></a>
-            <% end %>
+                    <%= f.submit 'Sign Up',:class => 'button button-small' %>
+                    <a name='sing_up'></a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="sing_in_form" style='display:none'>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-wrapper" >
-            <h4>Enter in your account now</h4>
-            <% flash.each do |key, message| %>
-              <div class="notice"><%= message %></div>
-            <% end %>
-            <%= form_for resource, as: :user, url: session_path(:user), remote: true, html:  { role: 'form', class: 'form-inline'} do |f| %>
-              <div class="form-group">
-                <%= f.email_field :email, class: 'form-control', :placeholder => 'Email' %>
-              </div>
-              <div class="form-group">
-                <%= f.password_field :password, class: 'form-control', :placeholder => 'Password' %>
-              </div>
+        <div id="sing_in_form" style='display:none'>
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-wrapper" >
+                  <h4>Enter in your account now</h4>
+                  <% flash.each do |key, message| %>
+                    <div class="notice"><%= message %></div>
+                  <% end %>
+                  <%= form_for resource, as: :user, url: session_path(:user), remote: true, html:  { role: 'form', class: 'form-inline'} do |f| %>
+                    <div class="form-group">
+                      <%= f.email_field :email, class: 'form-control', :placeholder => 'Email' %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.password_field :password, class: 'form-control', :placeholder => 'Password' %>
+                    </div>
 
-              <%= f.submit 'Sign In',:class => 'button button-small' %>
-              <a name='sing_in'></a>
-            <% end %>
+                    <%= f.submit 'Sign In',:class => 'button button-small' %>
+                    <a name='sing_in'></a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-<% end %>
+      <% end %>
 
 
+      <% if current_user.present? %>
+        <%= render 'status/show', user: current_user %>
+      <% end %>
 
   <div id="footer">
   <% render 'layouts/footer' %>
 </div>
 
-</div><!-- end .st-content -->
-</div><!-- end .st-pusher -->
-</div><!-- end .st-container -->
+      </div><!-- end .st-content -->
+    </div><!-- end .st-pusher -->
+  </div><!-- end .st-container -->
 
 
 <script>
@@ -158,8 +168,8 @@
                     slowBg = 50 - slowScroll;
 
             $('#cover-image').css("background-position", "50% " + slowBg + "%");
-        });
         
+        });
         
         $('#exampleModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget); // Button that triggered the modal

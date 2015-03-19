@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require bootstrap/bootstrap.min
 //= require theme
+//= require registrations
 //= require jquery.validate.min
+//= require jquery.externalscript
+//= require jquery.readyselector
 // require_tree .

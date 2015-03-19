@@ -9,6 +9,8 @@ RailsAdmin.config do |config|
   end
   config.current_user_method { current_user }
 
+  config.authorize_with :cancan
+
   config.actions do
     dashboard # mandatory
     index # mandatory

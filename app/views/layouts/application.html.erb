@@ -14,7 +14,36 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <%= yield %>
-    <%= render 'shared/contact_us' %>
+    <div id="home3">
+
+      <div class="st-container">
+        <%= render 'shared/menu' %>
+        <div class="st-pusher">
+          <div class="st-content">
+            
+            <header class="navbar navbar-inverse hero" role="banner">
+              <div class="container">
+                <div class="navbar-header">
+                  <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
+                </div>
+                <div class="sidebar-toggle">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </div>
+            </header>
+            
+            <%= yield %>
+            <%= render 'shared/contact_us' %>
+            <div id="footer">
+              <%= render 'layouts/footer' %>
+            </div>
+
+          </div><!-- end .st-content -->
+        </div><!-- end .st-pusher -->
+      </div><!-- end .st-container -->
+      
+    </div>
   </body>
 </html>

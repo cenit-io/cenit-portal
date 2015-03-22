@@ -11,7 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+// require jquery_ujs
 //= require turbolinks
-//= require bootstrap
-//= require_tree .
+//= require bootstrap/bootstrap.min
+//= require theme
+//= require registrations
+//= require jquery.validate.min
+//= require jquery.externalscript
+//= require jquery.readyselector
+// require_tree .

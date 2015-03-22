@@ -5,10 +5,10 @@ class Ability
     if user                   # allow access to dashboard
       can :read, :all
       can :update, User, id: user.id  # allows you to edit your own user account
-      
-      can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard
-      if Account.current.owner?(user) or user.has_role?(:admin)  
+
+      # if Account.current.owner?(user) or
+      if user.has_role?(:admin)
         can :manage, :all
       elsif user.has_role? :superadmin
         can :manage, :all             # allow superadmins to do anything

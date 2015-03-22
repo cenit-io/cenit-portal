@@ -14,7 +14,20 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <%= yield %>
-    <%= render 'shared/contact_us' %>
+    <div id="home3">
+      <div class="st-container">
+        <%= render 'shared/menu' %>
+        <div class="st-pusher">
+          <div class="st-content">
+            <%= render 'layouts/header'%>
+            <%= yield %>
+            <%= render 'layouts/footer' %>
+            <%= render 'shared/contact_us' %>
+            
+          </div><!-- end .st-content -->
+        </div><!-- end .st-pusher -->
+      </div><!-- end .st-container -->
+      
+    </div>
   </body>
 </html>

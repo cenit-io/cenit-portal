@@ -23,20 +23,13 @@
 </div>
 
 <%= render 'shared/features' %>
-<div id="home">
-  <div id="features">
-    <div class="divider"></div>
-  </div>
-</div>
+<%= render 'shared/splitter' %>
 <%= render 'shared/services' %>
-<div id="home">
-  <div id="features">
-    <div class="divider"></div>
-  </div>
-</div>
+<%= render 'shared/splitter' %>
 <%= render 'shared/odoo' %>
 <%= render 'shared/prices' %>
 
+<div id="cta">
 <br><br><br>
 <% unless current_user.present? %>
   <% resource ||= User.new %>
@@ -97,6 +90,7 @@
   </div>
 
 <% end %>
+</div>
 
 <script>
     $(function () {

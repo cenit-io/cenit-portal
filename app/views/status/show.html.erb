@@ -1,31 +1,5 @@
-<div id="hero" class="status">
-  <div class="animated fadeIn">
-    <div class="container">
-      <h1 class="hero-text animated fadeIn">Cenit SaaS System Status</h1>
-    </div>
-  </div>
-</div>
+<% title = 'Cenit SaaS System Status' %>
+<%= render 'shared/page_header', title: title, home: false %>
 
 <%= render 'show', user: @user %>
-
-<script>
-    $(function () {
-        // triggers the off-canvas panel
-        $(".sidebar-toggle").click(function (e) {
-            e.stopPropagation();
-            $(".st-container").toggleClass("nav-effect");
-        });
-        $(".st-pusher").click(function () {
-            $(".st-container").removeClass("nav-effect");
-        });
-        // parallax header
-        $('#cover-image').css("background-position", "50% 50%");
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop(),
-                    slowScroll = scroll/4,
-                    slowBg = 50 - slowScroll;
-            $('#cover-image').css("background-position", "50% " + slowBg + "%");
-        });
-    });
-</script>
 

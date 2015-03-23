@@ -1,8 +1,10 @@
 <div id='features' class="container text-center">
   <div id="second-option">
-    <div class="row header">
-      <h2>Open Source Hub for Data and Business Integrations</h2>
-    </div>
+    <% unless params[:controller] == 'hub' %>
+      <div class="row header">
+        <h2>Open Source Hub for Data and Business Integrations</h2>
+      </div>
+    <% end %>
     <div class="container">
       <div class="row">
         <div class="col-md-4 feature">
@@ -42,4 +44,3 @@
     </div>
   </div>
 </div>
-  

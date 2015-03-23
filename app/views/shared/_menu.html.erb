@@ -1,7 +1,7 @@
 <nav class="nav-menu">
   <h3>Menu</h3>
-  <%= link_to 'Data Integration', "#{root_path}#features", :class => 'item' %>
-  <%= link_to 'Workspace', "#{root_path}#services", :class => 'item' %>
+  <%= link_to 'Data Integration', hub_path, :class => 'item' %>
+  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
   <%= link_to 'Plans', "#{root_path}#pricing", :class => 'item' %>
   <%if current_user%>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>

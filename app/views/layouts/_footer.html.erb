@@ -1,28 +1,44 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3 copyright">
-      Cenit Hub 2014
-    </div>
-    <div class="col-sm-6 menu">
-      <ul>
-        <li class="active">
-          <%= link_to 'Features', "#{root_path}#features", class: "active" %>
-        </li>
-        <li>
-          <%= link_to 'Services', services_path %>
-        </li>
-        <li>
-          <%= link_to 'Documentation', '#'%>
-        </li>
-      </ul>
-    </div>
-    <div class="col-sm-3 social">
-      <a href="#">
-        <%=image_tag 'social/social-tw.png',:alt=>'twitter' %>
-      </a>
-      <a href="https://github.com/openjaf/cenit">
-        <%=image_tag 'social/github-sociocon.png',:alt=>'github' %>
-      </a>
+<div id="footer" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 copyright">
+        Cenit, LLC 2015
+      </div>
+      <div class="col-sm-6 menu">
+        <ul>
+          <li >
+            <%= link_to 'Home', "#{root_path}", :class => 'item' %>
+          </li>
+          <li>
+            <%= link_to 'Data Integration', hub_path, :class => 'item' %>
+          </li>
+          <li>
+            <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
+          </li>
+          <li>
+            <%= link_to 'Plans', "#{root_path}#pricing", :class => 'item' %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-3 social">
+        <a href="https://github.com/openjaf/cenit">
+          <%=image_tag 'social/github-sociocon.png',:alt=>'github' %>
+        </a>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+
+  $(document).ready(function() {
+
+   var docHeight = $(window).height();
+   var footerHeight = $('#footer').height();
+   var footerTop = $('#footer').position().top + footerHeight;
+
+   if (footerTop < docHeight) {
+    $('#footer').css('margin-top', -60 + (docHeight - footerTop) + 'px');
+   }
+  });
+ </script>

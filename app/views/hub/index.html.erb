@@ -1,67 +1,7 @@
-<div class="st-container">
-  
-  <%= render 'shared/menu' %>
-  
-  <div class="st-pusher">
-    <div class="st-content">
-
-      <header class="navbar navbar-inverse hero" role="banner">
-        <div class="container">
-          <div class="navbar-header">
-            <%= link_to 'Cenit SaaS', root_path , :class => 'navbar-brand' %>
-          </div>
-          <div class="sidebar-toggle">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </div>
-      </header>
-
-      <div id="hero" class="hub">
-        <div class="animated fadeIn">
-          <div class="container">
-            <h1 class="hero-text animated fadeIn">CenitHub an Open Source Data and Business Integration Hub</h1>
-          </div>
-        </div>
-      </div>
-
-      <div id='features' class="container text-center">
-        <div id="second-option">
-          <%= render 'shared/features' %>
-        </div>
-      </div>
-      
-      <%= render 'shared/data_definitions' %>
-
-      <div id="footer">
-        <% render 'layouts/footer' %>
-      </div>
-
-    </div><!-- end .st-content -->
-  </div><!-- end .st-pusher -->
-</div><!-- end .st-container -->
-
-
-<script>
-    $(function () {
-        // triggers the off-canvas panel
-        $(".sidebar-toggle").click(function (e) {
-            e.stopPropagation();
-            $(".st-container").toggleClass("nav-effect");
-        });
-        $(".st-pusher").click(function () {
-            $(".st-container").removeClass("nav-effect");
-        });
-
-        // parallax header
-        $('#cover-image').css("background-position", "50% 50%");
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop(),
-                    slowScroll = scroll/4,
-                    slowBg = 50 - slowScroll;
-
-            $('#cover-image').css("background-position", "50% " + slowBg + "%");
-        });
-    });
-</script>
+<% title = 'Open Source Data and Business Integration Hub' %>
+<%= render 'shared/page_header', title: title, home: false %>
+<%= render 'shared/features' %>
+<%= render 'shared/splitter' %>
+<%= render 'shared/services' %>
+<%= render 'shared/splitter' %>
+<% render 'shared/data_definitions' %>

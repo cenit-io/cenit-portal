@@ -1,9 +1,5 @@
 class StatusController < ApplicationController
-
-    def show
-        @body_id = 'status'
-        @user = User.find(params[:id])
-    end
-
-
+  def show
+    @user = User.find(params[:id])
+  end
 end

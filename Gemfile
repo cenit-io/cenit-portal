@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'doorkeeper'
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', require: false
@@ -48,3 +49,4 @@ gem 'rails_admin', '0.6.5'
 gem 'stripe'
 gem 'stripe_event'
 gem 'figaro'
+gem 'contact_us'

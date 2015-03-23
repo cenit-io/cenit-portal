@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'doorkeeper'
+gem 'unicorn'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,3 +1,9 @@
+<% if current_user.present? %>
+  <% ref = '#' %>
+<% else %>
+  <% ref = "#sing_up" %>
+<% end %>
+
 <div id="pricing">
   <div class="container">
     <div class="row header">
@@ -28,7 +34,7 @@
               data interchange
             </div>
           </div>
-          <a class="btn-signup button-clear" href="#sing_up">
+          <a class="btn-signup button-clear" href='<%= ref %>' >
             <span>Start free</span>
           </a>
 
@@ -57,8 +63,8 @@
               x B2B EDI document
             </div>
           </div>
-          <a class="btn-signup button-clear" href="#sing_up">
-            <span>Start free</span>
+          <a class="btn-signup button-clear" href='<%= ref %>' >
+            <span>Start</span>
           </a>
         </div>
       </div>

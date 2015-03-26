@@ -8,10 +8,14 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-wrapper" >
+            <div id='devise_error_messages' >
+              <%= devise_error_messages! %>
+              <% flash.each do |key, message| %>
+                <div class="notice"><%= message %></div>
+              <% end %>
+            </div>
             <h4>Enter in your account now or <a id='sing_up_button' href='#sing_up' class="demo">sign up</a></h4>
-            <% flash.each do |key, message| %>
-              <div class="notice"><%= message %></div>
-            <% end %>
+            <div id='devise_error_messages' ></div>
             <%= form_for resource, as: :user, url: session_path(:user), remote: true, html:  { role: 'form', class: 'form-inline'} do |f| %>
               <div class="form-group">
                 <%= f.email_field :email, class: 'form-control', :placeholder => 'Email' %>
@@ -35,9 +39,12 @@
         <div class="col-md-12">
           <div class="form-wrapper" >
             <h4>Ready to start? Create your free account now or <a id='sing_in_button' href='#sing_in' class="demo">sign in</a></h4>
-            <% flash.each do |key, message| %>
-              <div class="notice"><%= message %></div>
-            <% end %>
+            <div id='devise_error_messages' >
+              <%= devise_error_messages! %>
+              <% flash.each do |key, message| %>
+                <div class="notice"><%= message %></div>
+              <% end %>
+            </div>
   
             <%= form_for resource, as: :user, url: registration_path(:user), remote: true, html: { role: 'form', class: 'form-inline'} do |f| %>
               <div class="form-group">
@@ -81,3 +88,11 @@
 
 <% end %>
 </div>
+
+<script>
+  $(document).ajaxSuccess(function(event, xhr, settings, data) {
+     if (settings.url.match(/users/) && settings.type == 'POST') {
+       window.location.reload();
+     }
+  });
+</script>

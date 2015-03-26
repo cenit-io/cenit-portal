@@ -1,6 +1,8 @@
 class Devise::RegistrationsController < DeviseController
   prepend_before_filter :require_no_authentication, only: [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
+  
+  respond_to :json
 
   def new
     build_resource({})
@@ -27,6 +29,9 @@ class Devise::RegistrationsController < DeviseController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
+      
+      messages = resource.errors.full_messages.map{ |msg| msg }.join(', ')
+      flash[:notice] = messages if messages.present?
       clean_up_passwords resource
       @validatable = devise_mapping.validatable?
       if @validatable

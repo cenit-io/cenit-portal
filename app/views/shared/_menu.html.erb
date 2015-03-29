@@ -6,6 +6,7 @@
   <%if current_user%>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
   <%end%>
+  <%= link_to 'Documentation',ENV['DOC_URL'], :class => 'item' %>
   <%if current_user && current_user.has_role?(:admin) %>
     <%= link_to 'Applications', 'oauth/applications' %>
     <%= link_to 'Rails Admin', '/data' %>

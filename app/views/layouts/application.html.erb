@@ -3,13 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Cenit Hub Saas" %></title>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -23,11 +20,9 @@
             <%= yield %>
             <%= render 'layouts/footer' %>
             <%= render 'shared/contact_us' %>
-            
-          </div><!-- end .st-content -->
-        </div><!-- end .st-pusher -->
-      </div><!-- end .st-container -->
-      
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

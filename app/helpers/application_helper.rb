@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def open_workspace(user)
-    odoo_app = Doorkeeper::Application.where(name: 'odoo').first
+    return unless (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present?
     access_token = Doorkeeper::AccessToken.create!(
         application_id: odoo_app.uid,
         resource_owner_id: user.id,

@@ -5,11 +5,15 @@
       <% if home %>
          <div class="cta animated fadeIn">
           <% if current_user.present? %>
-           <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
-             <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-             <%= link_to "Data Integrator",generate_url("/oauth/authorize", options), class: 'button' %>
+
+           <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
+             <%= link_to "Data Integrator",cenithub_url(cenit_app), class: 'button' %>
            <% end %>
-           <%= link_to "ERP & CRM", open_workspace(current_user), class: 'button' %>
+           
+           <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
+             <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
+           <% end %>
+
            <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
           <% else %>
             <a href='#sing_up', class='button sing_up_top'>Data Integrator</a>

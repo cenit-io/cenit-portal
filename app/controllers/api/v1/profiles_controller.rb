@@ -12,7 +12,17 @@ module Api::V1
     end
 
     def create
-      respond_with 'api_v1', Profile.create!(params[:profile])
+      profile = Profile.create!(profile_params)
+      respond_to do |format|
+        msg = { :status => "ok", :message => "Success!" }
+        format.json { render :json => msg } 
+      end
+    end
+
+    private
+
+    def profile_params
+      params.require(:profile).permit(:first_name, :last_name, :username)
     end
   end
 end

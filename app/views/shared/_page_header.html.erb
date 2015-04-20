@@ -5,11 +5,15 @@
       <% if home %>
          <div class="cta animated fadeIn">
           <% if current_user.present? %>
-           <% if app = Doorkeeper::Application.find_by(name: 'Cenit') %>
-             <% options = { client_id: app.uid, redirect_uri: app.redirect_uri.split.first, response_type: 'code'} %>
-             <%= link_to "Data Integrator",generate_url("/oauth/authorize", options), class: 'button' %>
+
+           <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
+             <%= link_to "Data Integrator",cenithub_url(cenit_app), class: 'button' %>
            <% end %>
-           <%= link_to "ERP & CRM", open_workspace(current_user), class: 'button' %>
+           
+           <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
+             <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
+           <% end %>
+
            <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
           <% else %>
             <a href='#sing_up', class='button sing_up_top'>Data Integrator</a>
@@ -33,13 +37,13 @@
          $("#sing_up_form").hide();
          $('#devise_error_messages').html('');
       });
-      
+
       $("#sing_in_top").click(function (e) {
          $("#sing_in_form").show();
          $("#sing_up_form").hide();
          $('#devise_error_messages').html('');
       });
-      
+
       $("#sing_up_button").click(function (e) {
          $("#sing_in_form").hide();
          $("#sing_up_form").show();
@@ -52,36 +56,33 @@
          $('#devise_error_messages').html('');
       });
 
-        // triggers the off-canvas panel
-        $(".sidebar-toggle").click(function (e) {
-            e.stopPropagation();
-            $(".st-container").toggleClass("nav-effect");
-        });
-        $(".st-pusher").click(function () {
-            $(".st-container").removeClass("nav-effect");
-        });
+      // triggers the off-canvas panel
+      $(".sidebar-toggle").click(function (e) {
+        e.stopPropagation();
+        $(".st-container").toggleClass("nav-effect");
+      });
+      $(".st-pusher").click(function () {
+        $(".st-container").removeClass("nav-effect");
+      });
 
-        // parallax header
-        $('#cover-image').css("background-position", "50% 50%");
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop(),
-                    slowScroll = scroll/4,
-                    slowBg = 50 - slowScroll;
+      // parallax header
+      $('#cover-image').css("background-position", "50% 50%");
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop(),
+          slowScroll = scroll/4,
+          slowBg = 50 - slowScroll;
+        $('#cover-image').css("background-position", "50% " + slowBg + "%");
+      });
 
-            $('#cover-image').css("background-position", "50% " + slowBg + "%");
-        
-        });
-        
-        $('#exampleModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget); // Button that triggered the modal
-          var recipient = button.data('whatever'); // Extract info from data-* attributes
-          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-          var modal = $(this);
-          modal.find('.modal-title').text('New message to ' + recipient);
-          modal.find('.modal-body input').val(recipient);
-        });
-        
-        
+      $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        modal.find('.modal-title').text('New message to ' + recipient);
+        modal.find('.modal-body input').val(recipient);
+      });
+
     });
 </script>

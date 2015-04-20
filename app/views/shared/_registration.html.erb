@@ -89,7 +89,6 @@
 <script>
   $(document).ajaxSuccess(function(event, xhr, settings, data) {
      if (settings.url.match(/users/) && settings.type == 'POST') {
-       debugger;
        window.location.reload();
      }
   });

@@ -3,7 +3,8 @@ class Account
   include NumberGenerator
 
   belongs_to :owner, class_name: User.name
-  has_many :users, inverse_of: :account, class_name: User.name
+  has_many :users, inverse_of: :account
+  has_many :app_logs, inverse_of: :account
 
   field :name, type: String
 

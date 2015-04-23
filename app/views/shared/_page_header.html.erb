@@ -12,6 +12,7 @@
            
            <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
              <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
+             <%= link_to "try Demo", cenitodoo_demo(current_user, odoo_app), class: 'button' %>
            <% end %>
 
            <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>

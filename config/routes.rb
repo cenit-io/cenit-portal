@@ -24,6 +24,7 @@ Cenit::Application.routes.draw do
   end
 
   resources :blog, only: [:index, :new]
+  resources :partnership, only: :index
   
   get '/about_us', to: 'about_us#index', as: 'about_us'
   get '/hub', to: 'hub#index', as: 'hub'

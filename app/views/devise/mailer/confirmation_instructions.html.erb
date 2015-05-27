@@ -10,21 +10,16 @@
         Welcome <%= @email %>!
       </p>
       <p>
-        You are receiving this email because you have shown interest in joining us!
+        We need to confirm your email address.
       </p>
       <p>
-        You can confirm your account email through the link below:
+        To complete the sign up process, please click the link below:
       </p>
       <p>
         <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %>
       </p>
       <p>
         Thank you for sign-up in CenitSaaS!
-      </p>
-      <p>
-        <center>
-          <p style="text-align:center;"><a href="http://www.cenitsaas.com">Terms</a> | <a href="http://www.cenitsaas.com">Privacy</a></p>
-        </center>
       </p>
     </td>
     <td class="expander"></td>

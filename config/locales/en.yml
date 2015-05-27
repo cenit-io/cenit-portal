@@ -22,3 +22,6 @@
 en:
   hello: "Hello world"
   email_us: Email Us
+  devise:
+    confirmations:
+      confirmed: "Your email address has been successfully confirmed. Click sign in and enter your credentials."

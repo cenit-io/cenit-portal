@@ -6,6 +6,7 @@ class User
   rolify
 
   attr_accessor :stripe_token, :coupon
+  
   belongs_to :account, inverse_of: :users, class_name: Account.name
   has_one :profile, inverse_of: :user
   

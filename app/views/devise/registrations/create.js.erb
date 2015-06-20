@@ -1,0 +1,7 @@
+<% if flash.any? %>
+  <% flash.each do |key, message| %>
+    $('#devise_sing_up_error_messages').append('<%= message %>');
+  <% end %>
+<% else %>
+  $('#devise_sing_up_error_messages').html('hola');
+<% end %>

@@ -34,10 +34,10 @@ class User
   field :last_sign_in_at,    type: Time
   field :confirmed_at,       type: Time
   field :confirmation_sent_at, type: Time
+  field :confirmation_token, type: String
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
   field :authentication_token, type: String
-  field :confirmation_token, type: String
   field :number, as: :key, type: String
   field :unconfirmed_email, type: String
 

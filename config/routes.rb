@@ -10,7 +10,7 @@ Cenit::Application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
   devise_scope :user do
-    # get 'users/sign_out', to: 'devise/sessions#destroy'
+    get 'users/sign_out', to: 'devise/sessions#destroy'
     put 'update_card', to: 'devise/registrations#update_card'
   end
 

@@ -3,14 +3,13 @@ Cenit::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/data', as: 'rails_admin'
   use_doorkeeper
-  # devise_for :users
-  # devise_for :users, :controllers => {:registrations => "registrations"}
+
   root to: 'home#index'
   
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
   devise_scope :user do
-    get 'users/sign_out', to: 'devise/sessions#destroy'
+    # get 'users/sign_out', to: 'devise/sessions#destroy'
     put 'update_card', to: 'devise/registrations#update_card'
   end
 

@@ -4,7 +4,7 @@
       <h1 class="hero-text animated fadeIn"><%= title %></h1>
       <% if home %>
          <div class="cta animated fadeIn">
-          <% if current_user.present? %>
+          <% if user_signed_in? %>
 
            <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
              <%= link_to "Data Integrator",cenithub_url(cenit_app), class: 'button' %>
@@ -14,47 +14,25 @@
              <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
            <% end %>
 
-           <%= link_to "Sign out", destroy_user_session_path, class: 'demo' %>
+           <%= link_to "Sign out", destroy_user_session_path, class: 'demo', method: 'delete' %>
           <% else %>
-            <a href='#sing_up', class='button sing_up_top'>Data Integrator</a>
-            <a href='#sing_up', class='button sing_up_top'>ERP & CRM</a>
-            <a id='sing_in_top' href='#sing_in' class="demo">Sign in</a>
+            <%= link_to 'Data Integrator', new_user_registration_path, class: 'button' %>
+            <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
+            
+            <%= link_to 'Sign in / up', new_user_session_path, class: 'demo', id: 'sign-in-link' %>
           <% end %>
         </div>
         <div class="screenshot animated fadeInUp">
           <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
         </div>
       <% end %>
+
     </div>
   </div>
 </div>
 
 <script>
     $(function () {
-      
-      $("#sing_in_button").click(function (e) {
-         $("#sing_in_form").show();
-         $("#sing_up_form").hide();
-         $('#devise_sing_in_error_messages').html('');
-      });
-
-      $("#sing_in_top").click(function (e) {
-         $("#sing_in_form").show();
-         $("#sing_up_form").hide();
-         $('#devise_sing_in_error_messages').html('');
-      });
-
-      $("#sing_up_button").click(function (e) {
-         $("#sing_in_form").hide();
-         $("#sing_up_form").show();
-         $('#devise_sing_up_error_messages').html('');
-      });
-      
-      $(".sing_up_top").click(function (e) {
-         $("#sing_in_form").hide();
-         $("#sing_up_form").show();
-         $('#devise_sing_up_error_messages').html('');
-      });
 
       // triggers the off-canvas panel
       $(".sidebar-toggle").click(function (e) {

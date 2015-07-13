@@ -5,10 +5,16 @@
     <title><%= content_for?(:title) ? yield(:title) : "CenitSaaS" %></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>
+        window.Cenit = window.Cenit || {};
+        window.Cenit.Data = window.Cenit.analytics_key || {};
+        window.Cenit.Data.analytics_key = '<%= ENV["ANALYTICS_KEY"] %>';
+    </script>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    <%=  javascript_include_tag "app_cenit" %>
   </head>
   <body>
     <!-- BEGIN LivePerson Monitor. -->

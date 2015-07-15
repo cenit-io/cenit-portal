@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   
   #protect_from_forgery    
   #skip_before_action :verify_authenticity_token, if: true   
-  
 
   
   def resource_name
@@ -21,7 +20,7 @@ class ApplicationController < ActionController::Base
    end
 
    def resource
-     @resource ||= User.new
+     @user = @resource ||= User.new
    end
 
    def devise_mapping
@@ -30,7 +29,7 @@ class ApplicationController < ActionController::Base
    
   rescue_from CanCan::AccessDenied do |exception|
      redirect_to main_app.root_path, :alert => exception.message
-   end
+  end
   
   # around_filter :scope_current_account
   
@@ -63,5 +62,5 @@ class ApplicationController < ActionController::Base
     def json_request?
       request.format.json?
     end
-  
+
 end

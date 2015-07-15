@@ -19,4 +19,5 @@
 //= require jquery.validate.min
 //= require jquery.externalscript
 //= require jquery.readyselector
+// require google_analytics
 // require_tree .

@@ -9,14 +9,12 @@
           <li >
             <%= link_to 'Home', "#{root_path}", :class => 'item' %>
           </li>
-          <li>
-            <%= link_to 'Data Integration', hub_path, :class => 'item' %>
-          </li>
+          <% link_to 'Data Integration', hub_path, :class => 'item' %>
           <li>
             <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
           </li>
           <li>
-            <%= link_to 'Plans', "#{root_path}#pricing", :class => 'item' %>
+            <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
           </li>
           <li>
             <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
@@ -24,6 +22,9 @@
         </ul>
       </div>
       <div class="col-sm-2 social">
+        <a href="http://www.linkedin.com/company/cenit-llc">
+          <%=image_tag 'social/in.png',:alt=>'linkedin' %>
+        </a>
         <a href="https://github.com/openjaf/cenit">
           <%=image_tag 'social/github-sociocon.png',:alt=>'github' %>
         </a>

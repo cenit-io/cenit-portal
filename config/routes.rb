@@ -3,8 +3,7 @@ Cenit::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/data', as: 'rails_admin'
   use_doorkeeper
-  # devise_for :users
-  # devise_for :users, :controllers => {:registrations => "registrations"}
+
   root to: 'home#index'
   
   devise_for :users, controllers: { confirmations: 'confirmations' }
@@ -27,6 +26,7 @@ Cenit::Application.routes.draw do
 
   resources :blog, only: [:index, :new]
   resources :partnership, only: :index
+  resources :cenithub, only: :index
   
   get '/about_us', to: 'about_us#index', as: 'about_us'
   get '/hub', to: 'hub#index', as: 'hub'

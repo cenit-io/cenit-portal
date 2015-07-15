@@ -4,8 +4,8 @@ class @GoogleAnalytics
     # Google Analytics depends on a global _gaq array. window is the global scope.
     window._gaq = []
     window._gaq.push ["_setAccount", GoogleAnalytics.analyticsId()]
-    window._gaq.push(['_setDomainName', 'none'])
-    window._gaq.push(['_setAllowLinker', true])
+#    window._gaq.push(['_setDomainName', 'none'])
+#    window._gaq.push(['_setAllowLinker', true])
 
 # Create a script element and insert it in the DOM
     ga = document.createElement("script")
@@ -25,7 +25,7 @@ class @GoogleAnalytics
       GoogleAnalytics.trackPageview()
 
   @trackPageview: (url) ->
-#    unless GoogleAnalytics.isLocalRequest()
+    unless GoogleAnalytics.isLocalRequest()
       if url
         window._gaq.push ["_trackPageview", url]
       else

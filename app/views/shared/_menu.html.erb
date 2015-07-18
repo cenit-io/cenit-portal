@@ -5,7 +5,7 @@
     <%= link_to 'Edit account', edit_user_registration_path %>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
   <% else %>
-    <%= link_to 'Sign in / Sign up', new_user_session_path, id: 'sign-in-link' %>
+    <%= link_to 'Sign in / Sign up', new_user_session_path %>
   <% end %>
   
   <%= link_to 'Data Integration', hub_path, :class => 'item' %>

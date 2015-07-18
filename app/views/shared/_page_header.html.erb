@@ -5,28 +5,21 @@
       <% if home %>
          <div class="cta animated fadeIn">
           <% if user_signed_in? %>
-
            <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
-             <%= link_to "Data Integrator",cenithub_url(cenit_app), class: 'button' %>
+             <%= link_to "Data Integrator", cenithub_url(cenit_app), class: 'button' %>
            <% end %>
-           
            <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
              <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
            <% end %>
-
-           <% link_to "Sign out", destroy_user_session_path, class: 'demo', method: 'delete' %>
           <% else %>
             <%= link_to 'Data Integrator', new_user_registration_path, class: 'button' %>
             <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
-            
-            <% link_to 'Sign in / Free trial', new_user_session_path, class: 'demo', id: 'sign-in-link' %>
           <% end %>
         </div>
         <div class="screenshot animated fadeInUp">
           <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
         </div>
       <% end %>
-
     </div>
   </div>
 </div>

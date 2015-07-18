@@ -15,7 +15,7 @@ module Cenit
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    config.force_ssl = true    
+    config.force_ssl = true if ENV['SSL'].to_b 
     # config.to_prepare { Devise::SessionsController.force_ssl if ENV['SSL'].to_b }
     # config.to_prepare { Devise::RegistrationsController.force_ssl if ENV['SSL'].to_b }
     # config.to_prepare { Devise::PasswordsController.force_ssl if ENV['SSL'].to_b }

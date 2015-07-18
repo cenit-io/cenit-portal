@@ -1,12 +1,16 @@
 <nav class="nav-menu">
   <h3>Menu</h3>
-  <% link_to 'Data Integration', hub_path, :class => 'item' %>
-  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
-  <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
+  <%= link_to 'Home', "#{root_path}", :class => 'item' %>
   <% if current_user.present? %>
     <%= link_to 'Edit account', edit_user_registration_path %>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
+  <% else %>
+    <%= link_to 'Sign in / Sign up', new_user_session_path %>
   <% end %>
+  
+  <%= link_to 'Data Integration', hub_path, :class => 'item' %>
+  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
+  <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
   <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
   <% if current_user && current_user.has_role?(:admin) %>
     <%= link_to 'Applications', 'oauth/applications' %>

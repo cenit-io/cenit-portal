@@ -9,6 +9,23 @@
 *:focus {
   outline: 0; }
 
+a#sign-in-link {
+  font-size: 20px !important;
+  border: solid 2px;
+  border-color: white;
+  height: 10px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  margin-top: 9px;
+  margin-right: 10px;
+}
+
+a#sign-in-link:hover {
+  background-color: #ea7400;
+  border-color: #ea7400;
+  transition: .5s;
+}
+
 .button {
   -webkit-font-smoothing: antialiased;
   display: inline-block;

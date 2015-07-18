@@ -14,12 +14,12 @@
              <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
            <% end %>
 
-           <%= link_to "Sign out", destroy_user_session_path, class: 'demo', method: 'delete' %>
+           <% link_to "Sign out", destroy_user_session_path, class: 'demo', method: 'delete' %>
           <% else %>
             <%= link_to 'Data Integrator', new_user_registration_path, class: 'button' %>
             <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
             
-            <%= link_to 'Sign in / Free trial', new_user_session_path, class: 'demo', id: 'sign-in-link' %>
+            <% link_to 'Sign in / Free trial', new_user_session_path, class: 'demo', id: 'sign-in-link' %>
           <% end %>
         </div>
         <div class="screenshot animated fadeInUp">

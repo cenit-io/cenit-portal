@@ -16,9 +16,29 @@
             <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
           <% end %>
         </div>
-        <div class="screenshot animated fadeInUp">
-          <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
+        
+        <div id="home">
+          <div id="slider">
+            <div class="slide-wrapper">
+              <div class="slideshow">
+                <div class="btn-nav prev"></div>
+                <div class="btn-nav next"></div>
+                <div class="slide active">
+                  <%= image_tag 'screenshots/webhooks.png', :alt => 'webhooks', style: "width: 740px; height: 360px;" %>
+                </div>
+                <div class="slide">
+                  <%= image_tag 'screenshots/dashboard.png', :alt => 'dashboard', style: "width: 740px; height: 360px;" %>
+                </div>
+                <div class="slide">
+                  <%= image_tag 'screenshots/shared_collections.png', :alt => 'shared_collections', style: "width: 740px; height: 360px;" %>
+                </div>
+                
+              </div>
+            </div>  
+          </div>
         </div>
+        
+
       <% end %>
     </div>
   </div>

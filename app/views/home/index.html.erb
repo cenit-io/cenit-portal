@@ -1,8 +1,16 @@
 <% title = 'Social Data and Business Integration' %>
 <%= render 'shared/page_header', title: title , home: true %>
+<%= render 'shared/services' %>
+<div id="home2">
+  <div id="cta">
+    <p>Start your free 30 day trial!</p>
+    <%= link_to 'Sign up for free', new_user_registration_path %>
+  </div>
+</div>
+<%= render 'shared/splitter' %>
 <%= render 'shared/features' %>
 <%= render 'shared/splitter' %>
-<%= render 'shared/services' %>
+<%= render 'shared/conversions' %>
 <%= render 'shared/splitter' %>
 <%= render 'shared/odoo' %>
 <%= render 'shared/prices' %>

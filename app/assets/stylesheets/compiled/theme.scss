@@ -9,6 +9,35 @@
 *:focus {
   outline: 0; }
 
+a#sign-in-link, a#sign-out-link {
+  font-size: 20px !important;
+  border: solid 2px;
+  border-color: white;
+  height: 10px;
+  padding-top: 5px;
+  padding-bottom: 28px;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+a#sign-in-link:hover, a#sign-out-link:hover  {
+  background-color: #ea7400;
+  border-color: #ea7400;
+  transition: .5s;
+}
+
+.at300b {
+  margin-right: 10px !important;
+}
+
+#home #slider {
+  margin-top: 30px !important;
+}
+#footer {
+  padding-top: 30px !important;
+  padding-bottom: 90px !important;
+}
+
 .button {
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -6470,16 +6499,16 @@ html.bg {
               color: #FFDF9D; }
             #docs #api-docs #methods .method .method-section .method-example pre .python [class*=params] {
               color: #9ECBEE; }
-          #docs #api-docs #methods .method .method-section .method-example pre .php {
+          #docs #api-docs #methods .method .method-section .method-example pre .bash {
             color: #DAE4F2; }
-            #docs #api-docs #methods .method .method-section .method-example pre .php > * {
+            #docs #api-docs #methods .method .method-section .method-example pre .bash > * {
               color: #DAE4F2;
               line-height: 20px; }
-            #docs #api-docs #methods .method .method-section .method-example pre .php [class*=keyword] {
+            #docs #api-docs #methods .method .method-section .method-example pre .bash [class*=keyword] {
               color: #9AB4DB; }
-            #docs #api-docs #methods .method .method-section .method-example pre .php [class*=string] {
+            #docs #api-docs #methods .method .method-section .method-example pre .bash [class*=string] {
               color: #DAD0C6; }
-            #docs #api-docs #methods .method .method-section .method-example pre .php [class*=comment] {
+            #docs #api-docs #methods .method .method-section .method-example pre .bash [class*=comment] {
               color: #B4B4B4; }
 
 #invoice {

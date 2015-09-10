@@ -6,13 +6,16 @@ class User
   rolify
 
   attr_accessor :stripe_token, :coupon
+  
   belongs_to :account, inverse_of: :users, class_name: Account.name
+  has_one :profile, inverse_of: :user
+  
   before_validation { self.account ||= Account.current }
   scope :by_account, -> { where(account: Account.current ) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -29,12 +32,16 @@ class User
   field :sign_in_count,      type: Integer, default: 0
   field :current_sign_in_at, type: Time
   field :last_sign_in_at,    type: Time
+  field :confirmed_at,       type: Time
+  field :confirmation_sent_at, type: Time
+  field :confirmation_token, type: String
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
   field :authentication_token, type: String
   field :number, as: :key, type: String
+  field :unconfirmed_email, type: String
 
-  ##Stripe
+  ## Stripe
   field :customer_id, type: String
   field :last_4_digits, type: String
 

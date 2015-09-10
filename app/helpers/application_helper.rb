@@ -6,15 +6,34 @@ module ApplicationHelper
      uri.to_s
   end
 
-  def open_workspace(user)
+  def cenitodoo_url(user, odoo_app)
+#    access_token = Doorkeeper::AccessToken.create!(
+#      application_id: odoo_app.uid,
+#      resource_owner_id: user.id,
+#      scopes: 'userinfo',
+#      expires_in: 7200
+#    )
     params = {
-        dbname: user.email.split('@').first,
-        login: user.email,
-        name: user.email,
-        password: 'admin',
-        confirm_password: 'admin'
+#      access_token: access_token.token,
+#      token_type: 'bearer',
+#      expires_in: 7200,
+      client_id: odoo_app.uid,
+      redirect_uri: odoo_app.redirect_uri.split.first,
+      response_type: 'token',
+      state: {
+        login: user.email
+      }.to_json
     }
-    return generate_url("https://wwww.cenitodoo.com/saas_portal/signup", params)
+    # redirect_url = odoo_app.redirect_uri.split.first
+    generate_url('/oauth/authorize', params)
   end
-   
+  
+  def cenithub_url(cenit_app)
+    params = { 
+      client_id: cenit_app.uid, 
+      redirect_uri: cenit_app.redirect_uri.split.first, 
+      response_type: 'code'
+    }
+    generate_url("/oauth/authorize", params)
+  end
 end

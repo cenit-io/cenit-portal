@@ -1,47 +1,36 @@
-<div id="footer" >
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-2 copyright">
-        Cenit, LLC 2015
-      </div>
-      <div class="col-sm-8 menu">
-        <ul>
-          <li >
-            <%= link_to 'Home', "#{root_path}", :class => 'item' %>
-          </li>
-          <li>
-            <%= link_to 'Data Integration', hub_path, :class => 'item' %>
-          </li>
-          <li>
-            <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
-          </li>
-          <li>
-            <%= link_to 'Plans', "#{root_path}#pricing", :class => 'item' %>
-          </li>
-          <li>
-            <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
-          </li>  
-        </ul>
-      </div>
-      <div class="col-sm-2 social">
-        <a href="https://github.com/openjaf/cenit">
-          <%=image_tag 'social/github-sociocon.png',:alt=>'github' %>
-        </a>
-      </div>
+<div id="footer">
+  <div class="col-sm-offset-1 col-sm-10">
+    <div class="col-sm-3 col-md-2  menu copyright">
+      <ul><li><%= link_to 'Cenit, LLC 2015', "#{root_path}", :class => 'item' %></li></ul>
     </div>
+    <div class="col-sm-5  col-md-6 menu">
+      <ul>
+        <li><%= link_to 'Home', "#{root_path}", :class => 'item' %></li>
+        <li><%= link_to 'Data Integration', hub_path, :class => 'item' %></li>
+        <li><%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %></li>
+        <li><%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %></li>
+        <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %></li>  
+      </ul>
+    </div>
+    <div class="col-md-4 social">
+      <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <div class=" g-follow" data-href="https://plus.google.com/109973562966126644452" data-height="20" data-rel="author"></div>
+      <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+      <script type="IN/FollowCompany" data-id="9436778" data-counter="right"></script>
+      <script src="https://apis.google.com/js/platform.js"></script>
+      <div class="g-ytsubscribe" data-channelid="UC7JVcEmA3BkiR2SZ_lx5lyA" data-layout="default" data-count="default"></div>
+    </div>
+    
   </div>
 </div>
 
 <script>
-
   $(document).ready(function() {
-
    var docHeight = $(window).height();
    var footerHeight = $('#footer').height();
    var footerTop = $('#footer').position().top + footerHeight;
-
    if (footerTop < docHeight) {
-    $('#footer').css('margin-top', -60 + (docHeight - footerTop) + 'px');
+    $('#footer').css('margin-top', -80 + (docHeight - footerTop) + 'px');
    }
   });
  </script>

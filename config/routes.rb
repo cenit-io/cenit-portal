@@ -1,4 +1,6 @@
 Cenit::Application.routes.draw do
+  resources :directory
+
   resources :profiles
 
   mount RailsAdmin::Engine => '/data', as: 'rails_admin'

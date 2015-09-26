@@ -1,0 +1,18 @@
+<div class='container'>
+  <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
+  <p id="notice"><%= notice %></p>
+  <p>
+    <strong>Name:</strong>
+    <%= @item.name %>
+  </p>
+  <p>
+    <strong>Slug:</strong>
+    <%= @item.slug %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @item.description %>
+  </p>
+
+  <%= link_to 'Back', '/directory' %>
+</div>

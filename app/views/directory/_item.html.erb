@@ -1,9 +1,12 @@
 <div class="col-xs-4 col-sm-2" style='margin-bottom: 30px;'>
   <div class="section">
-    <div class="pic">
+    <div class="pic" style='height: 155px'>
       <%= link_to directory_path(item.slug) do %>
-        <img src='<%= "#{ENV['S3']}#{item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= item.name %>'>
-        <p><%= item.name %></p>
+        <img src='<%= "#{ENV['S3']}#{item.slug}.png" %>' width= "100" class='img-responsive' alt='<%= item.name %>'>
+          <div class='text-center'>
+            <%= item.name %>
+          </div>
+        </img>
       <% end %>
     </div>
   </div>

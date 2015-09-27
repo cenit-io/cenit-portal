@@ -5,9 +5,9 @@
     </div>
     <div class="col-sm-5  col-md-6 menu">
       <ul>
-        <li><%= link_to 'Home', "#{root_path}", :class => 'item' %></li>
         <li><%= link_to 'Data Integration', hub_path, :class => 'item' %></li>
         <li><%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %></li>
+        <li><%= link_to 'API Directory', '/directory', :class => 'item' %></li>
         <li><%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %></li>
         <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %></li>  
       </ul>

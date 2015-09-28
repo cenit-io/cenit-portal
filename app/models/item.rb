@@ -1,5 +1,8 @@
 class Item
   include Mongoid::Document
+  
+  scope :with_name, -> (name) { where({ name: /#{name}/ })}
+  
   field :name, :type => String
   field :slug, :type => String
   field :description, :type => String

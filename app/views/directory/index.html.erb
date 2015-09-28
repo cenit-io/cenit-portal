@@ -1,5 +1,12 @@
 <% title = 'Public API Directory' %>
 <%= render 'shared/page_header', title: title, home: false %>
+
+<div class='col-md-offset-4 col-md-4 centered'>
+  <%= form_tag('/directory', method: :get) do %>
+    <%= text_field_tag "name", @name, placeholder: "Search 700+ APIs",  class: "form-control" %>
+  <% end %>
+</div>
+
 <div id="grid-first">
   <div class="container">
     <%= render partial: 'item', collection: @items %>

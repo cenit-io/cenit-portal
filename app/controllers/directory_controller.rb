@@ -1,38 +1,15 @@
 class DirectoryController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_item, only: :show
   respond_to :html
 
   def index
     @items = Item.all
+    @name = params[:name]
+    @items = @items.with_name(@name) if @name.present?
     respond_with(@items)
   end
 
   def show
-    respond_with(@item)
-  end
-
-  def new
-    @item = Item.new
-    respond_with(@item)
-  end
-
-  def edit
-  end
-
-  def create
-    @item = Item.new(item_params)
-    @item.save
-    respond_with(@item)
-  end
-
-  def update
-    @item.update(item_params)
-    respond_with(@item)
-  end
-
-  def destroy
-    @item.destroy
     respond_with(@item)
   end
 
@@ -42,6 +19,6 @@ class DirectoryController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :slug, :description)
+      params.permit(:name, :slug, :description)
     end
 end

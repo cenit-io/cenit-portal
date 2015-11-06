@@ -1,4 +1,4 @@
-class DirectoryController < ApplicationController
+class ApiDirectoryController < ApplicationController
   before_action :set_item, only: :show
   respond_to :html
 

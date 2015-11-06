@@ -1,5 +1,5 @@
 Cenit::Application.routes.draw do
-  resources :directory
+  resources :api_directory
 
   resources :profiles
 

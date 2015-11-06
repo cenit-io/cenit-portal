@@ -1,18 +1,44 @@
-<div class='container'>
-  <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
-  <p id="notice"><%= notice %></p>
-  <p>
-    <strong>Name:</strong>
-    <%= @item.name %>
-  </p>
-  <p>
-    <strong>Slug:</strong>
-    <%= @item.slug %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= @item.description %>
-  </p>
+<% title = "#{@item.name} API" %>
+<%= render 'shared/page_header', title: title, home: false %>
 
-  <%= link_to 'Back', '/directory' %>
+<div class='container'>
+  <div class='col-sm-4'>
+    <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
+    <h3><%= title %></h3>
+    <br/>
+    <%= link_to 'Back', '/directory' %>
+  </div>
+  <div class='col-sm-8'>
+    
+    <p id="notice"><%= notice %></p>
+
+    <% if @item.description.present? %>
+      <p>
+        <%= @item.description %>
+      </p>
+    <% end %>
+
+    <% if @item.raml_id.present? %>
+      <p>
+        <strong>RAML:</strong>
+        <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
+      </p>
+    <% end %>
+
+
+    <% if @item.api_provider.present? %>
+      <p>
+        <strong>API Provider:</strong>
+        <%= link_to @item.api_provider, @item.api_provider %>
+      </p>
+    <% end %>
+  
+    <% if @item.primary_category.present? %>
+      <p>
+        <strong>Primary Category:</strong>
+        <%= @item.primary_category %>
+    </p>
+    <% end %>
+
+  </div>
 </div>

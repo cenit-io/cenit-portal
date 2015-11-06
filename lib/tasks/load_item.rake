@@ -21,20 +21,28 @@ namespace :data do
       line = rownum+1
       if line == 1
         header_row(row, header_index)
-        verify_headers(['Name', 'slug', 'Description'], header_index)
+        puts header_index.inspect
+        verify_headers(['Name', 'slug', 'raml id','Description', 'C Description', 'API Provider', 'Primary Category'], header_index)
       else
         slug = row_value(row, 'slug', header_index)
         name = row_value(row, 'Name', header_index)
+        raml_id = row_value(row, 'raml id', header_index)
         description = row_value(row, 'Description', header_index)
+        c_description = row_value(row, 'C Description', header_index)
+        api_provider = row_value(row, 'API Provider', header_index)
+        primary_category = row_value(row, 'Primary Category', header_index)
+        
+        description ||= c_description
+        
         if name.blank? || slug.blank?
            STDERR.puts "line #{line}: name: <#{name}>, slug: #{slug} not found, skipped"
            next
          end
         i = Item.where(slug: slug).first if slug.present?
         if i.blank?
-          i = Item.create!(name: name, slug: slug, description: description) unless debug
+          i = Item.create!(name: name, slug: slug, raml_id: raml_id, description: description, api_provider: api_provider, primary_category: primary_category) unless debug
         else
-          i.update_attributes!(name: name, slug: slug, description: description) unless debug
+          i.update_attributes!(name: name, slug: slug,raml_id: raml_id,  description: description, api_provider: api_provider, primary_category: primary_category) unless debug
         end
         puts "Setting name: <#{i.name}>, slug: #{i.slug}, description: <#{i.description}>"
       end

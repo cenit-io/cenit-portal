@@ -22,11 +22,11 @@ namespace :data do
       if line == 1
         header_row(row, header_index)
         puts header_index.inspect
-        verify_headers(['Name', 'slug', 'raml id','Description', 'C Description', 'API Provider', 'Primary Category'], header_index)
+        verify_headers(['Name', 'slug', 'raml','Description', 'C Description', 'API Provider', 'Primary Category'], header_index)
       else
         slug = row_value(row, 'slug', header_index)
         name = row_value(row, 'Name', header_index)
-        raml_id = row_value(row, 'raml id', header_index)
+        raml_id = row_value(row, 'raml', header_index)
         description = row_value(row, 'Description', header_index)
         c_description = row_value(row, 'C Description', header_index)
         api_provider = row_value(row, 'API Provider', header_index)

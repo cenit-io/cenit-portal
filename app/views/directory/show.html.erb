@@ -6,7 +6,7 @@
     <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
     <h3><%= title %></h3>
     <br/>
-    <%= link_to 'Back', '/directory' %>
+    <%= link_to 'Back to Directory', '/directory' %>
   </div>
   <div class='col-sm-8'>
     
@@ -14,6 +14,7 @@
 
     <% if @item.description.present? %>
       <p>
+        <strong>Description:</strong>
         <%= @item.description %>
       </p>
     <% end %>
@@ -25,7 +26,7 @@
       </p>
     <% end %>
 
-    <% if @item.api_provider.present? %>
+    <% if @item.api_provider.present? && @item.tags.size > 1 %>
       <p>
         <strong>API Provider:</strong>
         <%= link_to @item.api_provider, @item.api_provider %>
@@ -36,6 +37,17 @@
       <p>
         <strong>Primary Category:</strong>
         <%= @item.primary_category %>
+      </p>
+    <% end %>
+    
+    <% if @item.tags.any? %>
+      <p>
+        <strong>Tags:</strong>
+        <% @item.tags.each do |tag| %>
+           <div class='col-xs-offset-1' >
+            <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>
+          </div>
+        <% end %>
       </p>
     <% end %>
 

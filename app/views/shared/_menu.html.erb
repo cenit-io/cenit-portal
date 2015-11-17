@@ -8,7 +8,7 @@
 
   <%= link_to 'Data Integration', hub_path, :class => 'item' %>
   <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
-  <%= link_to 'API Directory', '/directory', :class => 'item' %>
+  <%= link_to 'App Directory', '/directory', :class => 'item' %>
   <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
   <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
   <% if current_user && current_user.has_role?(:admin) %>

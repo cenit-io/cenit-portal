@@ -12,8 +12,8 @@
              <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
            <% end %>
           <% else %>
-            <%= link_to 'Data Integrator', new_user_registration_path, class: 'button' %>
-            <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
+            <%= link_to 'Data Integrator', new_user_registration_path, class: 'button', id: 'button_hub_logout'  %>
+            <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button', id: 'button_erp_logout' %>
           <% end %>
         </div>
         
@@ -58,6 +58,22 @@
       $(".st-pusher").click(function () {
         $(".st-container").removeClass("nav-effect");
       });
+      
+      $("#button_hub_logout").hover(
+        function() {
+          $( this )[0].text = 'Go to CenitHub'
+        }, function() {
+          $( this )[0].text = 'Data Integrator'
+        }
+      );
+      
+      $("#button_erp_logout").hover(
+        function() {
+          $( this )[0].text = 'Go to Odoo'
+        }, function() {
+          $( this )[0].text = 'ERP & CRM'
+        }
+      );
 
       // parallax header
       $('#cover-image').css("background-position", "50% 50%");

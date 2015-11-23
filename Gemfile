@@ -6,6 +6,8 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
+gem 'rails4-autocomplete'
+gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
@@ -50,3 +52,4 @@ gem 'figaro'
 gem 'contact_us'
 gem 'wannabe_bool'
 gem 'sitemap_generator'
+

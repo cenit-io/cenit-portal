@@ -13,17 +13,45 @@
     <p id="notice"><%= notice %></p>
 
     <% if @item.description.present? %>
-      <p>
-        <strong>Description:</strong>
+      <h4>
         <%= @item.description %>
-      </p>
+      </h4>
+    <% end %>
+    
+    
+    <% if @item.raml_github_url.present? %>
+      <br/>    
+      <div>
+        <div class= 'col-sm-3'>
+          <%= image_tag 'logos/raml.png' %>
+        </div>
+        <strong>RAML:</strong>
+        <p>
+          <%= link_to 'github specification', @item.raml_github_url %> 
+        </p>
+        <% if false && @item.raml_id.present? %>
+          <p>
+            <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
+          </p>
+        <% end %>
+      </div>
+      <br/><br/> 
     <% end %>
 
-    <% if @item.raml_id.present? %>
-      <p>
-        <strong>RAML:</strong>
-        <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
-      </p>
+    <% if @item.swagger_github_url.present? %> 
+      <div>
+        <div class= 'col-sm-3'>
+          <%= image_tag 'logos/swagger.jpg' %>
+        </div>
+        <strong>Swagger:</strong>
+        <p>
+          <%= link_to 'github specification', @item.swagger_github_url %> 
+          <%= link_to 'https://github.com/APIs-guru/api-models' , class: 'col-sm-offset-1' do %>
+            API specs supplied by <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>
+          <% end %>
+        </p>
+      </div>
+      <br/><br/>  
     <% end %>
 
     <% if @item.api_provider.present? && @item.tags.size > 1 %>
@@ -36,17 +64,15 @@
     <% if @item.primary_category.present? %>
       <p>
         <strong>Primary Category:</strong>
-        <%= @item.primary_category %>
+        <%= link_to @item.primary_category.titleize, directory_index_path(tag: @item.primary_category) %>
       </p>
     <% end %>
     
     <% if @item.tags.any? %>
       <p>
-        <strong>Tags:</strong>
+        <strong>Tags:&nbsp;</strong>
         <% @item.tags.each do |tag| %>
-           <div class='col-xs-offset-1' >
-            <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>
-          </div>
+          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;
         <% end %>
       </p>
     <% end %>

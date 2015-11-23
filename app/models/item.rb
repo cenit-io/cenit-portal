@@ -21,10 +21,13 @@ class Item
   field :last_version, type: String
   field :ssl_support, type: Boolean
   field :sdk, type: String
+  field :preferred, type: String
+  field :logo_url, type: String
+  field :logo_background_color, type: String
 
   field :developer_support, type: String
   field :authentication_mode, type: String
-
+  
 
   index({
     :slug => 1,

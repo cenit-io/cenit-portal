@@ -2,11 +2,14 @@
   <div class="section">
     <div class="pic" style='height: 155px'>
       <%= link_to directory_path(item.slug) do %>
-        <img src='<%= "#{ENV['S3']}#{item.slug}.png" %>' width= "100" class='img-responsive' alt='<%= item.name %>'>
-          <div class='text-center'>
-            <%= item.name %>
-          </div>
-        </img>
+        <% if item.logo_url.present? %>
+          <%= image_tag item.logo_url, alt: item.name, with: '100', class:'img-responsive', style: "background-color: #{item.logo_background_color if item.logo_background_color.present?};" %>
+        <% else %>
+          <img src='<%= "#{ENV['S3']}#{item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= item.name %>' >
+        <% end %>
+        <div class='text-center'>
+          <%= item.name %>
+        </div>
       <% end %>
     </div>
   </div>

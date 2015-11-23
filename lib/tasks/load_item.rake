@@ -1,4 +1,5 @@
 #encoding: utf-8
+require 'open-uri'
 
 namespace :data do
   desc 'Loads App Items for directory'
@@ -42,9 +43,9 @@ namespace :data do
         description ||= c_description || pw_description || zapier_description
         
         if name.blank? || slug.blank?
-           STDERR.puts "line #{line}: name: <#{name}>, slug: #{slug} not found, skipped"
+          # STDERR.puts "line #{line}: name: <#{name}>, slug: #{slug} not found, skipped"
            next
-         end
+        end
         i = Item.where(slug: slug).first if slug.present?
         if i.blank?
           i = Item.create!(name: name, slug: slug, raml_id: raml_id, description: description, api_provider: api_provider, primary_category: primary_category, raml_github_url: raml_github_url, swagger_github_url: swagger_github_url) unless debug
@@ -63,6 +64,43 @@ namespace :data do
         end
         puts "Setting name: <#{i.name}>, slug: #{i.slug}, description: <#{i.description}>"
       end
+    end
+    
+    list = JSON.load(open("http://apis-guru.github.io/api-models/api/v1/list.json"))
+    list.each do |item_name, name_hash|
+      preferred = name_hash['preferred']
+      main_hash = name_hash['versions'][preferred]['info']
+      description = main_hash['description']
+      name = main_hash['title']
+      logo_url = main_hash['x-logo']['url'] if main_hash['x-logo'].present?
+      logo_background_color = main_hash['x-logo']['backgroundColor'] if main_hash['x-logo'].present? && main_hash['x-logo']['backgroundColor'].present?
+      swagger_github_url = name_hash['versions'][preferred]['swaggerYamlUrl']
+      slug = item_name
+      slug = "google-#{slug.split('googleapis.com:')[1]}" if slug.split('googleapis.com:').size > 1
+      slug = slug.split('.')[0]
+      api_provider = main_hash['x-origin']['url'] if main_hash['x-origin'].present?
+      primary_category = nil
+      raml_github_url = nil
+      
+      if logo_url.blank? ||  name.blank? || slug.blank?
+         STDERR.puts "line: name: <#{name}>, slug: #{slug}, logo: #{logo_url}. not found, skipped"
+         next
+      end
+      
+      i = Item.where(slug: slug).first if slug.present?
+      if i.blank?
+        i = Item.create!(name: name, slug: slug, description: description, api_provider: api_provider, primary_category: primary_category, raml_github_url: raml_github_url, swagger_github_url: swagger_github_url, logo_url: logo_url, preferred: preferred, logo_background_color: logo_background_color)
+      else
+        i.name = name if name.present?
+        i.logo_url = logo_url if logo_url.present?
+        i.logo_background_color = logo_background_color if logo_background_color.present?
+        i.slug = slug if slug.present?
+        i.description = description if description.present?
+        i.api_provider = api_provider if api_provider.present?
+        i.swagger_github_url = swagger_github_url if swagger_github_url.present?
+        i.save
+      end
+      
     end
   end
 

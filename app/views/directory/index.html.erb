@@ -1,0 +1,56 @@
+<% title = 'Public App Directory' %>
+<%= render 'shared/page_header', title: title, home: false %>
+
+<div class='col-sm-offset-4 col-md-6 col-md-4 centered'>
+  <%= form_tag('/directory', method: :get) do %>
+    <%= text_field_tag "name", @name, placeholder: "Search 700+ APPs", autocomplete: "on", class: "form-control", type: "search", data: {autocomplete: directory_autocomplete_item_name_path} %>
+    <%= hidden_field_tag("tag", @tag) if @tag.present?  %>
+  <% end %>
+  <br/><br/>
+</div>
+<div class="clearfix"></div>
+<div class="container">
+  <div id="main">
+    <div class="row">
+      <div class="col-sm-3">
+        <h4><b>API Specs</b></h4>
+        <div class="toggle-container filters-container">
+           <div class="panel">
+            <h4 class="panel-title"><%= link_to 'RAML', directory_index_path(spec: :raml) %></h4>
+          </div>
+        </div>
+        <div class="toggle-container filters-container">
+           <div class="panel">
+            <h4 class="panel-title"><%= link_to 'Swagger', directory_index_path(spec: :swagger) %></h4>
+          </div>
+        </div>
+        
+        <br/>
+        <h4><b>Categories</b></h4>
+        <div class="toggle-container filters-container">
+           <div class="panel">
+            <h4 class="panel-title"><%= link_to 'All', directory_index_path %></h4>
+          </div>
+        </div>
+        
+        <div class="toggle-container filters-container">
+          <% Tag.all.order_by(name: 'asc').each do |tag| %>
+             <div class="panel">
+              <h4 class="panel-title"><%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %></h4>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-sm-9">
+        <%= render partial: 'item', collection: @items %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$("#name")[0].oninput = function () {
+  $( this ).attr( 'autocomplete', 'on' );
+};
+$("#name")[0].oninput();
+</script>

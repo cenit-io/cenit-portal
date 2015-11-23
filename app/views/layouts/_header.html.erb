@@ -1,15 +1,25 @@
 <header class="navbar navbar-inverse hero" role="banner">
   <div class="container">
-    
+
     <div class="navbar-header">
       <%= link_to root_path , :class => 'navbar-brand' do %>
         <%= image_tag 'cenit-logo.png',size: "51x26" %> CenitSaaS
       <% end %>
     </div>
-    <div class="sidebar-toggle">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
+
+    <div class='pull-right'>
+      <div class="sidebar-toggle">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <span id='sign-in'>
+        <% unless user_signed_in? %>
+          <%= link_to 'Sign in', new_user_session_path, class: 'navbar-brand demo pull-right', id: 'sign-in-link' %>
+        <% else %>
+          <%= link_to "Sign out", destroy_user_session_path, class: 'navbar-brand demo pull-right', method: 'delete', id: 'sign-out-link' %>
+        <% end %>
+      </span>
     </div>
   </div>
 </header>

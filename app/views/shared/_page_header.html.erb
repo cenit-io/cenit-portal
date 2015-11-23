@@ -5,28 +5,44 @@
       <% if home %>
          <div class="cta animated fadeIn">
           <% if user_signed_in? %>
-
            <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
-             <%= link_to "Data Integrator",cenithub_url(cenit_app), class: 'button' %>
+             <%= link_to "Data Integrator", cenithub_url(cenit_app), class: 'button button_hub' %>
            <% end %>
-           
            <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
-             <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button' %>
+             <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button button_erp' %>
            <% end %>
-
-           <%= link_to "Sign out", destroy_user_session_path, class: 'demo', method: 'delete' %>
           <% else %>
-            <%= link_to 'Data Integrator', new_user_registration_path, class: 'button' %>
-            <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button' %>
-            
-            <%= link_to 'Sign in / Free trial', new_user_session_path, class: 'demo', id: 'sign-in-link' %>
+            <%= link_to 'Data Integrator', new_user_registration_path, class: 'button button_hub' %>
+            <%= link_to 'ERP & CRM', new_user_registration_path, class: 'button button_erp' %>
           <% end %>
         </div>
-        <div class="screenshot animated fadeInUp">
-          <%= image_tag 'ss2.png',:class => 'img-responsive', :alt => 'screenshot' %>
+        
+        <div id="home">
+          <div id="slider">
+            <div class="slide-wrapper">
+              <div class="slideshow">
+                <div class="btn-nav prev"></div>
+                <div class="btn-nav next"></div>
+                <div class="slide active">
+                  <%= image_tag 'screenshots/cenithub-admin.png', :alt => 'CenitHub Admin', style: "width: 700px; height: 360px;" %>
+                </div>
+                <div class="slide">
+                  <%= image_tag 'screenshots/cenithub-flows.png', :alt => 'CenitHub Flows', style: "width: 700px; height: 360px;" %>
+                </div>
+                <div class="slide">
+                  <%= image_tag 'screenshots/cenithub-shared.png', :alt => 'CenitHub Shared Collections', style: "width: 700px; height: 360px;" %>
+                </div>
+                <div class="slide">
+                  <%= image_tag 'screenshots/cenithub-translators.png', :alt => 'CenitHub Translators', style: "width: 700px; height: 360px;" %>
+                </div>
+                
+              </div>
+            </div>  
+          </div>
         </div>
-      <% end %>
+        
 
+      <% end %>
     </div>
   </div>
 </div>
@@ -42,6 +58,22 @@
       $(".st-pusher").click(function () {
         $(".st-container").removeClass("nav-effect");
       });
+      
+      $(".button_hub").hover(
+        function() {
+          $( this )[0].text = 'Go to CenitHub'
+        }, function() {
+          $( this )[0].text = 'Data Integrator'
+        }
+      );
+      
+      $(".button_erp").hover(
+        function() {
+          $( this )[0].text = 'Go to Odoo'
+        }, function() {
+          $( this )[0].text = 'ERP & CRM'
+        }
+      );
 
       // parallax header
       $('#cover-image').css("background-position", "50% 50%");

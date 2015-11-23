@@ -23,11 +23,13 @@ namespace :data do
       if line == 1
         header_row(row, header_index)
         puts header_index.inspect
-        verify_headers(['Name', 'slug', 'raml','Description', 'zapier descripcion','PW description','C Description', 'API Provider', 'Primary Category','Secondary Categories'], header_index)
+        verify_headers(['Name', 'slug', 'raml','swagger_github_url','raml_github_url','Description', 'zapier descripcion','PW description','C Description', 'API Provider', 'Primary Category','Secondary Categories'], header_index)
       else
         slug = row_value(row, 'slug', header_index)
         name = row_value(row, 'Name', header_index)
         raml_id = row_value(row, 'raml', header_index)
+        swagger_github_url = row_value(row, 'swagger_github_url', header_index)
+        raml_github_url = row_value(row, 'raml_github_url', header_index)
         description = row_value(row, 'Description', header_index)
         c_description = row_value(row, 'C Description', header_index)
         zapier_description = row_value(row, 'zapier descripcion', header_index)
@@ -45,9 +47,9 @@ namespace :data do
          end
         i = Item.where(slug: slug).first if slug.present?
         if i.blank?
-          i = Item.create!(name: name, slug: slug, raml_id: raml_id, description: description, api_provider: api_provider, primary_category: primary_category) unless debug
+          i = Item.create!(name: name, slug: slug, raml_id: raml_id, description: description, api_provider: api_provider, primary_category: primary_category, raml_github_url: raml_github_url, swagger_github_url: swagger_github_url) unless debug
         else
-          i.update_attributes!(name: name, slug: slug,raml_id: raml_id,  description: description, api_provider: api_provider, primary_category: primary_category) unless debug
+          i.update_attributes!(name: name, slug: slug,raml_id: raml_id,  description: description, api_provider: api_provider, primary_category: primary_category, raml_github_url: raml_github_url, swagger_github_url: swagger_github_url) unless debug
         end
         
         i.tags = nil

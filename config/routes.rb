@@ -1,4 +1,5 @@
 Cenit::Application.routes.draw do
+  get 'directory/autocomplete_item_name'
   resources :directory
 
   resources :profiles

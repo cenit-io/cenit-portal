@@ -3,11 +3,17 @@
 
 <div class='container'>
   <div class='col-sm-4'>
-    <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
+    <% if @item.logo_url.present? %>
+      <%= image_tag @item.logo_url, alt: @item.name, with: '100', class:'img-responsive', style: "background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+    <% else %>
+      <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
+    <% end %>
+  
     <h3><%= title %></h3>
     <br/>
     <%= link_to 'Back to Directory', '/directory' %>
   </div>
+  
   <div class='col-sm-8'>
     
     <p id="notice"><%= notice %></p>

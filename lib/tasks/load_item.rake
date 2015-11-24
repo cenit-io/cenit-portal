@@ -77,6 +77,7 @@ namespace :data do
       swagger_github_url = name_hash['versions'][preferred]['swaggerYamlUrl']
       slug = item_name
       slug = "google-#{slug.split('googleapis.com:')[1]}" if slug.split('googleapis.com:').size > 1
+      slug = "citrixonline-#{slug.split('citrixonline.com:')[1]}" if slug.split('citrixonline.com:').size > 1
       slug = slug.split('.')[0]
       api_provider = main_hash['x-origin']['url'] if main_hash['x-origin'].present?
       primary_category = nil

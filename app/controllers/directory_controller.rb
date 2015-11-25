@@ -10,8 +10,8 @@ class DirectoryController < ApplicationController
     @spec = params[:spec]
     
     if @spec.present?
-      @items = @items.where(:raml_github_url.ne => nil) if @spec == 'raml'
-      @items = @items.where(:swagger_github_url.ne => nil) if @spec == 'swagger'
+      @items = @items.where(:raml_url.ne => nil) if @spec == 'raml'
+      @items = @items.where(:swagger_json_url.ne => nil) if @spec == 'swagger'
     end
     
     @items = @items.with_name(@name) if @name.present?

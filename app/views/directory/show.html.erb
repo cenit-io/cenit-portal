@@ -15,43 +15,41 @@
   </div>
   
   <div class='col-sm-8'>
-    
-    <p id="notice"><%= notice %></p>
 
     <% if @item.description.present? %>
-      <h4>
-        <%= @item.description %>
-      </h4>
+      <h5>
+        <%= @item.description.html_safe %>
+      </h5>
+      <br/>
     <% end %>
     
     
-    <% if @item.raml_github_url.present? %>
+    <% if @item.raml_url.present? %>
       <br/>    
       <div>
         <div class= 'col-sm-3'>
           <%= image_tag 'logos/raml.png' %>
         </div>
-        <strong>RAML:</strong>
+        <strong>RAML:&nbsp;</strong>
         <p>
-          <%= link_to 'github specification', @item.raml_github_url %> 
-        </p>
-        <% if false && @item.raml_id.present? %>
-          <p>
+          <%= link_to 'Spec', @item.raml_url %>&nbsp;&nbsp;  
+          <% if @item.raml_id.present? %>
             <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
-          </p>
-        <% end %>
+          <% end %>
+        </p>
       </div>
       <br/><br/> 
     <% end %>
 
-    <% if @item.swagger_github_url.present? %> 
+    <% if @item.swagger_json_url.present? %> 
       <div>
         <div class= 'col-sm-3'>
           <%= image_tag 'logos/swagger.jpg' %>
         </div>
-        <strong>Swagger:</strong>
+        <strong>Swagger:&nbsp;</strong>
         <p>
-          <%= link_to 'github specification', @item.swagger_github_url %> 
+          <%= link_to 'Json Spec', @item.swagger_json_url %>&nbsp;&nbsp;  
+          <%= link_to 'Yaml Spec', @item.swagger_yaml_url %> 
           <%= link_to 'https://github.com/APIs-guru/api-models' , class: 'col-sm-offset-1' do %>
             API specs supplied by <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>
           <% end %>
@@ -60,25 +58,46 @@
       <br/><br/>  
     <% end %>
 
-    <% if @item.api_provider.present? && @item.tags.size > 1 %>
+    <% if @item.preferred.present? %>
       <p>
-        <strong>API Provider:</strong>
+        <strong>Version:&nbsp;</strong>
+        <%= @item.preferred %>
+      </p>
+    <% end %>
+
+    <% if @item.provider_name.present? %>
+      <p>
+        <strong>Provider Name:&nbsp;</strong>
+        <%= @item.provider_name %>
+      </p>
+    <% end %>
+    
+    <% if @item.api_provider.present? %>
+      <p>
+        <strong>API Provider:&nbsp;</strong>
         <%= link_to @item.api_provider, @item.api_provider %>
+      </p>
+    <% end %>
+    
+    <% if false && @item.api_homepage.present? %>
+      <p>
+        <strong>API Homepage:&nbsp;</strong>
+        <%= @item.api_homepage %>
       </p>
     <% end %>
   
     <% if @item.primary_category.present? %>
       <p>
-        <strong>Primary Category:</strong>
+        <strong>Primary Category:&nbsp;</strong>
         <%= link_to @item.primary_category.titleize, directory_index_path(tag: @item.primary_category) %>
       </p>
     <% end %>
     
-    <% if @item.tags.any? %>
+    <% if @item.tags.size > 1 %>
       <p>
         <strong>Tags:&nbsp;</strong>
         <% @item.tags.each do |tag| %>
-          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;
+          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;&nbsp; 
         <% end %>
       </p>
     <% end %>

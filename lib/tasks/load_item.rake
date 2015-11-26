@@ -58,7 +58,6 @@ namespace :data do
           i = Item.create!({
           name: name, 
           slug: slug,
-          primary_category: primary_category,
           description: description, 
           api_provider: api_provider, 
           raml_id: raml_id, 
@@ -68,28 +67,34 @@ namespace :data do
           logo_background_color: logo_background_color})
         else
           i.name = name if name.present?
-          i.primary_category =  primary_category if primary_category.present?
           i.logo_url = logo_url if logo_url.present?
           i.logo_background_color = logo_background_color if logo_background_color.present?
           i.slug = slug if slug.present?
           i.description = description if description.present?
           i.api_provider = api_provider if api_provider.present?
           i.preferred = preferred if preferred.present?
-          i.primary_category = primary_category if primary_category.present?
           i.raml_url = raml_url if raml_url.present?
           i.raml_id = raml_id if raml_id.present?
-          i.save
+          
         end
-        
-        i.tags = nil
-
+        primary = false 
         secondary_categories.uniq.each do |tag_name|
+          primary = true if tag_name == primary_category
           tag_name = tag_name.parameterize
           unless (tag = Tag.where(name: tag_name).first).present?
             tag = Tag.create!(name: tag_name)
           end
-          i.tags << tag
+          
+          if primary
+            i.primary_category = tag 
+            primary = false
+          end
+          
+          i.tags << tag unless i.tags.include? tag
         end
+        
+        i.save
+        
         puts "."
       end
     end
@@ -124,46 +129,43 @@ namespace :data do
       
       next unless (i = Item.where(slug: slug).first).present?
 
-      i.primary_category =  primary_category if i.primary_category.nil? && primary_category.present?
       i.description = description if i.description.nil? && description.present?
       i.api_provider = api_provider if  i.api_provider.nil? &&  api_provider.present?
-      i.primary_category = primary_category if i.primary_category.nil? && primary_category.present?
       i.api_homepage = api_homepage if i.api_homepage.nil? && api_homepage.present?
-      i.save
-      
-      next if  ['streak','zenpayroll','eventjoy','sina-weibo','hackpad','launchrock','datasift','bintray', 'bing-ads','stride','taskrabbit','uber','hellofax','klout','papertrail'].include? i.slug
-      
-      unless i.tags.any?
+
+      primary = false
+      secondary_categories.uniq.each do |tag_name|
+        primary = true if tag_name == primary_category
+
+        tag_name.gsub!(/(Customer Relationship Management)/i, 'CRM')
+        tag_name.gsub!(/(Business Crm)/i, 'CRM')
+        tag_name.gsub!(/(File Sharing)/i, 'File Management')
+        tag_name.gsub!(/(Crm Business)/i, 'CRM')
+        tag_name.gsub!(/(Customer Service)/i, 'Help Desk')
+        tag_name.gsub!(/(Application Developmen)/i, 'Developer Tools')
+        tag_name.gsub!(/(Developer)/i, 'Developer Tools')
+        tag_name.gsub!(/(Event)/i, 'Event Management')
+        tag_name.gsub!(/(Hr)/i, 'Human Resources')
+        tag_name.gsub!(/(Mobile Applications)/i, 'Mobile')
+        tag_name.gsub!(/(Payments)/i, 'Payment Processing')
+        tag_name.gsub!(/(Lists Tasks)/i, 'Payment Processing')
+        tag_name.gsub!(/(Tasks)/i, 'Project Management')
+        tag_name.gsub!(/(Marketing Business)/i, 'Marketing')
         
-        secondary_categories.uniq.each do |tag_name|
-          next if ['Aggregation Real Time Semantics'].include? tag_name
-          tag_name.gsub(/(Internet Of Things Security)/i, 'Internet Of Things')
-          tag_name.gsub(/(Accounting Accounting Merchants Business)/i, 'Accounting')
-          tag_name.gsub(/(Events)/i, 'Event Management')
-          tag_name.gsub(/(Contacts Customer Relationship Management Email)/i, 'CRM')
-          tag_name.gsub(/(Advertising Marketing)/i, 'Marketing')
-          tag_name.gsub(/(Collaboration Sales)/i, 'Collaboration')
-          tag_name.gsub(/(Campaigns Management Reporting Search)/i, 'Reporting')
-          tag_name.gsub(/(Blogging Chinese)/i, 'Blogging')
-          
-          tag_name.gsub(/(File Sharing)/i, 'File Management')
-          tag_name.gsub(/(Financial Enterprise)/i, 'Financial')
-          tag_name.gsub(/(Geography Location Prices Real Time Travel)/i, 'Location')
-          tag_name.gsub(/(Home Automation)/i, 'Internet Of Things')
-          tag_name.gsub(/(Sales Marketing Voice Webhooks)/i, 'Marketing')
-          tag_name.gsub(/(Social Reputation Sentiment)/i, 'Sentiment Analysis')
-          tag_name.gsub(/(Social Social)/i, 'Social')
-          tag_name.gsub(/(Social Social Collaboration)/i, 'Collaboration')
-          tag_name.gsub(/(Surveys Marketing)/i, 'Marketing')
         
-          tag_name = tag_name.parameterize
-          
-          
-          unless (tag = Tag.where(name: tag_name).first).present?
-            tag = Tag.create!(name: tag_name)
-          end
-          i.tags << tag
+        tag_name = tag_name.parameterize
+
+        unless (tag = Tag.where(name: tag_name).first).present?
+          tag = Tag.create!(name: tag_name)
         end
+        i.tags << tag unless i.tags.include? tag
+        
+        if primary
+          i.primary_category = tag if i.primary_category.nil?
+          primary = false
+        end
+        
+        i.save
       end
       
       puts "Setting name: <#{i.name}>, slug: #{i.slug}"
@@ -188,6 +190,9 @@ namespace :data do
       slug = item_name
       slug = "google-#{slug.split('googleapis.com:')[1]}" if slug.split('googleapis.com:').size > 1
       slug = "citrixonline-#{slug.split('citrixonline.com:')[1]}" if slug.split('citrixonline.com:').size > 1
+      slug = "hetras-certification-#{slug.split('hetras-certification.net:')[1]}" if slug.split('hetras-certification.net:').size > 1
+      
+      slug = "nrel-gov-#{slug.split('nrel.gov:')[1]}" if slug.split('nrel.gov:').size > 1
       slug = slug.split('.')[0]
       
       api_provider = main_hash['x-origin']['url'] if main_hash['x-origin'].present?
@@ -222,6 +227,12 @@ namespace :data do
         i.swagger_json_url = swagger_json_url if swagger_json_url.present?
         i.swagger_yaml_url = swagger_yaml_url if swagger_yaml_url.present?
         i.save
+      end
+      
+      Tag.all.each do |tag|
+        if tag.items.size < 3
+          tag.delete
+        end
       end
       
     end

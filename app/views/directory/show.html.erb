@@ -4,9 +4,9 @@
 <div class='container'>
   <div class='col-sm-4'>
     <% if @item.logo_url.present? %>
-      <%= image_tag @item.logo_url, alt: @item.name, with: '100', class:'img-responsive', style: "background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+      <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-width: 200px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
     <% else %>
-      <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', alt='<%= @item.name %>' >
+      <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-width: 200px;" alt='<%= @item.name %>' >
     <% end %>
   
     <h3><%= title %></h3>
@@ -89,7 +89,7 @@
     <% if @item.primary_category.present? %>
       <p>
         <strong>Primary Category:&nbsp;</strong>
-        <%= link_to @item.primary_category.titleize, directory_index_path(tag: @item.primary_category) %>
+        <%= link_to @item.primary_category.name.titleize, directory_index_path(tag: @item.primary_category.name) %>
       </p>
     <% end %>
     
@@ -97,7 +97,7 @@
       <p>
         <strong>Tags:&nbsp;</strong>
         <% @item.tags.each do |tag| %>
-          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;&nbsp; 
+          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;&nbsp;&nbsp; 
         <% end %>
       </p>
     <% end %>

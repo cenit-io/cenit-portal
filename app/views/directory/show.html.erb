@@ -32,7 +32,7 @@
         </div>
         <strong>RAML:&nbsp;</strong>
         <p>
-          <%= link_to 'Spec', @item.raml_url %>&nbsp;&nbsp;  
+          <%= link_to 'Spec', @item.raml_url %>&nbsp;&nbsp;&nbsp;   
           <% if @item.raml_id.present? %>
             <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
           <% end %>
@@ -48,7 +48,7 @@
         </div>
         <strong>Swagger:&nbsp;</strong>
         <p>
-          <%= link_to 'Json Spec', @item.swagger_json_url %>&nbsp;&nbsp;  
+          <%= link_to 'Json Spec', @item.swagger_json_url %>&nbsp;&nbsp;&nbsp;   
           <%= link_to 'Yaml Spec', @item.swagger_yaml_url %> 
           <%= link_to 'https://github.com/APIs-guru/api-models' , class: 'col-sm-offset-1' do %>
             API specs supplied by <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>

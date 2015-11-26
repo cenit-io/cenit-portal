@@ -5,6 +5,7 @@ class Item
   
   scope :with_name, -> (name) { where({ name: /#{name}/i })}
   has_and_belongs_to_many :tags
+  belongs_to :primary_category, class_name: Tag.name, :inverse_of => :direct_items
   
   field :name, type: String
   field :slug, type: String
@@ -12,7 +13,6 @@ class Item
   field :description, type: String
   field :api_provider, type: String
   field :provider_name, type: String
-  field :primary_category, type: String
   field :preferred, type: String
   field :logo_url, type: String
   field :logo_background_color, type: String

@@ -101,6 +101,31 @@
         <% end %>
       </p>
     <% end %>
-
+    
+    <br/><br/><br/><br/>
   </div>
+  
+   <br/><br/>
+   <div id="grid-first">
+     <div class="container">
+      <br/><br/>
+
+       <div class="row header">
+         <h3>Need an easy way to connect your business with <%= link_to @item.name, @item.api_provider || @item.api_homepage || '#' %>?</h3>
+         <p>CenitSaaS is the perfect tool to help you out. <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Get in touch.</a> </p>
+         <br/><br/>
+       </div>
+       
+       
+       <div class= 'col-sm-offset-3 col-sm-6' >
+         <div class= 'col-sm-3 col-sm-offset-1'><%= image_tag 'logo_cenitsaas_web.png', style: 'height: 55px;' %></div> 
+         <div class= 'col-sm-3 col-sm-offset-1'><%= image_tag 'arrow.png',  style: 'height: 60px;' %></div>       
+         <div class= 'col-sm-3'><%= image_tag @item.logo_url, alt: @item.name,  style: "height: 80px;
+          background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %></div>
+      </div>
+        <%= render partial: 'shared/sign_up_for_free', locals: {link: :hub } %>
+        
+     </div>
+  </div>
+  
 </div>

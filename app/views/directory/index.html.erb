@@ -3,7 +3,7 @@
 
 <div class='col-sm-offset-4 col-md-6 col-md-4 centered'>
   <%= form_tag('/directory', method: :get) do %>
-    <%= text_field_tag "name", @name, placeholder: "Search 700+ APPs", autocomplete: "on", class: "form-control", type: "search", data: {autocomplete: directory_autocomplete_item_name_path} %>
+    <%= text_field_tag "name", @name, placeholder: "Search 900+ APPs", autocomplete: "on", class: "form-control", type: "search", data: {autocomplete: directory_autocomplete_item_name_path} %>
     <%= hidden_field_tag("tag", @tag) if @tag.present?  %>
   <% end %>
   <br/><br/>

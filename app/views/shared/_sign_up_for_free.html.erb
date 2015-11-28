@@ -2,7 +2,7 @@
   <div id="cta">
     <% if user_signed_in? %>
       <% if link == :hub && (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
-        <%= link_to "Data Integrator", cenithub_url(cenit_app) %>
+        <%= link_to "Data Integrator", cenithub_url(cenit_app), class: 'button button_hub' %>
       <% end %>
       <% if link == :odoo && (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
         <%= link_to "ERP & CRM", cenitodoo_url(current_user, odoo_app), class: 'button button_erp' %>

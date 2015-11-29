@@ -8,15 +8,13 @@
 
   <%= link_to 'Data Integration', hub_path, :class => 'item' %>
   <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
-  <%= link_to 'App Directory', '/directory', :class => 'item' %>
+  <%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %>
   <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
   <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
+  <%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %>
   <% if current_user && current_user.has_role?(:admin) %>
     <%= link_to 'Applications', 'oauth/applications' %>
     <%= link_to 'Rails Admin', '/data' %>
 <% end  %>
   <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Contact Us</a>
-  <div class="social">
-    <div class="addthis_horizontal_follow_toolbox"></div>
-  </div>
 </nav>

@@ -11,7 +11,7 @@
   
     <h3><%= title %></h3>
     <br/>
-    <%= link_to 'Back to Directory', '/directory' %>
+    <%= link_to 'Back to Directory', '/directory', data: { no_turbolink: true } %>
   </div>
   
   <div class='col-sm-8'>
@@ -89,7 +89,7 @@
     <% if @item.primary_category.present? %>
       <p>
         <strong>Primary Category:&nbsp;</strong>
-        <%= link_to @item.primary_category.name.titleize, directory_index_path(tag: @item.primary_category.name) %>
+        <%= link_to @item.primary_category.name.titleize, directory_index_path(tag: @item.primary_category.name), data: { no_turbolink: true } %>
       </p>
     <% end %>
     
@@ -97,7 +97,7 @@
       <p>
         <strong>Tags:&nbsp;</strong>
         <% @item.tags.each do |tag| %>
-          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name) %>&nbsp;&nbsp;&nbsp; 
+          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name), data: { no_turbolink: true } %>&nbsp;&nbsp;&nbsp; 
         <% end %>
       </p>
     <% end %>
@@ -106,31 +106,34 @@
   
   <div class="clearfix visible-xs"></div>
   <div id="grid-first" class='col-sm-12'>
-   <div class="container">
-    <br/><br/>
-
-     <div class="row header">
-       <h3>Need an easy way to connect your business with <%= link_to @item.name, @item.api_provider || @item.api_homepage || '#' %>?</h3>
-       <p>CenitSaaS is the perfect tool to help you out. <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Get in touch.</a> </p>
-       <br/><br/>
-     </div>
-     
-     
-     <div class= 'col-sm-offset-3 col-sm-6' >
-       <div class= 'col-sm-3 col-sm-offset-1'><%= image_tag 'logo_cenitsaas_web.png', style: 'height: 55px;' %></div> 
-       <div class= 'col-sm-3 col-sm-offset-1'><%= image_tag 'arrow.png',  style: 'height: 60px;' %></div>       
-       <div class= 'col-sm-3'>
-         <% if @item.logo_url.present? %>
-           <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-width: 200px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
-         <% else %>
-           <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-width: 200px;" alt='<%= @item.name %>' >
-         <% end %>
-       </div>
-    </div>
+    <div class="container">
       <br/><br/>
+
+      <div class="row header">
+        <h3>Need an easy way to connect your business with <%= link_to @item.name, @item.api_provider || @item.api_homepage || '#' %>?</h3>
+        <p>CenitSaaS is the perfect tool to help you out. <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Get in touch.</a> </p>
+        <br/><br/>
+      </div>
+      
+      <div class='col-sm-offset-4'>
+        <table style="width:60%">
+          <tr>
+            <td><%= image_tag 'logo_cenitsaas_web.png', style: 'height: 55px;' %></td>
+            <td><%= image_tag 'arrow.png',  style: 'height: 60px;' %></td> 
+            <td>
+              <% if @item.logo_url.present? %>
+                <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-height: 80px; max-width: 200px; padding-left: 17px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+              <% else %>
+                <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-height: 80px; max-width: 200px; padding-left: 17px;" alt='<%= @item.name %>' >
+              <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+
       <%= render partial: 'shared/sign_up_for_free', locals: {link: :hub } %>
-      <br/><br/><br/><br/>
-   </div>
+      <br/>
+    </div>
   </div>
   
 </div>

@@ -27,7 +27,18 @@ Cenit::Application.routes.draw do
     end
   end
 
-  resources :blog, only: [:index, :new]
+  resources :blog, only: [:index, :new] do
+    collection do
+      get :first_anniversary
+      get :asana_integration
+      get :mailchimp_integration
+      get :using_twitter_integration_on_odoo
+      get :installing_twitter_integration_on_odoo
+      get :cenit_integration_client_on_odoo
+      get :shipwire_integration
+    end
+  end
+
   resources :partnership, only: :index
   resources :cenithub, only: :index
   

@@ -7,9 +7,10 @@
       <ul>
         <li><%= link_to 'Data Integration', hub_path, :class => 'item' %></li>
         <li><%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %></li>
-        <li><%= link_to 'App Directory', '/directory', :class => 'item' %></li>
+        <li><%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %></li>
-        <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %></li>
+        <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', data: { no_turbolink: true } %></li>
+        <li><%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %></li>
         <li><a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Contact Us</a><li>
       </ul>
     </div>

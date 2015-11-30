@@ -1,0 +1,138 @@
+<% title = @item.name %>
+<%= render 'shared/page_header', title: title, home: false %>
+
+<div class='container' >
+  <div class='col-sm-4'>
+    <% if @item.logo_url.present? %>
+      <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-width: 200px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+    <% else %>
+      <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-width: 200px;" alt='<%= @item.name %>' >
+    <% end %>
+  
+    <h3><%= title %></h3>
+    <br/>
+    <%= link_to 'Back to Directory', '/directory', data: { no_turbolink: true } %>
+  </div>
+  <div class='col-sm-8'>
+
+    <% if @item.description.present? %>
+      <h5 style='line-height: 200%;'>
+        <%= @item.description.html_safe %>
+      </h5>
+      <br/>
+    <% end %>
+    
+    
+    <% if @item.raml_url.present? %>
+      <br/>    
+      <div>
+        <div class= 'col-sm-3'>
+          <%= image_tag 'logos/raml.png' %>
+        </div>
+        <strong>RAML:&nbsp;</strong>
+        <p>
+          <%= link_to 'Spec', @item.raml_url %>&nbsp;&nbsp;&nbsp;   
+          <% if @item.raml_id.present? %>
+            <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
+          <% end %>
+        </p>
+      </div>
+      <br/><br/> 
+    <% end %>
+
+    <% if @item.swagger_json_url.present? %> 
+      <div>
+        <div class= 'col-sm-3'>
+          <%= image_tag 'logos/swagger.jpg' %>
+        </div>
+        <strong>Swagger:&nbsp;</strong>
+        <p>
+          <%= link_to 'Json Spec', @item.swagger_json_url %>&nbsp;&nbsp;&nbsp;   
+          <%= link_to 'Yaml Spec', @item.swagger_yaml_url %> 
+          <%= link_to 'https://github.com/APIs-guru/api-models' , class: 'col-sm-offset-1' do %>
+            API specs supplied by <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>
+          <% end %>
+        </p>
+      </div>
+      <br/><br/>  
+    <% end %>
+
+    <% if @item.preferred.present? %>
+      <p>
+        <strong>Version:&nbsp;</strong>
+        <%= @item.preferred %>
+      </p>
+    <% end %>
+
+    <% if @item.provider_name.present? %>
+      <p>
+        <strong>Provider Name:&nbsp;</strong>
+        <%= @item.provider_name %>
+      </p>
+    <% end %>
+    
+    <% if @item.api_provider.present? %>
+      <p>
+        <strong>API Provider:&nbsp;</strong>
+        <%= link_to @item.api_provider, @item.api_provider %>
+      </p>
+    <% end %>
+    
+    <% if false && @item.api_homepage.present? %>
+      <p>
+        <strong>API Homepage:&nbsp;</strong>
+        <%= @item.api_homepage %>
+      </p>
+    <% end %>
+  
+    <% if @item.primary_category.present? %>
+      <p>
+        <strong>Primary Category:&nbsp;</strong>
+        <%= link_to @item.primary_category.name.titleize, directory_index_path(tag: @item.primary_category.name), data: { no_turbolink: true } %>
+      </p>
+    <% end %>
+    
+    <% if @item.tags.size > 1 %>
+      <p>
+        <strong>Tags:&nbsp;</strong>
+        <% @item.tags.each do |tag| %>
+          <%= link_to tag.name.titleize, directory_index_path(tag: tag.name), data: { no_turbolink: true } %>&nbsp;&nbsp;&nbsp; 
+        <% end %>
+      </p>
+    <% end %>
+    
+  </div>
+  
+  <div class="clearfix visible-xs"></div>
+  <div id="grid-first" class='col-sm-12'>
+    <div class="container">
+      <br/><br/>
+
+      <div class="row header">
+        <h3>Need an easy way to connect your business with <%= link_to @item.name, @item.api_provider || @item.api_homepage || '#' %>?</h3>
+        <p>CenitSaaS is the perfect tool to help you out. <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Get in touch.</a> </p>
+        <br/><br/>
+      </div>
+      
+      <div class='col-sm-offset-4'>
+        <table style="width:60%">
+          <tr>
+            <td><%= image_tag 'logo_cenitsaas_web.png', style: 'height: 55px;' %></td>
+            <td><%= image_tag 'arrow.png',  style: 'height: 60px;' %></td> 
+            <td>
+              <% if @item.logo_url.present? %>
+                <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-height: 80px; max-width: 200px; padding-left: 17px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+              <% else %>
+                <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-height: 80px; max-width: 200px; padding-left: 17px;" alt='<%= @item.name %>' >
+              <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+      <%= render partial: 'shared/sign_up_for_free', locals: {link: :hub } %>
+      <br/>
+    </div>
+  </div>
+  
+</div>

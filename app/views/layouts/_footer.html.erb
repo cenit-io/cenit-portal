@@ -1,18 +1,20 @@
 <div id="footer">
-  <div class="col-sm-offset-1 col-sm-10">
-    <div class="col-sm-3 col-md-2  menu copyright">
+  <div >
+    <div class="col-sm-2  menu copyright">
       <ul><li><%= link_to 'Cenit, LLC 2015', "#{root_path}", :class => 'item' %></li></ul>
     </div>
-    <div class="col-sm-5  col-md-6 menu">
+    <div class="col-sm-8 col-lg-7 menu">
       <ul>
-        <li><%= link_to 'Home', "#{root_path}", :class => 'item' %></li>
         <li><%= link_to 'Data Integration', hub_path, :class => 'item' %></li>
         <li><%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %></li>
+        <li><%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %></li>
-        <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %></li>  
+        <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', data: { no_turbolink: true } %></li>
+        <li><%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %></li>
+        <li><%= link_to 'Terms of service', '/terms_of_service', :class => 'item'%></li>
       </ul>
     </div>
-    <div class="col-md-4 social">
+    <div class="col-sm-2 col-lg-3  social">
       <script src="https://apis.google.com/js/platform.js" async defer></script>
       <div class=" g-follow" data-href="https://plus.google.com/109973562966126644452" data-height="20" data-rel="author"></div>
       <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>

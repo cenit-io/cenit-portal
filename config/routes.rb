@@ -26,7 +26,7 @@ Cenit::Application.routes.draw do
       # get '/fast' => 'fast#index'
     end
   end
-
+  
   resources :blog, only: [:index, :new] do
     collection do
       get :first_anniversary
@@ -42,10 +42,11 @@ Cenit::Application.routes.draw do
   resources :partnership, only: :index
   resources :cenithub, only: :index
   
-  get '/about_us', to: 'about_us#index', as: 'about_us'
-  get '/hub', to: 'hub#index', as: 'hub'
-  get '/features', to: 'features#index', as: 'features'
-  get '/api_references', to: 'api_references#index', as: 'api_references'
-  get '/services', to: 'services#index', as: 'services'
-  get '/status/:id', to: 'status#show', as: 'status'
+  get '/about_us', to: 'about_us#index', as: :about_us
+  get '/hub', to: 'hub#index', as: :hub
+  get '/terms_of_service', to: 'terms_of_service#index', as: :terms_of_service
+  get '/features', to: 'features#index', as: :features
+  get '/api_references', to: 'api_references#index', as: :api_references
+  get '/services', to: 'services#index', as: :services
+  get '/status/:id', to: 'status#show', as: :status
 end

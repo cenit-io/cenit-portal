@@ -1,7 +1,7 @@
 <% title = @item.name %>
 <%= render 'shared/page_header', title: title, home: false %>
 
-<div class='container'>
+<div class='container' >
   <div class='col-sm-4'>
     <% if @item.logo_url.present? %>
       <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-width: 200px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
@@ -13,11 +13,10 @@
     <br/>
     <%= link_to 'Back to Directory', '/directory', data: { no_turbolink: true } %>
   </div>
-  
   <div class='col-sm-8'>
 
     <% if @item.description.present? %>
-      <h5>
+      <h5 style='line-height: 200%;'>
         <%= @item.description.html_safe %>
       </h5>
       <br/>

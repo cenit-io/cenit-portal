@@ -121,7 +121,7 @@
             <td><%= image_tag 'arrow.png',  style: 'height: 60px;' %></td> 
             <td>
               <% if @item.logo_url.present? %>
-                <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-height: 80px; max-width: 200px; padding-left: 17px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
+                <%= image_tag @item.logo_url, alt: @item.name, class:'img-responsive', style: "max-height: 80px; max-width: 200px; padding-left: 17px; min-width: 100px; background-color: #{@item.logo_background_color if @item.logo_background_color.present?};" %>
               <% else %>
                 <img src='<%= "#{ENV['S3']}#{@item.slug}.png" %>', width= "102", class='img-responsive', style="max-height: 80px; max-width: 200px; padding-left: 17px;" alt='<%= @item.name %>' >
               <% end %>

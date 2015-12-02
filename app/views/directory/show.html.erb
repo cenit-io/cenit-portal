@@ -29,30 +29,68 @@
         <div class= 'col-sm-3'>
           <%= image_tag 'logos/raml.png' %>
         </div>
-        <strong>RAML:&nbsp;</strong>
-        <p>
-          <%= link_to 'Spec', @item.raml_url %>&nbsp;&nbsp;&nbsp;   
-          <% if @item.raml_id.present? %>
-            <%= link_to 'API Console', "http://console.cenithub.com/?id=#{@item.raml_id}" %> 
-          <% end %>
-        </p>
+        
+        <div class= 'col-sm-9'>
+          <div class= 'col-sm-3'>
+            <strong>RAML:&nbsp;</strong><br />
+            <div style='padding-top: 10px;'><%= link_to 'Spec', @item.raml_url %></div>
+          </div>
+          <div class= 'col-sm-9'>
+            <br />
+            <table>
+              <% if @item.raml_id.present? %>
+              <tr>
+                <td> <%= link_to 'RAML Console supplied by', "http://console.cenithub.com/?id=#{@item.raml_id}" %></td>
+                <td>&nbsp;&nbsp;
+                  <%= link_to "http://console.cenithub.com/?id=#{@item.raml_id}" do %>
+                    <%= image_tag 'logo_cenitsaas_web.png', style: 'height: 30px;' %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+          <br /><br /><br /><br /><br />
+        </div>
       </div>
       <br/><br/> 
     <% end %>
 
     <% if @item.swagger_json_url.present? %> 
       <div>
-        <div class= 'col-sm-3'>
+        <div class= 'col-sm-3', style='padding-left: 40px;'>
           <%= image_tag 'logos/swagger.jpg' %>
         </div>
-        <strong>Swagger:&nbsp;</strong>
-        <p>
-          <%= link_to 'Json Spec', @item.swagger_json_url %>&nbsp;&nbsp;&nbsp;   
-          <%= link_to 'Yaml Spec', @item.swagger_yaml_url %> 
-          <%= link_to 'https://github.com/APIs-guru/api-models' , class: 'col-sm-offset-1' do %>
-            API specs supplied by <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>
-          <% end %>
-        </p>
+        <div class= 'col-sm-9'>
+          <div class= 'col-sm-3'>
+            <strong>Swagger:&nbsp;</strong><br />
+            <div style='padding-top: 10px;'><%= link_to 'Json Spec', @item.swagger_json_url %></div>
+            <div><%= link_to 'Yaml Spec', @item.swagger_yaml_url %></div>
+          </div>
+          <div class= 'col-sm-9'>
+            <table>
+              <tr>
+                <td> <%= link_to 'API specs supplied by', 'https://github.com/APIs-guru/api-models' %></td>
+                <td> &nbsp;&nbsp;
+                  <%= link_to 'https://github.com/APIs-guru/api-models' do %>
+                    <%= image_tag 'logos/guru.svg', style: 'height: 50px;' %>
+                  <% end %>
+                </td>
+              </tr>
+              <% if @item.swagger_ui_url.present? %>
+              <tr>
+                <td> <%= link_to 'Swagger UI supplied by', @item.swagger_ui_url %></td>
+                <td>&nbsp;&nbsp;
+                  <%= link_to @item.swagger_ui_url do %>
+                    <%= image_tag 'logos/any_api.png', style: 'height: 30px;' %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+          <br /><br /><br /><br /><br />
+        </div>
       </div>
       <br/><br/>  
     <% end %>

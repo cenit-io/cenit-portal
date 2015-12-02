@@ -20,6 +20,7 @@ class Item
   field :raml_id, type: String
   field :swagger_json_url, type: String
   field :swagger_yaml_url, type: String
+  field :swagger_ui_url, type: String
   field :raml_url, type: String
   field :api_homepage, type: String
 

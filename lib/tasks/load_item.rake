@@ -24,10 +24,11 @@ namespace :data do
       if line == 1
         header_row(row, header_index)
         puts header_index.inspect
-        verify_headers(['name', 'slug', 'preferred', 'raml','raml_url','logo_url','logo_background_color','description','zapier_descripcion','pw_description','c_description','api_provider','primary_category','secondary_categories'], header_index)
+        verify_headers(['name', 'slug', 'preferred', 'any_api','raml','raml_url','logo_url','logo_background_color','description','zapier_descripcion','pw_description','c_description','api_provider','primary_category','secondary_categories'], header_index)
       else
         slug = row_value(row, 'slug', header_index)
         name = row_value(row, 'name', header_index)
+        swagger_ui_url = row_value(row, 'any_api', header_index)
         raml_id = row_value(row, 'raml', header_index)
         raml_url = row_value(row, 'raml_url', header_index)
         
@@ -59,7 +60,8 @@ namespace :data do
           name: name, 
           slug: slug,
           description: description, 
-          api_provider: api_provider, 
+          api_provider: api_provider,
+          swagger_ui_url: swagger_ui_url,
           raml_id: raml_id, 
           raml_url: raml_url,
           logo_url: logo_url, 
@@ -73,6 +75,7 @@ namespace :data do
           i.description = description if description.present?
           i.api_provider = api_provider if api_provider.present?
           i.preferred = preferred if preferred.present?
+          i.swagger_ui_url = swagger_ui_url if swagger_ui_url.present?
           i.raml_url = raml_url if raml_url.present?
           i.raml_id = raml_id if raml_id.present?
           

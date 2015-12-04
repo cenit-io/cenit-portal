@@ -11,7 +11,7 @@
       <% if link == :hub && (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
         <%= link_to "Data Integrator", new_user_registration_path, class: 'button button_hub' %>
       <% end %>
-      <% if link == :odoo || (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
+      <% if link == :odoo && (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
         <%= link_to "ERP & CRM", new_user_registration_path, class: 'button button_erp' %>
       <% end %>
     <% end %>

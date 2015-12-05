@@ -139,22 +139,35 @@ namespace :data do
       primary = false
       secondary_categories.uniq.each do |tag_name|
         primary = true if tag_name == primary_category
+        
+        next if tag_name == 'Applications'
 
         tag_name.gsub!(/(Customer Relationship Management)/i, 'CRM')
         tag_name.gsub!(/(Business Crm)/i, 'CRM')
         tag_name.gsub!(/(File Sharing)/i, 'File Management')
+        tag_name.gsub!(/(Cloud Storage)/i, 'File Management')
         tag_name.gsub!(/(Crm Business)/i, 'CRM')
         tag_name.gsub!(/(Customer Service)/i, 'Help Desk')
         tag_name.gsub!(/(Application Developmen)/i, 'Developer Tools')
-        tag_name.gsub!(/(Developer)/i, 'Developer Tools')
-        tag_name.gsub!(/(Event)/i, 'Event Management')
+        tag_name = 'Event Management' if tag_name == 'Events' || tag_name == 'Event'
+        tag_name = 'Project Management' if tag_name == 'Tasks'
+        tag_name = 'Payment Processing' if tag_name == 'Payments'
+        tag_name = 'Cloud Platform' if tag_name == 'Cloud'
+        tag_name = 'Project Management' if tag_name == 'Project Hosting'
+        tag_name = 'Business' if tag_name == 'Marketing Business'
+        
+        tag_name.gsub!(/(Bookmarking)/i, 'Bookmarks')
+
+        tag_name.gsub!('Toolst', 'Tools')
         tag_name.gsub!(/(Hr)/i, 'Human Resources')
         tag_name.gsub!(/(Mobile Applications)/i, 'Mobile')
-        tag_name.gsub!(/(Payments)/i, 'Payment Processing')
         tag_name.gsub!(/(Lists Tasks)/i, 'Payment Processing')
-        tag_name.gsub!(/(Tasks)/i, 'Project Management')
-        tag_name.gsub!(/(Marketing Business)/i, 'Marketing')
         
+        tag_name.gsub!(/(Marketing Business)/i, 'Marketing')
+        tag_name.gsub!(/(Event Managements)/i, 'Event Management')
+        tag_name.gsub!(/(Project Hosting)/i, 'Project Management')
+        
+       
         
         tag_name = tag_name.parameterize
 

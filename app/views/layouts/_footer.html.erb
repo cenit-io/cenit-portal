@@ -8,7 +8,7 @@
         <li><%= link_to 'Data Integrator', hub_path, :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %></li>
-        <li><%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item', data: { no_turbolink: true } %></li>
+        <li><% link_to 'Pricing', "#{root_path}#pricing", :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Terms of service', '/terms_of_service', :class => 'item', data: { no_turbolink: true } %></li>

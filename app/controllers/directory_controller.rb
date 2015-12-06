@@ -8,12 +8,15 @@ class DirectoryController < ApplicationController
     @name = params[:name]
     @tag = params[:tag]
     @spec = params[:spec]
+    @order = params[:order]
     
     if @spec.present?
       @items = @items.where(:raml_url.ne => nil) if @spec == 'raml'
       @items = @items.where(:swagger_json_url.ne => nil) if @spec == 'swagger'
     end
-    
+
+    @items = @items.order(name: @order) if @order.present?
+
     @items = @items.with_name(@name) if @name.present?
     if (tag_items = Tag.where(name: @tag).try(:first).try(:items)).present?
       @items = @items.where( :id.in => tag_items.map(&:id) ) if @tag.present?

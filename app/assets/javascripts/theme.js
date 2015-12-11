@@ -5,8 +5,8 @@
 // 
 
 $(function () {
-  slideshow.initialize();
-
+  app_slideshow.initialize();
+  home_slideshow.initialize();
   services.initialize();
 
   contactForm.initialize();
@@ -92,9 +92,9 @@ var services = {
   }
 }
 
-var slideshow = {
+var home_slideshow = {
   initialize: function () {
-    var $slideshow = $(".slideshow"),
+    var $slideshow = $("#home #slider .slide-wrapper .slideshow"),
       $slides = $slideshow.find(".slide"),
       $btnPrev = $slideshow.find(".btn-nav.prev"),
       $btnNext = $slideshow.find(".btn-nav.next");
@@ -107,6 +107,58 @@ var slideshow = {
       }
       updateSlides(index);
     }, 4500);
+
+    $btnPrev.click(function () {
+      clearInterval(interval);
+      interval = null;
+      index--;
+      if (index < 0) {
+        index = $slides.length - 1;
+      }
+      updateSlides(index);
+    });
+
+    $btnNext.click(function () {
+      clearInterval(interval);
+      interval = null;
+      index++;
+      if (index >= $slides.length) {
+        index = 0;
+      }
+      updateSlides(index);
+    });
+
+    $slideshow.hover(function () {
+      $btnPrev.addClass("active");
+      $btnNext.addClass("active");
+    }, function () {
+      $btnPrev.removeClass("active");
+      $btnNext.removeClass("active");
+    });
+
+
+    function updateSlides(index) {
+      $slides.removeClass("active");
+      $slides.eq(index).addClass("active");
+    }
+  }
+}
+
+var app_slideshow = {
+  initialize: function () {
+    var $slideshow = $("#apps #slider .slide-wrapper .slideshow"),
+      $slides = $slideshow.find(".slide"),
+      $btnPrev = $slideshow.find(".btn-nav.prev"),
+      $btnNext = $slideshow.find(".btn-nav.next");
+
+    var index = 0;
+    var interval = setInterval(function () {
+      index++;
+      if (index >= $slides.length) {
+        index = 0;
+      }
+      updateSlides(index);
+    }, 2333);
 
     $btnPrev.click(function () {
       clearInterval(interval);

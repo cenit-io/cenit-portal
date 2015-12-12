@@ -14,58 +14,93 @@
       </div>
     </div>
     
-    <div id="apps">
-      <div id="slider">
-        <div class="slide-wrapper">
-          <div class="slideshow">
-            <div class="slide active">
-              <%= image_tag 'screenshots/cenit_shipstation.png', :alt => 'Integration Cenit with Shipstation' %>
+    <div class='col-sm-offset-4'>
+      <br />
+      <table style="width:60%">
+        <tr>
+          <td>
+            <div class="section">
+              <div class="pic">
+                <%= link_to root_path, data: { no_turbolink: true } do %>
+                  <%= image_tag 'logo_cenitsaas_web.png', style: 'height: 60px;' %>
+                <% end %>
+              </div>
             </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_odoo.png', :alt => 'Integration Cenit with Odoo' %>
+          </td>
+          <td><%= image_tag 'arrow.png',  style: 'height: 60px;margin: 20px;' %></td> 
+          <td>
+            <div class="section">
+              <div class="pic"  style='height: 100px;'>
+                <div id="bulb1" class="lightbulb">
+                  <%= image_tag 'integrations/amazon.png', :alt => 'amazon', :class => 'none img-responsive', width: "102", height: "71" %>
+                </div>
+                <div id="bulb2" class="lightbulb">
+                  <%= image_tag 'integrations/desk.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb3"  class="lightbulb">
+                  <%= image_tag 'integrations/bronto.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb4"  class="lightbulb"> 
+                  <%= image_tag 'integrations/quickbooks.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb5"  class="lightbulb">
+                  <%= image_tag 'integrations/netsuite.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb6" class="lightbulb">
+                  <%= image_tag 'integrations/mailchimp.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb7" class="lightbulb">
+                  <%= image_tag 'integrations/shipstation.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb8" class="lightbulb">
+                  <%= image_tag 'integrations/exact_target.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb9" class="lightbulb">
+                  <%= image_tag 'integrations/jirafe.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb10" class="lightbulb">
+                  <%= image_tag 'integrations/ql.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb11" class="lightbulb">
+                  <%= image_tag 'integrations/mandrill.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb12" class="lightbulb">
+                  <%= image_tag 'integrations/sf.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                <div id="bulb13" class="lightbulb">
+                  <%= image_tag 'integrations/ebay.jpg', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+                <div id="bulb14" class="lightbulb">
+                  <%= image_tag 'integrations/aftership.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+                <div id="bulb15" class="lightbulb">
+                  <%= image_tag 'integrations/shipwire.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+                <div id="bulb16" class="lightbulb">
+                  <%= image_tag 'integrations/zendesk.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+                <div id="bulb17" class="lightbulb">
+                  <%= image_tag 'integrations/square.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+                <div id="bulb18" class="lightbulb">
+                  <%= image_tag 'integrations/odoo.png', :class => 'none img-responsive', width: "102", height: "71"  %>
+                </div>
+                
+              </div>
             </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_mailchimp.png', :alt => 'Integration Cenit with Mailchimp' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_shipwire.png', :alt => 'Integration Cenit with Shipwire' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_calendar.png', :alt => 'Integration Cenit with Google Calendar' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_asana.png', :alt => 'Integration Cenit with Asana' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_eventbrite.png', :alt => 'Integration Cenit with Eventbrite' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_mandrill.png', :alt => 'Integration Cenit with Mandrill' %>
-            </div>
-            
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_twilio.png', :alt => 'Integration Cenit with Twilio' %>
-            </div>
-            
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_sugarcrm.png', :alt => 'Integration Cenit with SugarCRM' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_hubspot.png', :alt => 'Integration Cenit with Hubspot' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_tender.png', :alt => 'Integration Cenit with Tender' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_zendesk.png', :alt => 'Integration Cenit with Zendesk' %>
-            </div>
-            <div class="slide">
-              <%= image_tag 'screenshots/cenit_microsoft_dynamics.png', :alt => 'Integration Cenit with Dicrosoft Dynamics CRM' %>
-            </div>
-          </div>
-        </div>
-      </div>
+
+          </td>
+        </tr>
+      </table>
     </div>
+
+
+
 
     <div class="row sections">
       <div class="col-md-2">
@@ -209,4 +244,20 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(function () {
+    get_random_bulb();
+    
+    function get_random_bulb() {
+        var a = (parseInt(Math.random() * 18));
+        $(".lightbulb img.block").removeClass("block").addClass("none");
+        $(".lightbulb:eq(" + a + ") img").removeClass("none").addClass("block");
+    }
+    
+    setInterval(function () {
+        get_random_bulb();
+    }, 1000);
+ });
+</script>
 

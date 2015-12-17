@@ -9,7 +9,7 @@ class DirectoryController < ApplicationController
     @tag = params[:tag]
     @spec = params[:spec]
     @order = params[:order]
-    
+
     if @spec.present?
       @items = @items.where(:raml_url.ne => nil) if @spec == 'raml'
       @items = @items.where(:swagger_json_url.ne => nil) if @spec == 'swagger'

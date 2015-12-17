@@ -23,6 +23,13 @@ a#sign-in-link, a#sign-out-link {
   margin-right: 10px;
 }
 
+.none {
+    display:none;
+}
+.block {
+    display:block;
+}
+
 a#sign-in-link:hover, a#sign-out-link:hover  {
 //  background-color: #ea7400;
   border-color: #ea7400;

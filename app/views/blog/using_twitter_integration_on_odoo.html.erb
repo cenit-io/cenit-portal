@@ -1,0 +1,91 @@
+<% title = "Screencast | Part III: Using Cenit's Twitter Integration on Odoo" %>
+<%= render 'shared/page_header', title: title, home: false %>
+
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="video">
+            <div class="iframe-wrapper">
+              <iframe src="https://www.youtube.com/embed/yGm3bGduNKw" width="778" height="439" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            September 2, 2015
+          </div>
+
+          <div class="content">
+            <p>Hey there! Back for more? Good!</p>
+
+            <p>Welcome to the "Using Cenit's Twitter Integration" screencast.</p>
+
+            <p>This tutorial shows how to post a Tweet whenever you create a new product on your Odoo system. It assumes you have already installed Cenit's Twitter Integration addon correctly.</p>
+
+            <p>Well then, let's get our hands dirty (or our fingertips at least), go to the Cenit Integration tab on your top menu.</p>
+
+            <p>By default it opens on the Schemas view, so go ahead and select the Twitter Tweet.json schema.</p>
+
+            <p>As you can see it has only 2 properties: a tweet id and a status.</p>
+
+            <p>The tweet id is pretty much for Twitter internal mechanisms, so we won't be worrying about it.</p>
+            <p>Now check the status property, it is a simple string, without any restrictions in format.</p>
+
+            <p>Ok then, let's create a DataType to map our Odoo products as tweets.</p>
+
+            <p>Click on Data types and then on the Create button on the top.</p>
+
+            <p>Choose a name for your data type, something like ProductTweet for instance.</p>
+
+            <p>For the model select the "Product Template", which is the one that holds generic information regarding a product.</p>
+
+            <p>Select the Twitter library and then the Tweet.json schema.</p>
+
+            <p>And now to the Mappings! As we only will be mapping one property this will be really fast.
+            Click the "Add an item"</p>
+
+            <p>On the Cenit cell type "status", that is the name of the property in the schema.</p>
+
+            <p>On the Type cell you'll see 4 options, in this case you could use either Field or Default, as the status will not be a relation with other model on Odoo.</p>
+
+            <p>If you choose Field then the value on the Odoo cell must be the name of a field within the "Product Template" model, something like "name".</p>
+
+            <p>This would mean that our automatic tweets would consist solely of the name of the product that triggered the Tweet posting, that's not really cool, so let's do something better.</p>
+
+            <p>Select the Default option on the Type cell.</p>
+
+
+            <p>Now we can use a string template substituting values from the Odoo model.
+            Let's say something like...</p>
+
+
+            <p>Save the Data Type and let's try it. </p>
+
+
+            <p>If you don't have it yet you should install the "Sales Management" addon.
+            Click on the Sales tab in the top menu.</p> 
+
+
+            <p>Go to Products and create a new one.
+            Don't trouble yourself right now with much details, we'll only need the name, so pick up a really cool name and type it into the box.</p>
+
+
+            <p>Save the product and...
+            check your Twitter status.</p>
+            <p>Well, that's all folks!
+            See you around.</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

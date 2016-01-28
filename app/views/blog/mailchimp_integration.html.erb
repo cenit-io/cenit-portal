@@ -1,0 +1,95 @@
+<% title = 'Screencast | Mailchimp Integration on CenitSaaS' %>
+<%= render 'shared/page_header', title: title, home: false %>
+
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="video">
+            <div class="iframe-wrapper">
+              <iframe src="https://www.youtube.com/embed/dp_QOh0F23Y" width="778" height="439" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            September 4, 2015
+          </div>
+
+          <div class="content">
+            <p>Today we present the MailChimp integration available on our platform CenitHub.
+
+            MailChimp is an email marketing service, helps businesses with their marketing newsletters, automated messages, and targeted campaigns.</p>
+
+            <p>In the video we will show how to install the collection MailChimp version 1.0 in our tenant of Cenithub, through the Shared Collection Pull action.</p>
+            
+            <p>Then we show created objects like Connections, Webhooks, Libraries, Schemas, Data types, Events, Flows and Translators, that enables communication through MailChimp API and each with working examples.</p>
+
+            <h3>Building the integration</h3>
+
+            <p>1.To access to the tenant in CenitHub, you should do sign-in <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %></p>
+
+            <p>And then press the button data integrator, which prompted an username and password, remember if you are not registered, you can create a totally free account by Sign Up.</p>
+
+            <p>2. Will usually result in a redirect to <%= link_to 'cenithub.com', 'https://cenithub.com' %>, where we can see in Dashboard components previously installed.  Now, we go to the Shared Collection menu option and list the available integrations. Once it has been found MailChimp-1.0.0, we pull.</p> 
+
+            <p>The parameters required to set up integration are:</p>
+             
+             <ul>
+               <li>user,</li>  
+               <li>API Key and</li> 
+               <li>Service Node, which is obtained from the last character of the API Key.</li>
+            </ul>
+
+            <p>To set up this service must have an active account with its corresponding active API Key in <%= link_to 'mailchimp.com', 'https://mailchimp.com' %>.</p>
+
+            <p>3. When we have successfully completed the Pull. The Dashboard shown in a group of objects that allow us to interact with the service. Schemas and Data Types.</p>
+
+            <p>4. The first step in our integration testing is, initiate the Data Type. Only now we begin some like Folder, Member, Template, List, Campaign. </p>
+
+            <p>5. On the left, you can see the Data Type that we have loaded upon which you can make a group of actions.</p>
+
+            <p>6. If we open the created connection to communicate with Mailchimp, we see that the URL is dynamic and uses the parameters defined in the PULL. For example the node service is used to determine the endpoint that should be used to make calls to the API, also with the user and the API Key we define a basic authorization header.</p>
+
+            <p>7. When the webhook are listed, notice that are dynamic and are generated from restful templates.</p>
+
+            <p>8. The flows support the allowed actions by the service and are associated with events that observe changes in the data. The flow to synchronize data are implemented with triggers time and should be adjusted according to user needs.</p>
+
+            <p>9. The flow can also be triggered by users when they want it through the API or using the admin Cenithub. For example if we execute Folder Collection, then this will synchronize data type according to the information available on Mailchimp.</p> 
+
+            <p>10. Another example is Contact Lists, if you look in Mailchimp we have 3 lists, and once synchronized is done you can see that have been downloaded to CenitHub as shown.</p>
+
+            <p>11. To illustrate the interaction with MailChimp API through CenitHub , we will set the token required to use the CenitHub’s API . We create a new member and associate it with one of the existing lists.</p>
+
+            <p>12. We also have a set of actions that you can perform on the Data Type list, for example to obtain, create, update and delete a collection. If we execute  ‘delete’, we can see that the list is permanently removed from Mailchimp.</p>
+
+            <p>13. We can also update the local data Type and the change is reflected in Mailchimp, because has defined an event that looks at local changes corresponding to an update.</p>
+
+            <p>14. Although in the Shared Collection has a set of flows, events and translators previus defined. The user can define new objects or also update existing as needed. For example, we define a new flow that allows us to create a folder.</p>
+
+            <p>To define a flow:</p>
+             <ul>
+               <li>1. you should identify it with a unique name in the tenant.</li>
+               <li>2. associate with an event that can be of type: observer or scheduler.</li>
+               <li>3. Select a translator to process or generate the message (in this case generate a message with JSON format)</li>
+               <li>4. We selected a webhook</li>
+            </ul>
+
+            <p>And is done. We already have the new flow ready.</p>
+
+            <p>15. Create a new folder using the admin API and then we note that the new folder is created in Mailchimp too. Add to this new folder two files and when we synchronize the folders, notice that the number of file has been updated.</p>
+
+            <p>16. We are currently working on support to file upload through CenitHub. For more information, please contact us by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the address email <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

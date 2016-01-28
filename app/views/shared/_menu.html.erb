@@ -1,22 +1,31 @@
 <nav class="nav-menu">
   <h3>Menu</h3>
-  <%= link_to 'CenitSaaS', "#{root_path}", :class => 'item' %>
+  <%= link_to 'CenitSaaS', "#{root_path}", :class => 'item', data: { no_turbolink: true }  %>
   <% if current_user.present? %>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    <%= link_to 'Profile', status_path(current_user.id), :class => 'item' %>
+    <%= link_to 'Edit account', edit_user_registration_path, :class => 'item', data: { no_turbolink: true } %>
+    <%= link_to 'Profile', status_path(current_user.id), :class => 'item', data: { no_turbolink: true } %>
   <% end %>
 
-  <%= link_to 'Data Integration', hub_path, :class => 'item' %>
-  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item' %>
-  <%= link_to 'App Directory', '/directory', :class => 'item' %>
-  <%= link_to 'Pricing', "#{root_path}#pricing", :class => 'item' %>
-  <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item' %>
+  <%= link_to 'Data Integrator', hub_path, :class => 'item', :class => 'item' %>
+  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item', :class => 'item' %>
+  <%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %>
+  <% link_to 'Pricing', "#{root_path}#pricing", :class => 'item', :class => 'item' %>
+  <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', :class => 'item' %>
+  <%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %>
+  <%= link_to 'Terms of service', '/terms_of_service', :class => 'item', :class => 'item'%>
   <% if current_user && current_user.has_role?(:admin) %>
     <%= link_to 'Applications', 'oauth/applications' %>
     <%= link_to 'Rails Admin', '/data' %>
-<% end  %>
+  <% end %>
   <a data-toggle="modal"  class="item" href="#contact_us" data-backdrop="false">Contact Us</a>
-  <div class="social">
-    <div class="addthis_horizontal_follow_toolbox"></div>
+  <a data-toggle="modal" style='margin-bottom: 0px; pointer-events: none;cursor: default;'; class="item" href="#">Follow Us:</a>
+  <div class="social" style='margin-top: 0px; '>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <div class="g-ytsubscribe" data-channelid="UC7JVcEmA3BkiR2SZ_lx5lyA" data-layout="default" data-count="default"></div><br />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class=" g-follow" data-href="https://plus.google.com/109973562966126644452" data-height="20" data-rel="author"></div><br />
+    <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+    <script type="IN/FollowCompany" data-id="9436778" data-counter="right"></script><br />
   </div>
+
 </nav>

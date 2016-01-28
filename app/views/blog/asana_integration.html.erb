@@ -1,0 +1,89 @@
+<% title = 'Screencast | Asana Integration on CenitSaaS' %>
+<%= render 'shared/page_header', title: title, home: false %>
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="video">
+            <div class="iframe-wrapper">
+              <iframe src="https://www.youtube.com/embed/elm9icrGDPw" width="778" height="439" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            September 15, 2015
+          </div>
+
+          <div class="content">
+            <p>Hello everyone, today we present the Asana integration available on our platform: CenitHub. Asana is a Free Project Management for Teams, designed to enable teamwork without email.</p>
+
+            <p>In the video, we will show how to install the Asana collection in our tenant, through the Shared Collection's pull action.</p>
+
+            <p>Then we show the created objects in the collection, such as Webhooks, Schemas, Data types and Flows. those elements enable the communication through the Asana API.</p> 
+
+             <p> At the end will be include working examples too.</p>
+
+            <h3>Developing:</h3>
+
+            <p>1. To access to the tenant in CenitHub, you should sign in at <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %>, which will prompt you for your username and password. If you are not registered, you can create a free account by Signing Up.</p>
+
+            <p>2. Click the Data Integrator button, this redirect to <%= link_to 'www.cenithub.com', 'https://www.cenithub.com' %>, where we can see in the Dashboard the components already installed. Now, proceed to the Shared Collection menu option and list the available integrations. Find and select the Asana-1.0.0 shared collection, now we pull. Remember that you need your credentials from Asana, which means your username and password.</p>
+
+            <p>3. After successfully pulled, the Dashboard displays a group of objects that allows us to interact with the service, like Webhooks and Connections.</p>
+
+            <p>4. To see the integration schemas installed with Asana, click on on the Schemas Tab, then you’ll see, all the related schemas. For example if we want see the json schema for 'Project'. We need find it and then click on Edit option, now you can see all the attributes and properties of this Asana Project.</p>
+
+            <p>5. You can also load the Data Type related to this Project schema. If everything is ok you’ll see a notification that say “project.json loaded” . At the bottom shows Data Type Asana Project, but at the beginning it don't have instances.</p>
+
+            <p>6. Another important element that we see are the WebHooks, such as: List User, Create Project, Create Task. These will be our examples with Asana API. To create a Project, you’ll see that used method is by Post.</p>
+
+            <p>7. We can see our integration flows.  like List Projects, Create Project, Create Task. You’ll notice that the last one has a Export Translator type.</p>
+
+            <p>8. To build this integration, we make a few translator like Export Model, that allow you export the Cenit Model to Asana API, another was Update Model and Import List.</p>
+
+           <p> Now let us show you some working examples,  to take a better idea to this integration with Asana. Go to <%= link_to 'app.asana.com', 'https://app.asana.com/' %> and set your credentials,  username and password. Remember that if you don’t have an account, you need create it.</p>
+
+            <p>For the first example 'Create  a Task'</p>
+
+            <p>Once inside Asana website, we can see at the left side all the created projects list. You’ll notice Test Integration, well this is our project.</p>
+
+            <p>Now, we must create a Task from CenitHub, then send it to Asana. To make this step, we should import a valid json schema for a Task, here one of the most important thing is locate the workspace and task name.</p> 
+
+            <p>When you select the Basic Json Translator Importer, you notice that appear a new Task in CenitHub. Now you can send this Task to Asana trough Flow -> Create Task. 
+            If we update Asana view and it’ll show the task created with the defined attributes in the json schema.</p>
+
+            <p>For the second example 'Create a Project'</p>
+
+            <p>In this case Cenithub will be a bridge, because we’ll use the HttpRequester tool, to send requests to Cenit and it turn send the processed information to Asana.
+            We installed HttpRequester tool, because is a good plugin in Firefox that allows make easy http requests. </p>
+
+            <p>Then we must put in the header the X-User-Access-Token and X-User-Access-Key, these are in my CenitHub account. Don’t forget the CenitHub url too.</p>
+
+            <p>If you remember in the first example, we have only one project named “Test Integration” </p>
+
+            <p>Now we must create a new json schema related with the new project, that means with different name, and don’t forget the workspace, for this case we use the workspace in Example 1)</p>
+
+            <p>If we update Asana view and it’ll show the project created with the defined attributes in the json schema.</p>
+
+            <p>In our last example 'List of Users’</p>
+            
+            <p>We want that Cenithub list all the users and check this information with Asana, and for that we use the HttpRequester tool.</p> 
+
+            <p>That’s all, I hope that you have found interesting and useful this material.</p> 
+
+            <p>For more information, please contact us by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the address email <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
+            
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,29 @@
         <div class="col-md-9">
 
           <div class="post">
+            <%= link_to cenit_api_collections_for_google_services_blog_index_path, class: "pic" do %>
+                <%= image_tag 'blog/cenit_google_api_collection.png', :alt => 'google apis', class: "img-responsive" %>
+            <% end %>
+
+            <div class="title">
+              <%= link_to 'Cenit API Collections for Google Services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true } %>
+            </div>
+            <div class="author">
+              By Maikel Arcia, Jan 28, 2016
+            </div>
+            <p class="intro">
+              Now there are available on CenitHub over 80 API collections to
+              connect with the Google services that can be used to integrate with
+              any solution. With Cenit you can have full access to an entire API through a
+              single authorization point and customize responses actions to fix
+              your needs. There are over 200 APIs specifications on the API Guru
+              repository we are working on to bring them to Cenit users, so follows
+              us to get updated about that. You can try it for free following instructions in these post.
+            </p>
+            <%= link_to 'Continue reading ...', cenit_api_collections_for_google_services_blog_index_path, class: "continue-reading", data: { no_turbolink: true } %>
+          </div>
+
+          <div class="post">
             <div class="video">
               <div class="iframe-wrapper">
                 <iframe src="https://www.youtube.com/embed/elm9icrGDPw" width="620" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -156,6 +179,7 @@
         <div class="col-md-3 sidebar">
           <div class="best-hits">
             <strong>Articles</strong>
+            <%= link_to 'Cenit API Collections for Google Services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true } %>
             <%= link_to 'Screencast | Asana Integration on CenitSaaS', asana_integration_blog_index_path, data: { no_turbolink: true } %>
             <%= link_to 'Screencast | Mailchimp Integration on CenitSaaS', mailchimp_integration_blog_index_path, data: { no_turbolink: true } %>
             <%= link_to "Screencast | Part III: Using Cenit's Twitter Integration on Odoo", using_twitter_integration_on_odoo_blog_index_path, data: { no_turbolink: true } %>

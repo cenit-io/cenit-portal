@@ -1,0 +1,178 @@
+<% title = 'Cenit API Collections for Google Services' %>
+<%= render 'shared/page_header', title: title, home: false %>
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="main-pic">
+            <%= image_tag 'blog/cenit_google_api_collection.png', :alt => 'commits first year', class: "img-responsive" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            Maikel Arcia, Jan 28, 2016
+          </div>
+
+          <div class="content">
+
+            <p>
+              <a href="https://www.cenitsaas.com/"><font color="#1155cc"><u>Cenit</u></font></a>
+              have been designed to integrate solutions by orchestrating data flows
+              that may involve several APIs, so to be able to connect to an API is
+              one of the basic functionalities that are supported.</p>
+
+            <p>
+              The most of the core concepts of Swagger 2.0 API specification can be
+              associated with a corresponding one on Cenit. Based on these we have
+              build a translator to convert a Swagger 2.0 specification into a
+              Cenit Collection Format and we have use it to translate the Google
+              APIs specifications available at the
+              <font color="#1155cc"><u><a href="http://apis.guru/">API</a><a href="http://apis.guru/">
+              </a><a href="http://apis.guru/">Guru</a><a href="http://apis.guru/">
+              </a><a href="http://apis.guru/">repository</a></u></font>.</p>
+
+
+            <p align="center">
+              <a href="http://apis.guru/" target="#">
+                <%= image_tag 'blog/APIsGuru.png', :alt => 'shared collections', class: "img-responsive" %>
+              </a>
+            </p>
+
+            <p>
+              Now there are available on CenitHub over 80 API collections to
+              connect with the Google services that can be used to integrate with
+              any solution. With Cenit you can have full access to an entire API through a
+              single authorization point and customize responses actions to fix
+              your needs. There are over 200 APIs specifications on the API Guru
+              repository we are working on to bring them to Cenit users, so follows
+              us to get updated about that.</p>
+
+            <p>
+              You can easy try an API by following the next steps for yourself
+              singing up for free in CenitSaaS.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
+              Trying a Cenit API Collection</h1>
+
+            <p>
+              To test an API just go into the CenitHub with your
+              <a href="https://cenitsaas.com/"><font color="#1155cc"><u>CenitSaaS</u></font></a>
+              account and search for the API on the Cenit Shared Collections. If
+              you do not have a <a href="https://cenitsaas.com/"><font color="#1155cc"><u>CenitSaaS</u></font></a>
+              account go anyway and create one, it’s free.</p>
+
+            <p align="center">
+              <%= image_tag 'blog/shared_collections.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Execute the Pull action on the API shared collection you want to use
+              and fill the pull parameters if needed:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/pull_shared_collection.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Once you have successfully pulled the shared collection check for the
+              OAuth2 authorizations and execute the Authorize action:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/oauth2_auth_authorize.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Cenit implements several authorization protocols. Specifically in the
+              case of Oauth 2.0 it will prompt the provider page for the user
+              consent and store the access token on the user account. Cenit is also
+              capable of automatically refresh the access token if they are needed
+              and have been expired.</p>
+
+            <p>
+              Now you have authorized Cenit to access the API, you are ready to
+              taste it. Just go to the Webhook model and select one to try:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/webhook_submit.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              When the Submit action is executed the first step is to choose the
+              connection to be used for the webhook submission. Selecting the
+              default connection and clicking next, then Cenit build a form to let
+              you specify the parameter values that are initially fulfilled with
+              the default ones.</p>
+
+            <p>
+              Cenit is a concurrent system so every action with a time-processing
+              charge is executed asynchronous. So once you have submitted your data
+              just go to the Notification model and check if your submission task
+              is done. The API responses are stored as notification attachments so
+              click them to see the content:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/notification_attachment.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              And that’s all, you successfully connect with an API through Cenit.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
+              Swagger 2.0 Cenit Collection</h1>
+
+            <p>
+              Combining every scheme with the basePath on a Swagger 2.0
+              specification there can be defined the possible URLs the API can
+              accept. Those URLs can be mapped into the Cenit Connection model. The
+              paths specification in the other hand, should be mapped into the
+              Cenit Webhook model.</p>
+
+            <p>
+              Both models, Connection and Webhook supports the specification of
+              parameters, which are of three kinds: headers, parameters and
+              template parameters. Swagger 2.0 API specification characterize every
+              parameter with the location entry 'in', which specify where the
+              parameter should be used: header query or path. While 'header'
+              parameters are semantically the same concept on Swagger 2.0 and
+              Cenit, the 'query' parameters should be mapped to 'parameters' and
+              the 'path' parameters should be mapped to 'template parameters'.</p>
+
+            <p>
+              Swagger 2.0 uses a JSON Schema like specification to describe the
+              structure of the API resources and the format of parameters. Cenit
+              supports the definitions of data types based on JSON schema, so all
+              the definitions of a Swagger 2.0 can be mapped into a Library of Data
+              Types in Cenit.</p>
+
+            <p>
+              Security definitions can be mapped into Cenit Authorizations. In the
+              case of OAuth2 security protocol, the API may define different scopes
+              for each path. Cenit can associate authorizations to connections and
+              webhooks. For convenience, all paths OAuth2 scopes can be factorized
+              and include them in a single OAuth2 Authorization for the entire API.
+              Assigning such authorization to the default API connection all
+              webhooks become automatically authorized.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto"><a name="h.upe549z9qgg5"></a>
+              What’s next</h1>
+
+            <p>
+              Interacting with an API may be a little awkward, for example the
+              Gmail API exchange email data in MIME format and encoded following a
+              base64 protocol. We are working Cenit Collections build on top of the
+              API ones to bring to you a set of intuitive collection to make
+              integrations very much easier, so follow us to get the latest news
+              about Cenit Collections, we will come very soon with more of that.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

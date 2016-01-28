@@ -5,12 +5,15 @@ class BlogController < ApplicationController
   def show
   end
 
+  def cenit_api_collections_for_google_services
+  end
+
   def first_anniversary
   end
 
   def asana_integration
   end
-  
+
   def mailchimp_integration
   end
 

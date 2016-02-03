@@ -1,28 +1,23 @@
-<table>
-  <tr>
-    <td>
-      <%= link_to 'http://www.cenitsaas.com', 'CenitSaaS', :class => 'navbar-brand' %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <p class="lede">
-        Welcome <%= @email %>!
-      </p>
-      <p>
-        We need to confirm your email address.
-      </p>
-      <p>
-        To complete the sign-up process, please click the link below and sign-in with your credentials:
-      </p>
-      <p>
-        <%= link_to 'Confirm account', confirmation_url(@resource, confirmation_token: @token) %>
-      </p>
-      <p>
-        Thank you for sign-up in CenitSaaS!
-      </p>
-    </td>
-    <td class="expander"></td>
-  </tr>
-</table>
+<strong>Greetings <%= @email %>!</strong>
 
+<p>
+  You, or someone pretending to be you, have just signed up for an account on
+  <%= link_to 'CenitSaaS', 'http://www.cenitsaas.com', :class => 'navbar-brand' %>.
+</p>
+<p>
+  If you are not expecting this email simply ignore it and you won't be troubled
+  about it again.
+</p>
+<p>
+  However, if you indeed signed up for an account on our platform, please click the
+  following link to complete the sign-up process:
+</p>
+<p>
+  <%= link_to 'Confirm account', confirmation_url(@resource, confirmation_token: @token) %>
+</p>
+<p>
+  Thank you for choosing us! We are looking forward to here from you.
+</p>
+<p>
+  Best regards from the Cenit Support Team.
+</p>

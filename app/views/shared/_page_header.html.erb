@@ -47,6 +47,19 @@
   </div>
 </div>
 
+<div id='devise_messages' class="container">
+  <%= devise_error_messages! %>
+  <% flash.each do |key, message| %>
+      <%
+          klass = {"notice"=> "info", "success"=> "success", "alert"=> "warning", "error"=> "danger"}[key]
+      %>
+      <div class="alert alert-<%= klass %> col-xs-12 fade in">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong><%= key.capitalize %>!</strong> <%= message %>
+      </div>
+  <% end %>
+</div>
+
 <script>
     $(function () {
 

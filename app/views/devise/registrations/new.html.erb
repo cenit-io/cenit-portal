@@ -7,12 +7,6 @@
       <div class="col-md-12">
         <div class="form-wrapper" >
           <h4>Ready to start? Create your free account now or <%= link_to 'sign in', new_user_session_path %></h4>
-          <div id='devise_sing_up_error_messages'>
-            <%= devise_error_messages! %>
-            <% flash.each do |key, message| %>
-              <div class="notice"><%= message %></div>
-            <% end %>
-          </div>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', class: 'form-inline'}) do |f| %>
             <div class="form-group">
               <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>

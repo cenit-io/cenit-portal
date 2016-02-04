@@ -195,3 +195,20 @@ var app_slideshow = {
     }
   }
 }
+
+$(function(){
+    var current = 'weekly';
+
+    $('#charts').find('.tabs .tab').click(function() {
+        if (!($(this).hasClass('active'))) {
+            $(this).addClass('active');
+            $('#charts').find('.tabs .tab.'+current).removeClass('active');
+            $('#charts').find('.plans').removeClass(current);
+            if (current == 'weekly')
+                current = 'monthly';
+            else
+                current = 'weekly';
+            $('#charts').find('.plans').addClass(current);
+        }
+    });
+});

@@ -30,6 +30,13 @@ a#sign-in-link, a#sign-out-link {
     display:block;
 }
 
+#charts .plans.weekly .hidden-weekly {
+  display: none;
+}
+#charts .plans.monthly .hidden-monthly {
+  display: none;
+}
+
 a#sign-in-link:hover, a#sign-out-link:hover  {
 //  background-color: #ea7400;
   border-color: #ea7400;

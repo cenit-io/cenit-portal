@@ -55,7 +55,10 @@
       %>
       <div class="alert alert-<%= klass %> col-xs-12 fade in">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong><%= key.capitalize %>!</strong> <%= message %>
+        <strong class="col-xs-2 col-sm-1"><%= key.capitalize %>!</strong>
+        <div class="col-xs-9 col-sm-10">
+          <%= message %>
+        </div>
       </div>
   <% end %>
 </div>

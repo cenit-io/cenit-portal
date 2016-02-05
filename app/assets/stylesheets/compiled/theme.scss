@@ -30,6 +30,13 @@ a#sign-in-link, a#sign-out-link {
     display:block;
 }
 
+#charts .plans.weekly .hidden-weekly {
+  display: none;
+}
+#charts .plans.monthly .hidden-monthly {
+  display: none;
+}
+
 a#sign-in-link:hover, a#sign-out-link:hover  {
 //  background-color: #ea7400;
   border-color: #ea7400;
@@ -2395,7 +2402,8 @@ a:focus, button:focus {
         -moz-transition: all 0.3s linear;
         -ms-transition: all 0.3s linear;
         -o-transition: all 0.3s linear;
-        transition: all 0.3s linear; }
+        transition: all 0.3s linear;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px, inset rgba(255, 255, 255, 0.88) 0px 1px 3px -1px, rgba(0, 0, 0, 0.3) 0 1px 2px, #69b1f3 0 1px 30px;}
         @media (max-width: 767px) {
           #home3 #hero .cta a.button {
             font-size: 16px; } }
@@ -2405,7 +2413,9 @@ a:focus, button:focus {
             margin: 0 auto;
             margin-bottom: 25px; } }
         #home3 #hero .cta a.button:hover {
-          box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px, inset rgba(255, 255, 255, 0.88) 0px 1px 3px -1px, rgba(0, 0, 0, 0.3) 0 1px 2px, #69b1f3 0 1px 30px; }
+          box-shadow: none;
+          font-weight: bold;
+        }
       #home3 #hero .cta a.demo {
         color: #fff;
         -webkit-font-smoothing: antialiased;

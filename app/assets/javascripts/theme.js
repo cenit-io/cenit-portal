@@ -212,3 +212,86 @@ $(function(){
         }
     });
 });
+
+$(function() {
+    var logged_in = $("#sign-in-link").length == 0;
+
+    if (!logged_in)
+        var tour = new Tour({
+            name: 'anonymous',
+            steps: [
+                {
+                    title: "Welcome to Cenit",
+                    content: "Thanks for visiting us! Click 'Next' to start the tour.",
+                    orphan: true
+                },
+                {
+                    element: "#cover-image .button_hub",
+                    title: "Data Integrator",
+                    content: "Connect with hundreds of online systems with ease.",
+                    placement: "left"
+                },
+                {
+                    element: "#cover-image .button_erp",
+                    title: "ERP & CRM",
+                    content: "Manage your hole business without spending on infrastructure."
+                },
+                {
+                    element: "#grid-first form #name",
+                    title: "Over 900 apps",
+                    content: "Checkout our plethora of third-party apps you can integrate in your system.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#sign-in-link",
+                    title: "Start now",
+                    content: "Register a new account for free!",
+                    placement: "bottom"
+                }
+            ]});
+    else
+        var tour = new Tour({
+            name: 'registered',
+            steps: [
+                {
+                    title: "Thank you for choosing Cenit!",
+                    content: "This short tour will show you our main features, feel free to contact us anyway! Click 'Next' to begin the tour.",
+                    orphan: true
+                },
+                {
+                    element: "#cover-image .button_hub",
+                    title: "Data Integrator",
+                    content: "Go to your very own Hub tenant, and start integrating with third-party online systems.",
+                    placement: "left"
+                },
+                {
+                    element: "#cover-image .button_erp",
+                    title: "ERP & CRM",
+                    content: "Create a new Odoo tenant with many addons available, including integration addons via yur Hub."
+                },
+                {
+                    element: "#devise_messages",
+                    title: "Notifications",
+                    content: "Don't forget to check this area for notifications.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#pricing",
+                    title: "Multiple choices",
+                    content: "The free plan doesn't cut it for you? Check out our Variable and Enterprise features!.",
+                    placement: "top"
+                },
+                {
+                    element: "#charts",
+                    title: "Development services",
+                    content: "If you are targeting an app we currently don't support let us know so we can make it happen for you.",
+                    placement: "top"
+                }
+            ]});
+
+// Initialize the tour
+    tour.init();
+
+// Start the tour
+    tour.start();
+});

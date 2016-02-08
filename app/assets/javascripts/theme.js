@@ -223,8 +223,7 @@ $(function() {
                 {
                     title: "Welcome to Cenit",
                     content: "Thanks for visiting us! Click 'Next' to start the tour.",
-                    orphan: true,
-                    backdrop: true
+                    orphan: true
                 },
                 {
                     element: "#cover-image .button_hub",
@@ -257,8 +256,7 @@ $(function() {
                 {
                     title: "Thank you for choosing Cenit!",
                     content: "This short tour will show you our main features, feel free to contact us anyway! Click 'Next' to begin the tour.",
-                    orphan: true,
-                    backdrop: true
+                    orphan: true
                 },
                 {
                     element: "#cover-image .button_hub",
@@ -292,10 +290,8 @@ $(function() {
             ]});
 
 // Initialize the tour
-    console.log("Initializing tour");
-    tour.init(true);
+    tour.init();
 
 // Start the tour
-    console.log("Starting tour");
-    tour.start(true);
+    tour.start();
 });

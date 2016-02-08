@@ -16,6 +16,7 @@
 //= require autocomplete-rails
 //= require turbolinks
 //= require bootstrap/bootstrap.min
+//= require bootstrap/bootstrap-tour.min
 //= require theme
 //= require registrations
 //= require jquery.validate.min

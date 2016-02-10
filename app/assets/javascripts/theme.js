@@ -223,7 +223,8 @@ $(function() {
                 {
                     title: "Welcome to Cenit",
                     content: "Thanks for visiting us! Click 'Next' to start the tour.",
-                    orphan: true
+                    element: "#home",
+                    placement: "top"
                 },
                 {
                     element: "#cover-image .button_hub",
@@ -256,7 +257,8 @@ $(function() {
                 {
                     title: "Thank you for choosing Cenit!",
                     content: "This short tour will show you our main features, feel free to contact us anyway! Click 'Next' to begin the tour.",
-                    orphan: true
+                    element: "#home",
+                    placement: "top"
                 },
                 {
                     element: "#cover-image .button_hub",

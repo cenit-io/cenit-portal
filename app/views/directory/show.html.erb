@@ -47,7 +47,7 @@
           <div class= 'col-sm-9'>
             <br />
             <table>
-              <% if @item.raml_id.present? %>
+              <% if @item.raml_id.present? && false %>
               <tr>
                 <td> <%= link_to 'RAML Console supplied by', "http://console.cenithub.com/?id=#{@item.raml_id}" %></td>
                 <td>&nbsp;&nbsp;
@@ -88,7 +88,7 @@
               </tr>
               <% if @item.swagger_ui_url.present? %>
               <tr>
-                <td> <%= link_to 'Swagger UI supplied by', @item.swagger_ui_url %></td>
+                <td> <%= link_to 'API Console supplied by', @item.swagger_ui_url %></td>
                 <td>&nbsp;&nbsp;
                   <%= link_to @item.swagger_ui_url do %>
                     <%= image_tag 'logos/any_api.png', style: 'height: 30px;' %>

@@ -1,4 +1,4 @@
-<% title = 'Gmail Cenit Collection, the easy way to connect with the Gmail API' %>
+<% title = 'The easy way to connect with the Gmail API' %>
 <%= render 'shared/page_header', title: title, home: false %>
 <div id="blogpost">
   <div id="blogpost-wrapper">
@@ -23,56 +23,119 @@
           <div class="content">
 
             <p>
-              We have recently bring to you <%= link_to 'the set of API collections to connect with the Google services', gmail_cenit_collection_blog_index_path, data: { no_turbolink: true } %>,
-              which solve for you the problem of access to an entire API through a single authorization point with an offline
-              and background running logic for the automatic management of the OAuth 2.0 protocol implementation provided by Google.
-              Never the less, interacting with an API may be a little awkward, to use the Gmail API for example, you have to format emails
-              following the MIME standard, and then you have to encode them in base64, and then you have to conforms a JSON document following
-              a Gmail API schema. </p>
+              We have recently
+              bring <%= link_to 'the set of API collections to connect with the Google services', gmail_cenit_collection_blog_index_path, data: { no_turbolink: true } %>
+              ,
+              to let you access an entire API through a single authorization point, with an offline
+              and background running logic for the automatic management of the OAuth 2.0 protocol implementation
+              provided by Google.
+              Never the less, interacting with an API may be a little awkward, to use the Gmail API for example, you
+              have to format emails following the MIME standard, and then you have to encode them in base64,
+              and then you have to conforms a JSON document following a Gmail API schema. </p>
 
             <p>
-              Hopefully you do not have to run the awkward way anymore, because it is now available the Gmail Cenit Collection, a wrapper
-              that let you send emails as easy as it can be. Try it now by following the next steps by yourself, signing up for free
-              in CenitSaaS.</p>
+              Hopefully you do not have to run the awkward way anymore, because it is now available the Gmail Cenit
+              Collection, a wrapper that let you send emails as easy as it can be.
+              Try it now by following the next steps by yourself, signing up for free in CenitSaaS.</p>
 
             <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
-              Trying the Gmail Collection</h1>
+              Trying the Gmail Collection
+            </h1>
 
             <p>
-              First of all go into CenitHub with your <a href="https://cenitsaas.com/"><font color="#1155cc"><u>CenitSaaS</u></font></a>
-              account and search for Gmail Collection in the Cenit Shared Collections. If you do not have an CenitSaaS account go on anyway
-              and create one, it’s free.</p>
+              First of all got to the
+              <%=
+                  link_to "Gmail Shared Collection",
+                          cenithub_url(redirect_path: '/data/setup~shared_collection/gmail/pull',
+                                       flash_message: "Click 'Pull' to try these collection"),
+                          target: '#'
+              %> and pull it with your CenitSaaS account. If you do not have an CenitSaaS account go on anyway and
+              create one,
+              it’s free.</p>
 
             <p align="center">
-              <%= image_tag 'blog/shared_collections.png', :alt => 'shared collections', class: "img-responsive" %>
+              <%= image_tag 'blog/pull_gmail.png', :alt => 'pull gmail collection', class: "img-responsive" %>
             </p>
 
             <p>
-              Execute the Pull action on the API shared collection you want to use
-              and fill the pull parameters if needed:</p>
+              Once you have successfully execute the pull action you are redirected to your
+              <%=
+                  link_to "Gmail Collection",
+                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
+                                       flash_message: "Your Gmail Collection"),
+                          target: '#'
+              %></p>
 
             <p align="center">
-              <%= image_tag 'blog/pull_shared_collection.png', :alt => 'shared collections', class: "img-responsive" %>
+              <%= image_tag 'blog/gmail_pulled.png', :alt => 'gmail collections pulled', class: "img-responsive" %>
             </p>
 
             <p>
-              Once you have successfully pulled the shared collection check for the
-              OAuth2 authorizations and execute the Authorize action:</p>
+              Now you should follow the steps on the 'Quick Start' section of the collection readme.
+              Two simple steps, and you will sent an email with your Google account through CenitHub,
+              just click the links to get them done
+            </p>
 
             <p align="center">
-              <%= image_tag 'blog/oauth2_auth_authorize.png', :alt => 'shared collections', class: "img-responsive" %>
+              <%= image_tag 'blog/gmai_quickstart.png', :alt => 'gmail quick start', class: "img-responsive" %>
+            </p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
+              The easy way
+            </h1>
+
+            <p>
+              If you continue reading your
+              <%=
+                  link_to "Gmail Collection",
+                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
+                                       flash_message: "Your Gmail Collection"),
+                          target: '#'
+              %>
+              readme you will get instructions to use the CenitHub API. Now you can send emails in a simple
+              JSON format like these
+            </p>
+
+            <pre>
+            <%=
+                json_email =
+                    '
+{
+  "to": "support@cenit.io",
+  "subject": "Hello",
+  "body": "Just to say hello!",
+  "attachments": [
+    {
+      "filename": "file.txt",
+      "data": "Sent through CenitHub API"
+    }
+  ]
+}'
+                content_tag :code, json_email
+            %>
+            </pre>
+
+            <p>
+              Just copy the CURL command from the readme and run it in your console. The email in JSON format is sent
+              to the CenitHub API and then Cenit do all the awkward work for you. You can send emails in any format
+              supported by the CenitHub API, XML for example. Multiple attachments and binary data are also supported,
+              just continue reading your collection readme to see more examples.
             </p>
 
             <p>
-              Cenit implements several authorization protocols. Specifically in the
-              case of Oauth 2.0 it will prompt the provider page for the user
-              consent and store the access token on the user account. Cenit is also
-              capable of automatically refresh the access tokens if they are needed
-              and have expired.</p>
+              Because CenitHub automatically manage your OAuth 2.0 access and refresh tokens, you don not have to worry
+              in the future to get authorized again, just continue sending emails in a simple format through the
+              CenitHub API,
+              until you explicitly revoke your authorization with your CenitSaaS account or in your Google Acount
+              configuration.
+            </p>
 
             <p>
-              Now you have authorized Cenit to access the API, you are ready to
-              try it. Just go to the Webhook model and select one to try:</p>
+              If you find an easier way to use the Gmail API please let us know, surely we can make a wrapper for that
+              and then a very much easier way will be available for the community.
+            </p>
+
+
 
             <p align="center">
               <%= image_tag 'blog/webhook_submit.png', :alt => 'shared collections', class: "img-responsive" %>
@@ -131,7 +194,7 @@
               case of OAuth2 security protocol, the API may define different scopes
               for each path. Cenit can associate authorizations to connections and
               webhooks. For convenience, all paths OAuth2 scopes can be factorized
-              and included  in a single OAuth2 Authorization for the entire API.
+              and included in a single OAuth2 Authorization for the entire API.
               By assigning such authorization to the default API connection all
               webhooks become automatically authorized.</p>
 
@@ -142,12 +205,14 @@
               Interacting with an API may be a little awkward. For example, the
               Gmail API exchanges email data in MIME format, encoded following a
               base64 protocol. We are working on Cenit Collections built on top of the
-              API ones to bring  you a set of intuitive collection to make
+              API ones to bring you a set of intuitive collection to make
               integrations very much easier, so follow us to get the latest news
               about Cenit Collections, we will come very soon with more of that.
             </p>
 
-            <p>For more information, please contact us by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the email address <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
+            <p>For more information, please contact us
+              by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the email
+              address <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
           </div>
         </div>
       </div>

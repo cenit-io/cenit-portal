@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
    def devise_mapping
      @devise_mapping ||= Devise.mappings[:user]
    end
+
+  before_action do
+    session["#{resource_name}_return_to"] = (resource_data = params[resource_name]) && resource_data[:return_to]
+  end
    
   rescue_from CanCan::AccessDenied do |exception|
      redirect_to main_app.root_path, :alert => exception.message

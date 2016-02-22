@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-wrapper" >
-          <h4>Ready to start? Create your free account now or <%= link_to 'sign in', new_user_session_path %></h4>
+          <h4>Ready to start? Create your free account now or <%= link_to 'sign in', new_user_session_path(params) %></h4>
           <div id='devise_sing_up_error_messages'>
             <%= devise_error_messages! %>
             <% flash.each do |key, message| %>
@@ -23,6 +23,11 @@
             <div class="form-group">
               <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation' %>
             </div>
+              <%=
+                  if (return_to = params[:return_to])
+                    f.hidden_field :return_to, value: return_to
+                  end
+              %>
             <%= f.submit 'Sign up', :class => 'button button-small' %>
           <% end %>
         </div>

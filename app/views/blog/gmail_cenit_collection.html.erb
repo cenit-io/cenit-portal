@@ -1,0 +1,156 @@
+<% title = 'Gmail Cenit Collection, the easy way to connect with the Gmail API' %>
+<%= render 'shared/page_header', title: title, home: false %>
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="main-pic">
+            <%= image_tag 'blog/cenit_google_api_collection.png', :alt => 'commits first year', class: "img-responsive" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            <%= image_tag 'team/maikel.jpg', :alt => 'author', class: "avatar" %>
+            Maikel Arcia, Feb 12, 2016
+          </div>
+
+          <div class="content">
+
+            <p>
+              We have recently bring to you <%= link_to 'the set of API collections to connect with the Google services', gmail_cenit_collection_blog_index_path, data: { no_turbolink: true } %>,
+              which solve for you the problem of access to an entire API through a single authorization point with an offline
+              and background running logic for the automatic management of the OAuth 2.0 protocol implementation provided by Google.
+              Never the less, interacting with an API may be a little awkward, to use the Gmail API for example, you have to format emails
+              following the MIME standard, and then you have to encode them in base64, and then you have to conforms a JSON document following
+              a Gmail API schema. </p>
+
+            <p>
+              Hopefully you do not have to run the awkward way anymore, because it is now available the Gmail Cenit Collection, a wrapper
+              that let you send emails as easy as it can be. Try it now by following the next steps by yourself, signing up for free
+              in CenitSaaS.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
+              Trying the Gmail Collection</h1>
+
+            <p>
+              First of all go into CenitHub with your <a href="https://cenitsaas.com/"><font color="#1155cc"><u>CenitSaaS</u></font></a>
+              account and search for Gmail Collection in the Cenit Shared Collections. If you do not have an CenitSaaS account go on anyway
+              and create one, it’s free.</p>
+
+            <p align="center">
+              <%= image_tag 'blog/shared_collections.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Execute the Pull action on the API shared collection you want to use
+              and fill the pull parameters if needed:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/pull_shared_collection.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Once you have successfully pulled the shared collection check for the
+              OAuth2 authorizations and execute the Authorize action:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/oauth2_auth_authorize.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              Cenit implements several authorization protocols. Specifically in the
+              case of Oauth 2.0 it will prompt the provider page for the user
+              consent and store the access token on the user account. Cenit is also
+              capable of automatically refresh the access tokens if they are needed
+              and have expired.</p>
+
+            <p>
+              Now you have authorized Cenit to access the API, you are ready to
+              try it. Just go to the Webhook model and select one to try:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/webhook_submit.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              When the Submit action is executed the first step is to choose the
+              connection to be used for the webhook submission. First you have to select the
+              default connection and click next, then Cenit builds a form to let
+              you specify the parameter values that are initially fulfilled with
+              the default ones.</p>
+
+            <p>
+              Cenit is a concurrent system so every action with a time-processing
+              charge is executed asynchronous. So once you have submitted your data
+              just go to the Notification model and check if your submission task
+              is done. The API responses are stored as notification attachments so
+              click them to see the content:</p>
+
+            <p align="center">
+              <%= image_tag 'blog/notification_attachment.png', :alt => 'shared collections', class: "img-responsive" %>
+            </p>
+
+            <p>
+              And that’s all, you have successfully connected with an API through Cenit.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
+              Swagger 2.0 Cenit Collection</h1>
+
+            <p>
+              By combining every scheme with the basePath on a Swagger 2.0
+              specification, the possible URLs that API can
+              accept can be defined. Those URLs can be mapped into the Cenit Connection model. The
+              paths specification ,on the other hand, should be mapped into the
+              Cenit Webhook model.</p>
+
+            <p>
+              Both models, Connection and Webhook support the specification of
+              parameters, which are of three kinds: headers, parameters and
+              template parameters. Swagger 2.0 API specification characterize every
+              parameter with the location entry 'in', which specify where the
+              parameter should be used: header query or path. While 'header'
+              parameters are semantically the same concept on Swagger 2.0 and
+              Cenit, the 'query' parameters should be mapped to 'parameters' and
+              the 'path' parameters should be mapped to 'template parameters'.</p>
+
+            <p>
+              Swagger 2.0 uses a JSON Schema like specification to describe the
+              structure of the API resources and the format of parameters. Cenit
+              supports the definitions of data types based on JSON schema, so all
+              the definitions of a Swagger 2.0 can be mapped into a Library of Data
+              Types.</p>
+
+            <p>
+              Security definitions can be mapped into Cenit Authorizations. In the
+              case of OAuth2 security protocol, the API may define different scopes
+              for each path. Cenit can associate authorizations to connections and
+              webhooks. For convenience, all paths OAuth2 scopes can be factorized
+              and included  in a single OAuth2 Authorization for the entire API.
+              By assigning such authorization to the default API connection all
+              webhooks become automatically authorized.</p>
+
+            <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto"><a name="h.upe549z9qgg5"></a>
+              What’s next</h1>
+
+            <p>
+              Interacting with an API may be a little awkward. For example, the
+              Gmail API exchanges email data in MIME format, encoded following a
+              base64 protocol. We are working on Cenit Collections built on top of the
+              API ones to bring  you a set of intuitive collection to make
+              integrations very much easier, so follow us to get the latest news
+              about Cenit Collections, we will come very soon with more of that.
+            </p>
+
+            <p>For more information, please contact us by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the email address <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

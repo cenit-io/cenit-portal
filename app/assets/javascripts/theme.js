@@ -5,8 +5,8 @@
 // 
 
 $(function () {
-  slideshow.initialize();
-
+  app_slideshow.initialize();
+  home_slideshow.initialize();
   services.initialize();
 
   contactForm.initialize();
@@ -92,9 +92,9 @@ var services = {
   }
 }
 
-var slideshow = {
+var home_slideshow = {
   initialize: function () {
-    var $slideshow = $(".slideshow"),
+    var $slideshow = $("#home #slider .slide-wrapper .slideshow"),
       $slides = $slideshow.find(".slide"),
       $btnPrev = $slideshow.find(".btn-nav.prev"),
       $btnNext = $slideshow.find(".btn-nav.next");
@@ -143,3 +143,157 @@ var slideshow = {
     }
   }
 }
+
+var app_slideshow = {
+  initialize: function () {
+    var $slideshow = $("#apps #slider .slide-wrapper .slideshow"),
+      $slides = $slideshow.find(".slide"),
+      $btnPrev = $slideshow.find(".btn-nav.prev"),
+      $btnNext = $slideshow.find(".btn-nav.next");
+
+    var index = 0;
+    var interval = setInterval(function () {
+      index++;
+      if (index >= $slides.length) {
+        index = 0;
+      }
+      updateSlides(index);
+    }, 2333);
+
+    $btnPrev.click(function () {
+      clearInterval(interval);
+      interval = null;
+      index--;
+      if (index < 0) {
+        index = $slides.length - 1;
+      }
+      updateSlides(index);
+    });
+
+    $btnNext.click(function () {
+      clearInterval(interval);
+      interval = null;
+      index++;
+      if (index >= $slides.length) {
+        index = 0;
+      }
+      updateSlides(index);
+    });
+
+    $slideshow.hover(function () {
+      $btnPrev.addClass("active");
+      $btnNext.addClass("active");
+    }, function () {
+      $btnPrev.removeClass("active");
+      $btnNext.removeClass("active");
+    });
+
+
+    function updateSlides(index) {
+      $slides.removeClass("active");
+      $slides.eq(index).addClass("active");
+    }
+  }
+}
+
+$(function(){
+    var current = 'weekly';
+
+    $('#charts').find('.tabs .tab').click(function() {
+        if (!($(this).hasClass('active'))) {
+            $(this).addClass('active');
+            $('#charts').find('.tabs .tab.'+current).removeClass('active');
+            $('#charts').find('.plans').removeClass(current);
+            if (current == 'weekly')
+                current = 'monthly';
+            else
+                current = 'weekly';
+            $('#charts').find('.plans').addClass(current);
+        }
+    });
+});
+
+$(function() {
+    var logged_in = $("#sign-in-link").length == 0;
+
+    if (!logged_in)
+        var tour = new Tour({
+            name: 'anonymous',
+            steps: [
+                {
+                    title: "Welcome to Cenit",
+                    content: "Thanks for visiting us! Click 'Next' to start the tour.",
+                    element: "#home",
+                    placement: "top"
+                },
+                {
+                    element: "#cover-image .button_hub",
+                    title: "Data Integrator",
+                    content: "Connect with hundreds of online systems with ease.",
+                    placement: "left"
+                },
+                {
+                    element: "#cover-image .button_erp",
+                    title: "ERP & CRM",
+                    content: "Manage your hole business without spending on infrastructure."
+                },
+                {
+                    element: "#grid-first form #name",
+                    title: "Over 900 apps",
+                    content: "Checkout our plethora of third-party apps you can integrate in your system.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#sign-in-link",
+                    title: "Start now",
+                    content: "Register a new account for free!",
+                    placement: "bottom"
+                }
+            ]});
+    else
+        var tour = new Tour({
+            name: 'registered',
+            steps: [
+                {
+                    title: "Thank you for choosing Cenit!",
+                    content: "This short tour will show you our main features, feel free to contact us anyway! Click 'Next' to begin the tour.",
+                    element: "#home",
+                    placement: "top"
+                },
+                {
+                    element: "#cover-image .button_hub",
+                    title: "Data Integrator",
+                    content: "Go to your very own Hub tenant, and start integrating with third-party online systems.",
+                    placement: "left"
+                },
+                {
+                    element: "#cover-image .button_erp",
+                    title: "ERP & CRM",
+                    content: "Create a new Odoo tenant with many addons available, including integration addons via yur Hub."
+                },
+                {
+                    element: "#devise_messages",
+                    title: "Notifications",
+                    content: "Don't forget to check this area for notifications.",
+                    placement: "bottom"
+                },
+                {
+                    element: "#pricing",
+                    title: "Multiple choices",
+                    content: "The free plan doesn't cut it for you? Check out our Variable and Enterprise features!.",
+                    placement: "top"
+                },
+                {
+                    element: "#charts",
+                    title: "Development services",
+                    content: "If you are targeting an app we currently don't support let us know so we can make it happen for you.",
+                    placement: "top"
+                }
+            ]});
+
+// Initialize the tour
+    tour.init();
+
+// Start the tour
+    tour.start();
+});

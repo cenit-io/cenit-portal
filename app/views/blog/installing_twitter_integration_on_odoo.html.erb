@@ -1,0 +1,78 @@
+<% title = "Part II: Installing Cenit's Twitter Integration on Odoo" %>
+<%= render 'shared/page_header', title: title, home: false %>
+
+<div id="blogpost">
+  <div id="blogpost-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 post">
+          <div class="video">
+            <div class="iframe-wrapper">
+              <iframe src="https://www.youtube.com/embed/Fi6reIqO-E0" width="778" height="439" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-10 post">
+          <div class="title">
+            <%= title %>
+          </div>
+          <div class="author">
+            September 2, 2015
+          </div>
+
+          <div class="content">
+            <p>Hi again! We're back, this time introducing the "Installing Cenit's Twitter Integration" screencast.</p>
+            
+            <p>This tutorial assumes you have already installed the Cenit Integrations Client (that one has a screencast of its own); if not, don't worry, it will be installed for you (you should check its screencast though).</p>
+
+            <p>Ok, back to business: go to Settings.</p>
+
+            <p>Remove the "Apps" filter from the search box, type "cenit" and press Enter.</p>
+
+            <p>The number of Available integrations you see depends on how many you have available on your Odoo system.</p>
+
+            <p>Select the "Twitter Integration" addon (it has the Twitter logo on it).</p>
+
+            <p>On the description check out the "Setting up" section, its almost as good as this screencast.</p>
+            <p>As it says: create a Twitter account if you don't have one and proceed to https://apps.twitter.com.</p>
+
+            <p>If you have an application already registered you want to use its fine, click on its name.
+            If not, click the Create New App button and register a new app. We called ours OdooTwitter, you can use whatever name you like best.</p>
+
+            <p>Once the App is ready and selected go to the Permissions tab and make sure you grant all permissions.</p>
+
+            <p>Then select the Keys and Access Token tab and generate both the Consumer Key and Secret as well as the Access Token and Token Secret if they are not available already.</p>
+
+            <p>Leave those there for a minute, lets go back to Odoo and actually install the Twitter Integration.</p>
+            
+            <p>Click the Install button.</p>
+
+            <p>The installation process might take a moment, depending on your Internet connection speed.
+            Hey, look at that form, it's asking for my Twitter credentials: copy and paste as needed and, make sure, in the right order.</p>
+
+            <p>Click the Apply button and thats it!</p>
+
+            <p>Let's see what we got from this addon.</p>
+
+            <p>For starters, we have a new Library containing several schemas representing Twitter's data.</p>
+            <p>Also a Connection role including Twitter's Connection and some Webhooks to perform different actions.</p>
+
+            <p>A few Events…</p>
+
+            <p>and Translators to manipulate the data in a way that Twitter understands.</p>
+
+            <p>Finally, and most importantly, the pre-defined Flows to post tweets, retweet status and send direct messages.</p>
+            <p>This screencast ends here, but check the next one to learn how to post tweets automatically under specific conditions.</p>
+
+            <p>See you around.</p>
+            
+            <%= render 'footer' %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

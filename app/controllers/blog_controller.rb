@@ -5,6 +5,10 @@ class BlogController < ApplicationController
   def show
   end
 
+  def gmail_cenit_collection
+
+  end
+
   def cenit_api_collections_for_google_services
   end
 

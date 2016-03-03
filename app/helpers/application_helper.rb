@@ -29,7 +29,7 @@ module ApplicationHelper
     if user_signed_in?
       url
     else
-      new_user_registration_path(return_to: url)
+      new_user_session_path(return_to: url)
     end
   end
 

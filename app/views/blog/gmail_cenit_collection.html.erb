@@ -24,9 +24,9 @@
 
             <p>
               We have recently brought the set of
-              <%= link_to 'API collections to connect with the Google services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true } %>
-              ,
-              to let you access an entire API through a single authorization point, with an offline
+              <%=
+                  link_to 'API collections to connect with the Google services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true }
+              %>, to let you access an entire API through a single authorization point, with an offline
               and background running logic for the automatic management of the OAuth 2.0 protocol implementation
               provided by Google.
               Nevertheless, interacting with an API may be a little awkward. To use the Gmail API, for example, you
@@ -108,10 +108,25 @@
             </pre>
 
             <p>
-              Just copy the CURL command from the readme and run it in your console. The email in JSON format is sent
-              to the CenitHub API and then Cenit does all the awkward work for you. You can send emails in any format
-              supported by the CenitHub API, XML for example. Multiple attachments and binary data are also supported,
-              just continue reading your collection readme to see more examples.
+              You can try it with a CURL command
+            </p>
+
+            <pre>
+<code class="hljs stata">curl -<span class="hljs-keyword">H</span>
+  <span class="hljs-string">"Content-Type: application/json"</span>\
+  -<span class="hljs-keyword">H</span> <span class="hljs-string">"X-User-Access-Key: XXXXXXX"</span>\
+  -<span class="hljs-keyword">H</span> <span class="hljs-string">"X-User-Access-Token: XXXXXXXXXXXXXXXX"</span>\
+  -X <span class="hljs-keyword">POST</span> -<span class="hljs-keyword">d</span> '{<span class="hljs-string">"to"</span>:<span class="hljs-string">"support@cenit.io"</span>,<span class="hljs-string">"subject"</span>:<span class="hljs-string">"Hello"</span>,<span class="hljs-string">"body"</span>:<span class="hljs-string">"Just to say hello!"</span>,<span class="hljs-string">"attachments"</span>:[{<span class="hljs-string">"filename"</span>:<span class="hljs-string">"file.txt"</span>,<span class="hljs-string">"data"</span>:<span class="hljs-string">"Sent through CenitHub API"</span>}]}'\
+  https:<span class="hljs-comment">//www.cenithub.com/api/v1/mime/message</span>
+</code>
+            </pre>
+
+            <p>
+              Just copy the CURL command from the readme (it already contains proper access headers) and run it in your
+              console. The email in JSON format is sent to the CenitHub API and then Cenit does all the awkward work for
+              you. You can send emails in any format supported by the CenitHub API, XML for example. Multiple
+              attachments and binary data are also supported, just continue reading your collection readme to see more
+              examples.
             </p>
 
             <p>
@@ -435,11 +450,13 @@
               %> that is available and try another easy way to connect with an API. Just pull a collection and play
               with it. Have not found the collection you are interesting in? Let us know.
             </p>
-            </p>
 
             <p>For more information, please contact us
               by <%= link_to 'www.cenitsaas.com', 'https://www.cenitsaas.com' %> or send us a message to the email
-              address <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a></p>
+              address <a href="mailto:support@cenit.io" target="_top">support@cenit.io</a>
+            </p>
+
+            <%= render 'footer' %>
           </div>
         </div>
       </div>

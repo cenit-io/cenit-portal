@@ -6,7 +6,32 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-9">
-          
+
+          <div class="post">
+            <%= link_to gmail_cenit_collection_blog_index_path, class: "pic" do %>
+                <%= image_tag 'blog/gmail_cenit_collection.png', :alt => 'gmail google apis', class: "img-responsive" %>
+            <% end %>
+
+            <div class="title">
+              <%= link_to 'The easy way to connect with the Gmail API', gmail_cenit_collection_blog_index_path, data: { no_turbolink: true } %>
+            </div>
+            <div class="author">
+              <%= image_tag 'team/maikel.jpg', :alt => 'author', class: "avatar" %>
+              By Maikel Arcia, Mar 3, 2016
+            </div>
+            <p>
+              We have recently brought the set of
+              <%=
+                  link_to 'API collections to connect with the Google services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true }
+              %>, to let you access an entire API through a single authorization point, with an offline
+              and background running logic for the automatic management of the OAuth 2.0 protocol implementation
+              provided by Google. Now the Gmail Cenit Collection is available, a wrapper that let you send emails as easy as it can be,
+              so you do not have to run the awkward way of interacting with the API anymore.
+              Try it now by following the next steps by yourself, signing up for free in CenitSaaS.
+            </p>
+            <%= link_to 'Continue reading ...', gmail_cenit_collection_blog_index_path, class: "continue-reading", data: { no_turbolink: true } %>
+          </div>
+
           <div class="post">
             <%= link_to multi_channel_messaging_blog_index_path, class: "pic" do %>
                 <%= image_tag 'blog/multichannel/header.png', :alt => 'multi-channel messaging', class: "img-responsive" %>

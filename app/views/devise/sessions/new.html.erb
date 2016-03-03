@@ -19,6 +19,7 @@
                     f.hidden_field :return_to, value: return_to
                   end
               %>
+              <%= f.check_box :remember_me, style: 'display:none', value: '1', checked: 'checked' %>
             <%= f.submit 'Sign in', :class => 'button button-small' %>
           <% end %>
         </div>

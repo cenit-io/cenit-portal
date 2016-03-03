@@ -6,10 +6,12 @@ class BlogController < ApplicationController
   end
 
   def gmail_cenit_collection
-
+  end
+  
+  def gmail_cenit_collection
   end
 
-  def cenit_api_collections_for_google_services
+  def multi_channel_messaging
   end
 
   def first_anniversary

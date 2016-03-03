@@ -29,6 +29,7 @@ Cenit::Application.routes.draw do
   
   resources :blog, only: [:index, :new] do
     collection do
+      get :multi_channel_messaging
       get :gmail_cenit_collection
       get :cenit_api_collections_for_google_services
       get :first_anniversary

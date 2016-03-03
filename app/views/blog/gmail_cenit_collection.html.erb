@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="main-pic">
-            <%= image_tag 'blog/cenit_google_api_collection.png', :alt => 'commits first year', class: "img-responsive" %>
+            <%= image_tag 'blog/gmail_cenit_collection.png', :alt => 'commits first year', class: "img-responsive" %>
           </div>
         </div>
       </div>
@@ -16,25 +16,26 @@
             <%= title %>
           </div>
           <div class="author">
-            <%= image_tag 'team/maikel.jpg', :alt => 'author', class: "avatar" %>
+            <%= image_tag 'team/maikel.jpg', :alt => 'author', class: 'avatar' %>
             Maikel Arcia, Feb 12, 2016
           </div>
 
           <div class="content">
 
             <p>
-              We have recently bring the set of
-              <%= link_to 'API collections to connect with the Google services', gmail_cenit_collection_blog_index_path, data: { no_turbolink: true } %>,
+              We have recently brought the set of
+              <%= link_to 'API collections to connect with the Google services', cenit_api_collections_for_google_services_blog_index_path, data: { no_turbolink: true } %>
+              ,
               to let you access an entire API through a single authorization point, with an offline
               and background running logic for the automatic management of the OAuth 2.0 protocol implementation
               provided by Google.
-              Never the less, interacting with an API may be a little awkward, to use the Gmail API for example, you
-              have to format emails following the MIME standard, and then you have to encode them in base64,
-              and then you have to conforms a JSON document following a Gmail API schema. </p>
+              Nevertheless, interacting with an API may be a little awkward. To use the Gmail API, for example, you
+              have to format emails following the MIME standard, then you have to encode them in base64,
+              and then you have to conform a JSON document following a Gmail API schema. </p>
 
             <p>
-              Hopefully you do not have to run the awkward way anymore, because it is now available the Gmail Cenit
-              Collection, a wrapper that let you send emails as easy as it can be.
+              Hopefully you do not have to run the awkward way anymore, because the Gmail Cenit
+              Collection is now available, a wrapper that let you send emails as easy as it can be.
               Try it now by following the next steps by yourself, signing up for free in CenitSaaS.</p>
 
             <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
@@ -42,36 +43,28 @@
             </h1>
 
             <p>
-              First of all got to the
+              First of all go to the
               <%=
-                  link_to "Gmail Shared Collection",
+                  link_to 'Gmail Shared Collection',
                           cenithub_url(redirect_path: '/data/setup~shared_collection/gmail/pull',
-                                       flash_message: "Click 'Pull' to try these collection"),
+                                       flash_message: "Click <span class=\"label label-info\"><i class=\"icon-arrow-down\"></i> Pull</span> or <span class=\"label label-info\"><i class=\"icon-ok\"></i> Ok</span> if you are already synchronized with this collection"),
                           target: '#'
-              %> and pull it with your CenitSaaS account. If you do not have an CenitSaaS account go on anyway and
-              create one,
-              it’s free.</p>
+              %> and pull it with your CenitSaaS account. If you do not have a CenitSaaS account go on anyway and
+              create one, it’s free.</p>
 
             <p align="center">
               <%= image_tag 'blog/pull_gmail.png', :alt => 'pull gmail collection', class: "img-responsive" %>
             </p>
 
             <p>
-              Once you have successfully execute the pull action you are redirected to your
+              Once you have successfully executed the pull action you are redirected to your
               <%=
-                  link_to "Gmail Collection",
+                  link_to 'Gmail Collection',
                           cenithub_url(redirect_path: '/data/setup~collection/gmail',
-                                       flash_message: "Your Gmail Collection"),
+                                       flash_message: 'Your Gmail Collection'),
                           target: '#'
-              %></p>
-
-            <p align="center">
-              <%= image_tag 'blog/gmail_pulled.png', :alt => 'gmail collections pulled', class: "img-responsive" %>
-            </p>
-
-            <p>
-              Now you should follow the steps on the 'Quick Start' section of the collection readme.
-              Two simple steps, and you will sent an email with your Google account through CenitHub,
+              %>. Now you should follow the steps on the 'Quick Start' section of the collection readme.
+              Two simple steps, and you will send an email with your Google account through CenitHub,
               just click the links to get them done
             </p>
 
@@ -88,11 +81,11 @@
               <%=
                   link_to "Gmail Collection",
                           cenithub_url(redirect_path: '/data/setup~collection/gmail',
-                                       flash_message: "Your Gmail Collection"),
+                                       flash_message: 'Your Gmail Collection'),
                           target: '#'
               %>
               readme you will get instructions to use the CenitHub API. Now you can send emails in a simple
-              JSON format like these
+              JSON format like this
             </p>
 
             <pre>
@@ -116,39 +109,332 @@
 
             <p>
               Just copy the CURL command from the readme and run it in your console. The email in JSON format is sent
-              to the CenitHub API and then Cenit do all the awkward work for you. You can send emails in any format
+              to the CenitHub API and then Cenit does all the awkward work for you. You can send emails in any format
               supported by the CenitHub API, XML for example. Multiple attachments and binary data are also supported,
               just continue reading your collection readme to see more examples.
             </p>
 
             <p>
-              Because CenitHub automatically manage your OAuth 2.0 access and refresh tokens, you don not have to worry
-              in the future to get authorized again, just continue sending emails in a simple format through the
-              CenitHub API,
-              until you explicitly revoke your authorization with your CenitSaaS account or in your Google Acount
-              configuration.
+              Because CenitHub automatically manages your OAuth 2.0 access and refreshes tokens, you don not have to
+              worry in the future about being authorized again. Just continue sending emails in a simple format through
+              the CenitHub API, until you explicitly revoke your authorization with your CenitSaaS account or in your
+              Google Acount configuration.
             </p>
 
             <p>
               If you find an easier way to use the Gmail API please let us know, surely we can make a wrapper for that
-              and then a very much easier way will be available for the community.
+              and then a very much easier way will be available for the community. In fact, we are working on several
+              collections similar to this to let you connect with multiple APIs easy. Just check the list of
+              <%=
+                  link_to 'Shared Collection',
+                          cenithub_url(redirect_path: '/data/setup~shared_collection',
+                                       flash_message: 'You can try any collection, just pick one and pull it.'),
+                          target: '#'
+              %> that is available so far.
+            </p>
+
+            <p>
+              You have to know that the ability of Cenit to connect with an API is just a facility to reach a
+              major goal, which is the integration of solutions that may involve several APIs. To accomplish that, Cenit
+              allows the orchestration of data flows through the configuration of flows, events, data types, connectors,
+              authorizations and so on. Inspect the rest of sections of your
+              <%=
+                  link_to 'Gmail Collection',
+                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
+                                       flash_message: 'Your Gmail Collection'),
+                          target: '#'
+              %> and you will see all the configuration elements composing the collection. You can configure your own
+              collections, test them and setup to integrate your real world solutions. The next section gives you a
+              background of how your Gmail Collection is configured.
             </p>
 
             <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto">
-              How it's works?
+              How it works
             </h1>
 
             <p>
-              ...
+              The workflow that sends an email through CenitHub starts at the DATA configuration area, where the Gmail
+              Collection defines the
+              <%=
+                  link_to 'data types',
+                          cenithub_url(redirect_path: '/data/setup~data_type',
+                                       flash_message: 'Data types allow to persist records and files.'),
+                          target: '#'
+              %> to manage email records. The MIME Message data type is defined by a JSON Schema that references the
+              MIME Attachment
+              <%=
+                  link_to 'file data type',
+                          cenithub_url(redirect_path: '/data/setup~file_data_type',
+                                       flash_message: 'File data types allow to persist files.'),
+                          target: '#'
+              %>.
             </p>
 
+            <div style="text-align: center;font-size: 30px;color: #3A4F68">
+              <i class="fa fa-envelope-o"></i>
+              <i class="fa fa-long-arrow-right"></i>
+              <i class="fa fa-save"></i>
+              <i class="fa fa-long-arrow-right"></i>
+              <i class="fa fa-database"></i>
+            </div>
+
+            <p>
+              When a MIME Message is created in the administration view of the CenitHub
+              portal or via POST using the CenitHub API then a creation event is fired.
+              <%=
+                  link_to 'Events',
+                          cenithub_url(redirect_path: '/data/setup~event',
+                                       flash_message: 'Events can observe changes on data type records or just be fired via scheduler.'),
+                          target: '#'
+              %> are defined in the WORKFLOW area and their main function is to trigger
+              <%=
+                  link_to 'flows',
+                          cenithub_url(redirect_path: '/data/setup~flow',
+                                       flash_message: 'Flows configure data translations and API connectors.'),
+                          target: '#'
+              %> executions.
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <i class="fa fa-database" style="color: #3A4F68"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-fire" style="color:#d43f3a"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-envelope-o" style="color:#d43f3a"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+
+              <div style="position: relative;display: inline;padding-left:1px">
+                <i class="fa fa-cog" style="position: absolute;top:.15em;font-size:.9em;color: #1a80d9"></i>
+                <i class="fa fa-cog" style="position: absolute;top:.1em;left: 1.45em;font-size:.5em;color: #0F9B0F"></i>
+                <i class="fa fa-cog" style="position: absolute;top:1.2em;left: 1.45em;font-size:.5em;color: #eea236"></i>
+              </div>
+            </div>
+
+            <p>
+              By default, your Gemail Collection defines the flow Send Created Message, which is triggered when a MIME
+              Message is created. Every flow is associated with a
+              <%=
+                  link_to 'translator',
+                          cenithub_url(redirect_path: '/data/setup~translator',
+                                       flash_message: 'Translators are used to import, update, convert and export data.'),
+                          target: '#'
+              %>, in this case the translator MIME To Gmail API V1 Message, which transforms the MIME Message into a
+              JSON document that complies with the Gmail API schema. To accomplish that, the translator first invokes an
+              <%=
+                  link_to 'algorithm',
+                          cenithub_url(redirect_path: '/data/setup~algorithm',
+                                       flash_message: 'Algorithms are reusable pieces of code that can be attached to data type behaviors or invoked on workflows configurations.'),
+                          target: '#'
+              %> to convert a message record into a RFC822 format
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <i class="fa fa-envelope-o" style="color:#d43f3a"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-cog" style="color:#1a80d9"></i>
+              <i class="fa fa-long-arrow-right" style="color: #1a80d9"></i>
+
+              <div style="position: relative;display: inline">
+                <i class="fa fa-envelope-o" style="color: #1a80d9"> </i>
+                <i class="fa fa-at" style="position: absolute;left:.4em;top:.6em;font-size: .6em;background: white;color:#d43f3a"></i>
+              </div>
+            </div>
+
+            <p>
+              Then the translator encodes the result in Base64 to finally build
+              the JSON document for the Gmail API schema.
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <div style="position: relative;display: inline">
+                <i class="fa fa-envelope-o" style="color: #1a80d9"> </i>
+                <i class="fa fa-at" style="position: absolute;left:.4em;top:.6em;font-size: .6em;background: white;color:#d43f3a"></i>
+              </div>
+              <i class="fa fa-long-arrow-right" style="color: #1a80d9"></i>
+              <i class="fa fa-cog" style="color: #eea236"></i>
+              <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+              <i class="fa fa-file-text-o" style="color: #eea236"></i>
+            </div>
+
+            <p>
+              The document is now ready to be sent to the API CONNECTORS area. The entry point to the API
+              connection area is the webhook configured in the flow.
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <i class="fa fa-file-text-o" style="color: #eea236"></i>
+              <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+              <%= image_tag 'blog/api_connetors.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:30px;margin:0;' %>
+            </div>
+
+            <p>
+              <%=
+                  link_to 'Webhooks',
+                          cenithub_url(redirect_path: '/data/setup~webhook',
+                                       flash_message: 'Webhooks act like actions to be submitted via HTTP requests.'),
+                          target: '#'
+              %>  act like actions to be submitted via HTTP requests. Submitting a webhook requires a binding to a
+              <%=
+                  link_to 'connection',
+                          cenithub_url(redirect_path: '/data/setup~connection',
+                                       flash_message: 'Connections defines endpoints base URLs.'),
+                          target: '#'
+              %>  which defines the endpoint base URL to be completed with the webhook path. Such bind is established by
+              a
+              <%=
+                  link_to 'connection role',
+                          cenithub_url(redirect_path: '/data/setup~connection_role',
+                                       flash_message: 'Connections roles bind connections and webhooks.'),
+                          target: '#'
+              %> that relates the webhook and the connection.
+            </p>
+
+            <p>
+              Connection roles define many to many relations, which
+              means that a single flow execution can submit the same action to multiple endpoints. Your Gmail Collection
+              by default uses only one connection role which binds to a single connection, the Gmail API v1 Oauth 2.0
+              HTTPS Connection. When a webhook is bound to a connection, the headers and parameters for the request are
+              automatically conformed, including any required authorization data, and
+              here is when the flow execution reaches the SECURITY area.
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <div style="display: inline">
+                <i class="fa fa-file-text-o" style="color: #eea236"></i>
+                <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+              </div>
+              <div style="display: inline-block">
+                <i class="fa fa-shield" style="display: block;color: #0F9B0F"></i>
+                <i class="fa fa-long-arrow-up" style="display: block;color: #0F9B0F"></i>
+                <%= image_tag 'blog/api_connetors.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:30px;margin:0;' %>
+              </div>
+            </div>
+
+            <p>
+              The entry point to the security area is the authorization configured in the webhook or the connection.
+              <%=
+                  link_to 'Authorizations',
+                          cenithub_url(redirect_path: '/data/setup~authorization',
+                                       flash_message: 'Authorizations handle credentials complaining several protocols such as OAuth.'),
+                          target: '#'
+              %> handle credentials complying with several protocols. The Gmail Collection by default uses an
+              <%=
+                  link_to 'Oauth 2.0 Authorization',
+                          cenithub_url(redirect_path: '/data/setup~oauth2_authorization',
+                                       flash_message: 'OAuth 2.0 authorizations handle credentials complaining the OAuth 2.0 protocol.'),
+                          target: '#'
+              %> which is simply configured by selecting an
+              <%=
+                  link_to 'OAuth client application',
+                          cenithub_url(redirect_path: '/data/setup~oauth_client',
+                                       flash_message: 'OAuth clients represent applications for OAuth providers.'),
+                          target: '#'
+              %> and the respective
+              <%=
+                  link_to 'authorization scopes',
+                          cenithub_url(redirect_path: '/data/setup~oauth2_scope',
+                                       flash_message: 'OAuth 2.0 scopes are defined for OAuth 2.0 providers.'),
+                          target: '#'
+              %>. As mentioned before, the credentials are automatically handled, for the case of OAuth 2.0 the
+              <%=
+                  link_to 'provider configuration',
+                          cenithub_url(redirect_path: '/data/setup~base_oauth_provider',
+                                       flash_message: 'OAuth provider configurations.'),
+                          target: '#'
+              %> defines a refresh token strategy that can be selected from a set of build-in strategies or it can be
+              customized using an algorithm. CenitHub shares a set of providers, clients and scopes that can be used
+              to configure the authorization you need.
+            </p>
+
+            <p>
+              Once the authorization have been successfully handled, the connectors area submits the document in a
+              request including the required authorization headers.
+            </p>
+
+            <div style="text-align: center;font-size: 30px">
+              <i class="fa fa-file-text-o" style="color: #eea236"></i>
+              <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+
+              <div style="display: inline-block">
+                <i class="fa fa-shield" style="display: block;color: #0F9B0F"></i>
+                <i class="fa fa-arrows-v" style="display: block;color: #0F9B0F"></i>
+                <%= image_tag 'blog/api_connetors.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:30px;margin:0;' %>
+              </div>
+              <div style="display: inline">
+                <i class="fa fa-long-arrow-right" style="color: #0F9B0F"></i>
+
+                <div style="position: relative;display: inline">
+                  <i class="fa fa-file-text-o" style="color: #eea236"> </i>
+                  <i class="fa fa-certificate" style="position: absolute;top: 4px;left: 3px;font-size: .3em;color: #0F9B0F"></i>
+                </div>
+              </div>
+              <i class="fa fa-long-arrow-right" style="color: #0F9B0F"></i>
+              <%= image_tag 'blog/gmail_api_v1_logo.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:50px;padding-bottom:10px;' %>
+            </div>
+
+            <p>
+              A flow execution does not end when submitting a request. The response is redirected to the workflow area
+              where the flow can be configured to process it. In this case, the success Gmail API v1 response contains a
+              JSON document with information about the processed message, the Gmail thread identifier, for example,
+              which
+              would be used for tracking the message but, surely for a future collection version.
+            </p>
+
+            <div style="text-align: center; font-size: 25px">
+              <i class="fa fa-envelope-o" style="color: #3A4F68"></i>
+              <i class="fa fa-long-arrow-right" style="color: #3A4F68"></i>
+              <i class="fa fa-save" style="color: #3A4F68"></i>
+              <i class="fa fa-long-arrow-right" style="color: #3A4F68"></i>
+              <i class="fa fa-database" style="color: #3A4F68"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-fire" style="color:#d43f3a"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-envelope-o" style="color:#d43f3a"></i>
+              <i class="fa fa-long-arrow-right" style="color:#d43f3a"></i>
+              <i class="fa fa-cog" style="color:#1a80d9"></i>
+              <i class="fa fa-long-arrow-right" style="color: #1a80d9"></i>
+
+              <div style="position: relative;display: inline">
+                <i class="fa fa-envelope-o" style="color: #1a80d9"> </i>
+                <i class="fa fa-at" style="position: absolute;left:.4em;top:.6em;font-size: .6em;background: white;color:#d43f3a"></i>
+              </div>
+              <i class="fa fa-long-arrow-right" style="color: #1a80d9"></i>
+              <i class="fa fa-cog" style="color: #eea236"></i>
+              <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+              <i class="fa fa-file-text-o" style="color: #eea236"></i>
+              <i class="fa fa-long-arrow-right" style="color: #eea236"></i>
+
+              <div style="display: inline-block">
+                <i class="fa fa-shield" style="display: block;color: #0F9B0F"></i>
+                <i class="fa fa-arrows-v" style="display: block;color: #0F9B0F"></i>
+                <%= image_tag 'blog/api_connetors.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:25px;margin:0;' %>
+              </div>
+              <div style="display: inline">
+                <i class="fa fa-long-arrow-right" style="color: #0F9B0F"></i>
+
+                <div style="position: relative;display: inline">
+                  <i class="fa fa-file-text-o" style="color: #eea236"> </i>
+                  <i class="fa fa-certificate" style="position: absolute;top: 4px;left: 3px;font-size: .3em;color: #0F9B0F"></i>
+                </div>
+              </div>
+              <i class="fa fa-long-arrow-right" style="color: #0F9B0F"></i>
+              <%= image_tag 'blog/gmail_api_v1_logo.png', :alt => 'gmail quick start', class: "img-responsive", style: 'display:inline; height:40px;padding-bottom:5px;' %>
+            </div>
 
             <h1 style="line-height: 100%; page-break-before: auto; page-break-after: auto"><a name="h.upe549z9qgg5"></a>
               What’s next
             </h1>
 
             <p>
-              ...
+              Check the list of
+              <%=
+                  link_to 'Shared Collection',
+                          cenithub_url(redirect_path: '/data/setup~shared_collection',
+                                       flash_message: 'You can try any collection, just pick one and pull it.'),
+                          target: '#'
+              %> that is available and try another easy way to connect with an API. Just pull a collection and play
+              with it. Have not found the collection you are interesting in? Let us know.
+            </p>
             </p>
 
             <p>For more information, please contact us

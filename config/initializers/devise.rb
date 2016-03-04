@@ -1,3 +1,6 @@
+
+require 'filtered_devise_controller'
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -105,7 +108,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -258,4 +261,15 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.parent_controller = FilteredDeviseController.to_s
+end
+
+require 'devise_controller'
+
+class DeviseController
+
+  def after_sign_in_path_for(resource_or_scope)
+    ((resource_data = params[resource_name]) && resource_data[:return_to]) || params[:return_to] || super
+  end
 end

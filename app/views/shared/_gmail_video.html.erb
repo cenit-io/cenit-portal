@@ -1,0 +1,27 @@
+<section id="home-section-6" class="home-section centered">
+  <div class="container">
+    <div class="row">
+      <div class="col col-xs-10 col-md-7 with-accent">
+        <h2><%= title %></h2>
+      	<a href="#" class="home-video btn-primary-peach btn-lg btn" data-action='play'><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+      </div>
+    </div>
+  </div><!-- .container -->
+</section>
+
+<div id='div-home-video' class="responsive-container" style='display: none;'>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('a.home-video').bind('click', function(e) {
+      e.preventDefault();
+      $('#home-section-6').hide();
+      $video = $('#div-home-video');
+      $video.show();
+      $video.html('<iframe id="player1" width="560" height="315" src="<%= (ENV['GMAIL_VIDEO_URL'] || 'https://www.youtube.com/embed/oBmGtKd4Ia4') %>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+      // Scroll to the top of the video, less 82px reserved for the top nav element
+      scrollTo(0, $video.offset().top-82);
+    });
+  });
+</script>

@@ -112,6 +112,9 @@
             <p>
               And that's all, you've sent a message through Cenit using your authorized Twilio account.
             </p>
+            
+            <br>
+             <%= render partial: 'shared/video', locals: { title: 'The easy way to connect with the <strong>Twilio API</strong>'.html_safe, video: 'https://www.youtube.com/embed/PTB6BBNyVhQ' } %>
 
             <br>
             <h3>Twitter Integration</h3>
@@ -167,6 +170,7 @@
             <p>
               And that's all, you've sent a tweet through Cenit using your authorized Twitter account.
             </p>
+
             <br>
 
             <h3>
@@ -240,6 +244,8 @@
                 <li>strict_base64</li>
                 <li>urlsafe_base64</li>
               </ul>
+              
+              <%= render partial: 'shared/video', locals: { title: 'The easy way to connect with the <strong>Gmail API</strong>'.html_safe, video: 'https://www.youtube.com/embed/oBmGtKd4Ia4' } %>
 
             <%= render 'footer' %>
           </div>        

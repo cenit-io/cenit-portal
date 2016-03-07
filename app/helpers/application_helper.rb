@@ -20,7 +20,7 @@ module ApplicationHelper
       }
       generate_url('/oauth/authorize', params)
     else
-      new_user_session_path(redirect_to: '/odoo_redirect')
+      new_user_session_path(return_to: '/odoo_redirect')
     end
   end
 

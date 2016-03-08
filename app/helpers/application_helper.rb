@@ -6,16 +6,22 @@ module ApplicationHelper
     uri.to_s
   end
 
-  def cenitodoo_url(user, odoo_app)
-    params = {
-      client_id: odoo_app.uid,
-      redirect_uri: odoo_app.redirect_uri.split.first,
-      response_type: 'token',
-      state: {
-        login: user.email
-      }.to_json
-    }
-    generate_url('/oauth/authorize', params)
+  def cenitodoo_url(*args)
+    if user_signed_in?
+      odoo_app = Doorkeeper::Application.where(name: 'odoo').first
+      user = current_user
+      params = {
+        client_id: odoo_app.uid,
+        redirect_uri: odoo_app.redirect_uri.split.first,
+        response_type: 'token',
+        state: {
+          login: user.email
+        }.to_json
+      }
+      generate_url('/oauth/authorize', params)
+    else
+      new_user_session_path(return_to: '/odoo_redirect')
+    end
   end
 
   def cenithub_url(*args)

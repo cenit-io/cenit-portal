@@ -52,4 +52,5 @@ Cenit::Application.routes.draw do
   get '/api_references', to: 'api_references#index', as: :api_references
   get '/services', to: 'services#index', as: :services
   get '/status/:id', to: 'status#show', as: :status
+  get '/odoo_redirect', to: 'home#odoo_redirect', as: :odoo_redirect
 end

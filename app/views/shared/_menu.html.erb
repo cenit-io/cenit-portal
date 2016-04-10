@@ -1,13 +1,13 @@
 <nav class="nav-menu">
   <h3>Menu</h3>
-  <%= link_to 'CenitSaaS', "#{root_path}", :class => 'item', data: { no_turbolink: true }  %>
+  <%= link_to 'cenit.io', "#{root_path}", :class => 'item', data: { no_turbolink: true }  %>
   <% if current_user.present? %>
     <%= link_to 'Edit account', edit_user_registration_path, :class => 'item', data: { no_turbolink: true } %>
     <%= link_to 'Profile', status_path(current_user.id), :class => 'item', data: { no_turbolink: true } %>
   <% end %>
 
   <%= link_to 'Data Integrator', hub_path, :class => 'item', :class => 'item' %>
-  <%= link_to 'ERP & CRM', "#{root_path}#services", :class => 'item', :class => 'item' %>
+  <% link_to 'ERP & CRM', "#{root_path}#services", :class => 'item', :class => 'item' %>
   <%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %>
   <% link_to 'Pricing', "#{root_path}#pricing", :class => 'item', :class => 'item' %>
   <%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', :class => 'item' %>

@@ -7,8 +7,8 @@
           <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
             <%= link_to "Data Integrator", cenithub_url(cenit_app), class: 'button button_hub' %>
           <% end %>
-          <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
-            <%= link_to "ERP & CRM", cenitodoo_url(), class: 'button button_erp' %>
+          <% if user_signed_in? && (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? && current_user.created_at < Date.parse('9-4-2016') %>
+            <%= link_to "ERP & CRM", cenitodoo_url, class: 'button button_erp' %>
           <% end %>
         </div>
         

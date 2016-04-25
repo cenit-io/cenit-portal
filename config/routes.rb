@@ -8,7 +8,7 @@ Cenit::Application.routes.draw do
   use_doorkeeper
 
   root to: 'home#index'
-  
+
   devise_for :users, controllers: { confirmations: 'confirmations' }
 
   devise_scope :user do
@@ -21,12 +21,11 @@ Cenit::Application.routes.draw do
       resources :status
       resources :users
       # resources :profiles, only: [:index, :create]
-      resources :app_logs, only: [:index, :create]
       get '/me', to: 'credentials#me'
       # get '/fast' => 'fast#index'
     end
   end
-  
+
   resources :blog, only: [:index, :new] do
     collection do
       get :multi_channel_messaging
@@ -44,7 +43,7 @@ Cenit::Application.routes.draw do
 
   resources :partnership, only: :index
   resources :cenithub, only: :index
-  
+
   get '/about_us', to: 'about_us#index', as: :about_us
   get '/hub', to: 'hub#index', as: :hub
   get '/terms_of_service', to: 'terms_of_service#index', as: :terms_of_service
@@ -53,4 +52,5 @@ Cenit::Application.routes.draw do
   get '/services', to: 'services#index', as: :services
   get '/status/:id', to: 'status#show', as: :status
   get '/odoo_redirect', to: 'home#odoo_redirect', as: :odoo_redirect
+
 end

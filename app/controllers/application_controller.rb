@@ -33,8 +33,6 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_path, :alert => exception.message
   end
 
-  # around_filter :scope_current_account
-
   def about_us
   end
 
@@ -48,18 +46,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
-  def scope_current_account
-    if current_user && current_user.account.nil?
-      current_user.add_role(:admin) unless current_user.has_role?(:admin)
-      current_user.account = Account.create_with_owner(owner: current_user)
-      current_user.save(validate: false)
-    end
-    Account.current = current_user.account if signed_in?
-    yield
-  ensure
-    Account.current = nil
-  end
 
   def json_request?
     request.format.json?

@@ -7,7 +7,6 @@ class Ability
       can :update, User, id: user.id  # allows you to edit your own user account
       can :dashboard
 
-      # if Account.current.owner?(user) or
       if user.has_role?(:admin)
         can :manage, :all
       elsif user.has_role? :superadmin

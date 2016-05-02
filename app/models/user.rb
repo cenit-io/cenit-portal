@@ -5,21 +5,20 @@ class User
   include NumberGenerator
   rolify
 
+  store_in database: ENV['CENIT_DATABASE']
+
   attr_accessor :stripe_token, :coupon
-  
-  belongs_to :account, inverse_of: :users, class_name: Account.name
+
   has_one :profile, inverse_of: :user
-  
-  before_validation { self.account ||= Account.current }
-  scope :by_account, -> { where(account: Account.current ) }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
-  field :encrypted_password, type: String, default: ""
+  field :email,              type: String, default: ''
+  field :encrypted_password, type: String, default: ''
 
   ## Recoverable
   field :reset_password_token,   type: String

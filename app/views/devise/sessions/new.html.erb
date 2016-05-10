@@ -17,7 +17,10 @@
               <label>Sign in with</label>
               <%= f.check_box :remember_me, style: 'display:none', value: '1', checked: 'checked' %>
               <%= f.button class: 'button button-small', name: 'with', value: 'google' do %>
-                  <i class="fa fa-google-plus"></i> Google
+                  <i class="fa fa-google"></i> Google
+              <% end %>
+              <%= f.button class: 'button button-small', name: 'with', value: 'facebook' do %>
+                  <i class="fa fa-facebook"></i> Facebook
               <% end %>
           <% end %>
           <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form', class: 'form-inline' }) do |f| %>

@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://www.cenitsaas.com"
+SitemapGenerator::Sitemap.default_host = "https://cenithub.com"
 
 SitemapGenerator.verbose = false
 

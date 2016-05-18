@@ -49,12 +49,6 @@
             <table>
               <% if @item.raml_id.present? && false %>
               <tr>
-                <td> <%= link_to 'RAML Console supplied by', "http://console.cenithub.com/?id=#{@item.raml_id}" %></td>
-                <td>&nbsp;&nbsp;
-                  <%= link_to "http://console.cenithub.com/?id=#{@item.raml_id}" do %>
-                    <%= image_tag 'logo_cenitsaas_web.png', style: 'height: 30px;' %>
-                  <% end %>
-                </td>
               </tr>
               <% end %>
             </table>

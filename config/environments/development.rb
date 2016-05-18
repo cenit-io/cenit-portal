@@ -28,16 +28,16 @@ Cenit::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-#  config.action_mailer.default_url_options = { host: 'cenitsaas.com' }
+#  config.action_mailer.default_url_options = { host: 'cenithub.com' }
 #  config.action_mailer.delivery_method = :smtp
 #  config.action_mailer.smtp_settings = {address: "localhost", port: 1025}
   
-#  config.action_mailer.default_url_options = {:host => 'cenitsaas.com'}
+#  config.action_mailer.default_url_options = {:host => 'cenithub.com'}
 #  config.action_mailer.delivery_method = :smtp
 #  config.action_mailer.smtp_settings = {
 #    :address => "127.0.0.1",
 #    :port    => 25,
-#    :domain  => 'cenitsaas.com'
+#    :domain  => 'cenithub.com'
 #  }
   
   config.action_mailer.default_url_options = {:host => ENV['DOMAIN']}

@@ -1,35 +1,7 @@
 Cenit::Application.routes.draw do
-  get 'directory/autocomplete_item_name'
-  resources :directory
+  root to: 'blog#index'
 
-  resources :profiles
-
-  mount RailsAdmin::Engine => '/data', as: 'rails_admin'
-  use_doorkeeper
-
-  root to: 'home#index'
-
-  devise_for :users, controllers: {
-    sessions: 'sessions',
-    confirmations: 'confirmations'
-  }
-
-  devise_scope :user do
-    # get 'users/sign_out', to: 'devise/sessions#destroy'
-    put 'update_card', to: 'devise/registrations#update_card'
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :status
-      resources :users
-      # resources :profiles, only: [:index, :create]
-      get '/me', to: 'credentials#me'
-      # get '/fast' => 'fast#index'
-    end
-  end
-
-  resources :blog, only: [:index, :new] do
+  resources :blog, only: :index do
     collection do
       get :multi_channel_messaging
       get :gmail_cenit_collection
@@ -43,17 +15,8 @@ Cenit::Application.routes.draw do
       get :shipwire_integration
     end
   end
-
-  resources :partnership, only: :index
-  resources :cenithub, only: :index
-
-  get '/about_us', to: 'about_us#index', as: :about_us
-  get '/hub', to: 'hub#index', as: :hub
-  get '/terms_of_service', to: 'terms_of_service#index', as: :terms_of_service
-  get '/features', to: 'features#index', as: :features
-  get '/api_references', to: 'api_references#index', as: :api_references
-  get '/services', to: 'services#index', as: :services
-  get '/status/:id', to: 'status#show', as: :status
-  get '/odoo_redirect', to: 'home#odoo_redirect', as: :odoo_redirect
+  
+  resources :terms_of_service, only: :index
+  
 
 end

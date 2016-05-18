@@ -12,8 +12,6 @@ gem 'jquery-ui-rails'
 gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
-gem 'devise'
-gem 'doorkeeper'
 gem 'unicorn'
 
 group :doc do
@@ -41,18 +39,8 @@ end
 gem 'mongoid'
 gem 'bson_ext'
 
-
-gem 'httparty'
-gem "json-schema"
-gem 'cancan'
-gem 'rolify'
-gem 'rails_admin', '0.6.5'
-gem 'stripe'
-gem 'stripe_event'
 gem 'figaro'
 gem 'contact_us'
 gem 'wannabe_bool'
 gem 'sitemap_generator'
-
-gem'oauth2'
 

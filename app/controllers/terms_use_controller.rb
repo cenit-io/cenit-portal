@@ -1,2 +1,0 @@
-class TermsUseController < ApplicationController
-end

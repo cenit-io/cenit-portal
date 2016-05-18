@@ -1,6 +1,9 @@
 Cenit::Application.routes.draw do
   root to: 'blog#index'
   
+
+  }
+
   resources :blog, only: :index do
     collection do
       get :multi_channel_messaging
@@ -17,4 +20,6 @@ Cenit::Application.routes.draw do
   end
   
   resources :terms_of_service, only: :index
+  
+
 end

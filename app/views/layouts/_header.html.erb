@@ -13,13 +13,6 @@
         <div class="line"></div>
         <div class="line"></div>
       </div>
-      <span id='sign-in'>
-        <% unless user_signed_in? %>
-          <%= link_to 'free sign up', new_user_registration_path, class: 'navbar-brand demo pull-right', id: 'sign-in-link', style: 'background-color: #ea7400;' %>
-        <% else %>
-          <%= link_to "sign out", destroy_user_session_path, class: 'navbar-brand demo pull-right', method: 'delete', id: 'sign-out-link' %>
-        <% end %>
-      </span>
     </div>
   </div>
 </header>

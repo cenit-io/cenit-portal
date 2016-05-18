@@ -44,5 +44,3 @@ gem 'contact_us'
 gem 'wannabe_bool'
 gem 'sitemap_generator'
 
-gem'oauth2'
-

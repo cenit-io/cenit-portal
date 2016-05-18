@@ -1,8 +1,5 @@
 Cenit::Application.routes.draw do
   root to: 'blog#index'
-  
-
-  }
 
   resources :blog, only: :index do
     collection do

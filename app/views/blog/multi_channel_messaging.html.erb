@@ -66,7 +66,7 @@
               <%= image_tag 'blog/multichannel/twilio_account_credentials.png', :alt => 'Twilio account credentials', class: "img-responsive" %>
             </p>
             <p>
-              4. Now you can create and send a message to Twilio using CenitHub API. Twilio messages are available at: https://www.Cenithub.com/api/v1/twilio/message
+              4. Now you can create and send a message to Twilio using Cenit.io API. Twilio messages are available at: https://cenit.io/api/v1/twilio/message
             </p>
             <p> To post a message to these URL just format a JSON document like this:
             </p>
@@ -88,7 +88,7 @@
                    -H "X-User-Access-Key: XXXXXX"\
                    -H "X-User-Access-Token: YYYYYY"\
                    -X POST -d '{"from":"(919) 617- 9297","to":"(704) 615-2238","body":"Hi!"}'
-                https://www.cenithub.com/api/v1/twilio/message
+                https://cenit.io/api/v1/twilio/message
               </pre>
 
              <p style="font-size: 12px;">
@@ -132,14 +132,14 @@
             <%= image_tag 'blog/multichannel/twitter_authorizations.png', :alt => 'Twitter authorization', class: "img-responsive" %>
 
             <p>
-              3. Now you can create and send a message to Twitter using CenitHub API. Twitter messages are available at: https://www.cenithub.com/api/v1/twitter/tweet
+              3. Now you can create and send a message to Twitter using Cenit.io API. Twitter messages are available at: https://cenit.io/api/v1/twitter/tweet
             </p>
             <p>
               To post a message to these URL just format a JSON document like this:
             </p>
             <pre>
                {
-                 "status": "Sent through CenitHub API"
+                 "status": "Sent through Cenit.io API"
                }
             </pre>
 
@@ -148,8 +148,8 @@
               curl -H "Content-Type: application/json"\
                    -H "X-User-Access-Key: XXXXXX"\
                    -H "X-User-Access-Token: YYYYYY"\
-                   -X POST -d '{ "status": "Sent through CenitHub API"}'
-                https://www.cenithub.com/api/v1/twitter/tweet
+                   -X POST -d '{ "status": "Sent through Cenit.io API"}'
+                https://cenit.io/api/v1/twitter/tweet
             </pre>
 
             <p style="font-size: 12px;">
@@ -164,7 +164,7 @@
 
             <p> You can POST messages also in XML format:<br>
               &lt;Tweet&gt; <br>
-                &nbsp;&nbsp;&nbsp; &lt;status&gt;Sent through CenitHub API&lt;/status&gt;  <br>
+                &nbsp;&nbsp;&nbsp; &lt;status&gt;Sent through Cenit.io API&lt;/status&gt;  <br>
               &lt;/Tweet&gt;
             </p>
             <p>
@@ -189,7 +189,7 @@
             <%= image_tag 'blog/multichannel/gmail_authorizations.png', :alt => 'Gmail authorization', class: "img-responsive" %>
 
             <p>
-              3. Now, you can create a new MIME Message. MIME messages are available at https://www.cenithub.com/api/v1/mime/message.
+              3. Now, you can create a new MIME Message. MIME messages are available at https://cenit.io/api/v1/mime/message.
             </p>
             <p>To post a message to these URL just format a JSON document like these: </p>
             <pre>
@@ -206,7 +206,7 @@
                    -H "X-User-Access-Key: XXXXXX"\
                    -H "X-User-Access-Token: YYYYYY"
                    -X POST -d '{"to":"someuser@gmail.com","subject":"Hello","body":"Just to say hello!"}'
-               https://www.cenithub.com/api/v1/mime/message
+               https://cenit.io/api/v1/mime/message
             </pre>
 
             <p style="font-size: 12px;">

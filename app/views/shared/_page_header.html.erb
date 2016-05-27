@@ -4,12 +4,7 @@
       <h1 class="hero-text animated fadeIn"><%= title %></h1>
       <% if home %>
         <div class="cta animated fadeIn">
-          <% if (cenit_app = Doorkeeper::Application.where(name: 'Cenit').first).present? %>
-            <%= link_to "Data Integrator", cenithub_url(cenit_app), class: 'button button_hub' %>
-          <% end %>
-          <% if (odoo_app = Doorkeeper::Application.where(name: 'odoo').first).present? %>
-            <%= link_to "ERP & CRM", cenitodoo_url(), class: 'button button_erp' %>
-          <% end %>
+          <%= link_to "Data Integrator", 'https://cenit.io', class: 'button button_hub' %>
         </div>
         
         <div id="home">
@@ -19,36 +14,34 @@
                 <div class="btn-nav prev"></div>
                 <div class="btn-nav next"></div>
                 <div class="slide active">
-                  <%= image_tag 'screenshots/cenithub-shared.png', :alt => 'Cenit.io Shared Collections', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-shared.png', :alt => 'cenit.io Shared Collections', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-flows.png', :alt => 'Cenit.io Flows', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-flows.png', :alt => 'cenit.io Flows', style: "width: 700px; height: 360px;" %>
                 </div>
 
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-translators.png', :alt => 'Cenit.io Translators', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-translators.png', :alt => 'cenit.io Translators', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-webhooks.png', :alt => 'Cenit.io Webhooks', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-webhooks.png', :alt => 'cenit.io Webhooks', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-events.png', :alt => 'Cenit.io Events', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-events.png', :alt => 'cenit.io Events', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-oauthclients.png', :alt => 'Cenit.io Oauth Clients', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-oauthclients.png', :alt => 'cenit.io Oauth Clients', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-datatypes.png', :alt => 'Cenit.io Data Types', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-datatypes.png', :alt => 'cenit.io Data Types', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-storage.png', :alt => 'Cenit.io Storage', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-storage.png', :alt => 'cenit.io Storage', style: "width: 700px; height: 360px;" %>
                 </div>
                 <div class="slide">
-                  <%= image_tag 'screenshots/cenithub-admin.png', :alt => 'Cenit.io Admin', style: "width: 700px; height: 360px;" %>
+                  <%= image_tag 'screenshots/cenithub-admin.png', :alt => 'cenit.io Admin', style: "width: 700px; height: 360px;" %>
                 </div>
 
-
-                
               </div>
             </div>  
           </div>

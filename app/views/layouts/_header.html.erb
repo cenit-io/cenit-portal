@@ -3,7 +3,7 @@
 
     <div class="navbar-header">
       <%= link_to root_path , :class => 'navbar-brand', data: { no_turbolink: true } do %>
-        <%= image_tag 'cenit-logo.png',size: "51x26" %> Cenit
+        <%= image_tag 'cenit-logo.png',size: "51x26" %> cenit.io
       <% end %>
     </div>
 
@@ -14,11 +14,7 @@
         <div class="line"></div>
       </div>
       <span id='sign-in'>
-        <% unless user_signed_in? %>
-          <%= link_to 'free sign up', new_user_registration_path, class: 'navbar-brand demo pull-right', id: 'sign-in-link', style: 'background-color: #ea7400;' %>
-        <% else %>
-          <%= link_to "sign out", destroy_user_session_path, class: 'navbar-brand demo pull-right', method: 'delete', id: 'sign-out-link' %>
-        <% end %>
+        <%= link_to 'try it free', 'https://cenit.io/users/sign_up', class: 'navbar-brand demo pull-right', id: 'sign-in-link', style: 'background-color: #ea7400;' %>
       </span>
     </div>
   </div>

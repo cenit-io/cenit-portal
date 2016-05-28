@@ -1,4 +1,5 @@
 Cenit::Application.routes.draw do
+scope 'portal' do
   get 'directory/autocomplete_item_name'
   resources :directory
 
@@ -29,5 +30,5 @@ Cenit::Application.routes.draw do
   get '/services', to: 'services#index', as: :services
   get '/status/:id', to: 'status#show', as: :status
   get '/prices', to: 'prices#index', as: :prices
-
+ end
 end

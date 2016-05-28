@@ -12,7 +12,7 @@ Bundler.require(:default, Rails.env)
 
 module Cenit
   class Application < Rails::Application
-
+    config.force_ssl = true if ENV['SSL'].to_b 
     config.autoload_paths += %W(#{config.root}/lib)
   end
 end

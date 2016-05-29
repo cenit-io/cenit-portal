@@ -90,5 +90,5 @@ Cenit::Application.configure do
     :authentication       => 'plain',
     :enable_starttls_auto => true  }
     
-    
+  config.relative_url_root = "/portal"   
 end

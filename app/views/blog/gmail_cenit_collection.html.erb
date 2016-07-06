@@ -46,9 +46,7 @@
               First of all go to the
               <%=
                   link_to 'Gmail Shared Collection',
-                          cenithub_url(redirect_path: '/data/setup~shared_collection/gmail/pull',
-                                       flash_message: "Click <span class=\"label label-info\"><i class=\"icon-arrow-down\"></i> Pull</span> or <span class=\"label label-info\"><i class=\"icon-ok\"></i> Ok</span> if you are already synchronized with this collection"),
-                          target: '#'
+                          '/data/setup~shared_collection/gmail/pull'
               %> and pull it with your Cenit account. If you do not have a Cenit account go on anyway and
               create one, it’s free.</p>
 
@@ -60,9 +58,7 @@
               Once you have successfully executed the pull action you are redirected to your
               <%=
                   link_to 'Gmail Collection',
-                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
-                                       flash_message: 'Your Gmail Collection'),
-                          target: '#'
+                          '/data/setup~collection/gmail'
               %>. Now you should follow the steps on the 'Quick Start' section of the collection readme.
               Two simple steps, and you will send an email with your Google account through Cenit.io,
               just click the links to get them done
@@ -80,9 +76,7 @@
               If you continue reading your
               <%=
                   link_to "Gmail Collection",
-                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
-                                       flash_message: 'Your Gmail Collection'),
-                          target: '#'
+                          '/data/setup~collection/gmail'
               %>
               readme you will get instructions to use the CenitHub API. Now you can send emails in a simple
               JSON format like this
@@ -142,9 +136,7 @@
               collections similar to this to let you connect with multiple APIs easy. Just check the list of
               <%=
                   link_to 'Shared Collection',
-                          cenithub_url(redirect_path: '/data/setup~shared_collection',
-                                       flash_message: 'You can try any collection, just pick one and pull it.'),
-                          target: '#'
+                          '/data/setup~shared_collection'
               %> that is available so far.
             </p>
 
@@ -155,9 +147,7 @@
               authorizations and so on. Inspect the rest of sections of your
               <%=
                   link_to 'Gmail Collection',
-                          cenithub_url(redirect_path: '/data/setup~collection/gmail',
-                                       flash_message: 'Your Gmail Collection'),
-                          target: '#'
+                          '/data/setup~collection/gmail'
               %> and you will see all the configuration elements composing the collection. You can configure your own
               collections, test them and setup to integrate your real world solutions. The next section gives you a
               background of how your Gmail Collection is configured.
@@ -174,16 +164,12 @@
               Collection defines the
               <%=
                   link_to 'data types',
-                          cenithub_url(redirect_path: '/data/setup~data_type',
-                                       flash_message: 'Data types allow to persist records and files.'),
-                          target: '#'
+                          '/data/setup~data_type'
               %> to manage email records. The MIME Message data type is defined by a JSON Schema that references the
               MIME Attachment
               <%=
                   link_to 'file data type',
-                          cenithub_url(redirect_path: '/data/setup~file_data_type',
-                                       flash_message: 'File data types allow to persist files.'),
-                          target: '#'
+                          '/data/setup~file_data_type'
               %>.
             </p>
 
@@ -200,15 +186,11 @@
               portal or via POST using the Cenit.io API then a creation event is fired.
               <%=
                   link_to 'Events',
-                          cenithub_url(redirect_path: '/data/setup~event',
-                                       flash_message: 'Events can observe changes on data type records or just be fired via scheduler.'),
-                          target: '#'
+                          '/data/setup~event'
               %> are defined in the WORKFLOW area and their main function is to trigger
               <%=
                   link_to 'flows',
-                          cenithub_url(redirect_path: '/data/setup~flow',
-                                       flash_message: 'Flows configure data translations and API connectors.'),
-                          target: '#'
+                          '/data/setup~flow'
               %> executions.
             </p>
 
@@ -232,16 +214,12 @@
               Message is created. Every flow is associated with a
               <%=
                   link_to 'translator',
-                          cenithub_url(redirect_path: '/data/setup~translator',
-                                       flash_message: 'Translators are used to import, update, convert and export data.'),
-                          target: '#'
+                          '/data/setup~translator'
               %>, in this case the translator MIME To Gmail API V1 Message, which transforms the MIME Message into a
               JSON document that complies with the Gmail API schema. To accomplish that, the translator first invokes an
               <%=
                   link_to 'algorithm',
-                          cenithub_url(redirect_path: '/data/setup~algorithm',
-                                       flash_message: 'Algorithms are reusable pieces of code that can be attached to data type behaviors or invoked on workflows configurations.'),
-                          target: '#'
+                          '/data/setup~algorithm'
               %> to convert a message record into a RFC822 format
             </p>
 
@@ -287,22 +265,16 @@
             <p>
               <%=
                   link_to 'Webhooks',
-                          cenithub_url(redirect_path: '/data/setup~webhook',
-                                       flash_message: 'Webhooks act like actions to be submitted via HTTP requests.'),
-                          target: '#'
+                          '/data/setup~webhook'
               %>  act like actions to be submitted via HTTP requests. Submitting a webhook requires a binding to a
               <%=
                   link_to 'connection',
-                          cenithub_url(redirect_path: '/data/setup~connection',
-                                       flash_message: 'Connections defines endpoints base URLs.'),
-                          target: '#'
+                          '/data/setup~connection'
               %>  which defines the endpoint base URL to be completed with the webhook path. Such bind is established by
               a
               <%=
                   link_to 'connection role',
-                          cenithub_url(redirect_path: '/data/setup~connection_role',
-                                       flash_message: 'Connections roles bind connections and webhooks.'),
-                          target: '#'
+                          '/data/setup~connection_role'
               %> that relates the webhook and the connection.
             </p>
 
@@ -331,33 +303,23 @@
               The entry point to the security area is the authorization configured in the webhook or the connection.
               <%=
                   link_to 'Authorizations',
-                          cenithub_url(redirect_path: '/data/setup~authorization',
-                                       flash_message: 'Authorizations handle credentials complaining several protocols such as OAuth.'),
-                          target: '#'
+                          '/data/setup~authorization'
               %> handle credentials complying with several protocols. The Gmail Collection by default uses an
               <%=
                   link_to 'Oauth 2.0 Authorization',
-                          cenithub_url(redirect_path: '/data/setup~oauth2_authorization',
-                                       flash_message: 'OAuth 2.0 authorizations handle credentials complaining the OAuth 2.0 protocol.'),
-                          target: '#'
+                          '/data/setup~oauth2_authorization'
               %> which is simply configured by selecting an
               <%=
                   link_to 'OAuth client application',
-                          cenithub_url(redirect_path: '/data/setup~oauth_client',
-                                       flash_message: 'OAuth clients represent applications for OAuth providers.'),
-                          target: '#'
+                          '/data/setup~oauth_client'
               %> and the respective
               <%=
                   link_to 'authorization scopes',
-                          cenithub_url(redirect_path: '/data/setup~oauth2_scope',
-                                       flash_message: 'OAuth 2.0 scopes are defined for OAuth 2.0 providers.'),
-                          target: '#'
+                          '/data/setup~oauth2_scope'
               %>. As mentioned before, the credentials are automatically handled, for the case of OAuth 2.0 the
               <%=
                   link_to 'provider configuration',
-                          cenithub_url(redirect_path: '/data/setup~base_oauth_provider',
-                                       flash_message: 'OAuth provider configurations.'),
-                          target: '#'
+                          '/data/setup~base_oauth_provider'
               %> defines a refresh token strategy that can be selected from a set of build-in strategies or it can be
               customized using an algorithm. Cenit.io shares a set of providers, clients and scopes that can be used
               to configure the authorization you need.
@@ -446,9 +408,7 @@
               Check the list of
               <%=
                   link_to 'Shared Collection',
-                          cenithub_url(redirect_path: '/data/setup~shared_collection',
-                                       flash_message: 'You can try any collection, just pick one and pull it.'),
-                          target: '#'
+                          '/data/setup~shared_collection'
               %> that is available and try another easy way to connect with an API. Just pull a collection and play
               with it. Have not found the collection you are interesting in? Let us know.
             </p>

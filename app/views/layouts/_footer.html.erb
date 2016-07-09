@@ -6,7 +6,7 @@
     <div class="col-sm-8 col-lg-7 menu">
       <ul>
         <li><%= link_to 'Data Integrator', hub_path, :class => 'item', data: { no_turbolink: true } %></li>
-        <li><%= link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %></li>
+        <li><% link_to 'App Directory', '/directory', :class => 'item', data: { no_turbolink: true } %></li>
         <li><% link_to 'Pricing', "#{root_path}#pricing", :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Docs',ENV['DOC_URL'], :class => 'item', data: { no_turbolink: true } %></li>
         <li><%= link_to 'Blog', blog_index_path, :class => 'item', data: { no_turbolink: true } %></li>

@@ -95,10 +95,10 @@ namespace :data do
    #/////////////////////////////////////////////////////////////////////////////////////////////////  
   
 
-    pw_ws = session.spreadsheet_by_key(ENV['SPREADSHEETS_PW_ID']).worksheets[0]
+    ws = session.spreadsheet_by_key(ENV['SPREADSHEETS_PW_ID']).worksheets[0]
     
 
-    (2..pw_ws.num_rows).each do |row|
+    (2..ws.num_rows).each do |row|
                                                ws[row, 1] # A
       title =                                  ws[row, 2] # B
       description =                            ws[row, 3] # C

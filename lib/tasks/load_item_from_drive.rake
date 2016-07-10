@@ -87,7 +87,7 @@ namespace :data do
           i.tags << tag unless i.tags.include? tag
         end
         
-        i.save
+        i.save!
         
         puts "."
     end
@@ -171,7 +171,7 @@ namespace :data do
           primary = false
         end
         
-        i.save
+        i.save!
       end
       
       puts "Setting name: <#{i.name}>, slug: #{i.slug}"

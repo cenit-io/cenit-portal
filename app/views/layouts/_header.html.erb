@@ -2,8 +2,8 @@
   <div class="container">
 
     <div class="navbar-header">
-      <%= link_to root_path , :class => 'navbar-brand', data: { no_turbolink: true } do %>
-        <%= image_tag 'cenit-logo.png',size: "51x26" %> cenit.io
+      <%= link_to "#{ENV['HUB_URL'] || root_path}" , :class => 'navbar-brand', data: { no_turbolink: true } do %>
+        <%= image_tag 'cenit-logo.png',size: "51x26" %> Cenit IO
       <% end %>
     </div>
 

@@ -13,7 +13,6 @@ gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
-gem 'doorkeeper'
 gem 'unicorn'
 
 group :doc do
@@ -38,7 +37,8 @@ group :production do
  gem 'rails_12factor'
 end
 
-gem 'mongoid'
+gem 'mongoid', '~> 5.1.0'
+gem 'mongo'
 gem 'bson_ext'
 
 

@@ -55,4 +55,5 @@ gem 'wannabe_bool'
 gem 'sitemap_generator'
 
 gem'oauth2'
+gem 'google_drive'
 

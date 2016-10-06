@@ -17,7 +17,7 @@ namespace :data do
     
     Item.delete_all
     Tag.delete_all
-
+byebug
     header_index = {}
     csvobj.each_with_index do |row, rownum|
       line = rownum+1

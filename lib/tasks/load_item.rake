@@ -190,7 +190,7 @@ namespace :data do
   
   
   #/////////////////////////////////////////////////////////////////////////////////////////////////  
-    list = JSON.load(open("http://apis-guru.github.io/api-models/api/v1/list.json"))
+    list = JSON.load(open("http://api.apis.guru/v2/list.json"))
     list.each do |item_name, name_hash|
       preferred = name_hash['preferred']
       main_hash = name_hash['versions'][preferred]['info']

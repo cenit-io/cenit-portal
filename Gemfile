@@ -45,7 +45,7 @@ gem 'httparty'
 gem "json-schema"
 gem 'cancan'
 gem 'rolify'
-gem 'rails_admin', '0.6.5'
+gem 'rails_admin', '1.4.3'
 gem 'stripe'
 gem 'stripe_event'
 gem 'figaro'
